@@ -3,7 +3,7 @@ project (CppSamples)
 
 enable_testing()
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(Boost_DEBUG ON)
 
 find_package(Boost REQUIRED COMPONENTS unit_test_framework)
@@ -15,13 +15,8 @@ add_subdirectory("src")
     
 include_directories(${Boost_INCLUDE_DIRS})
     
-add_executable(CppSamples src/main.cpp src/Formula.cpp src/Formula.h)
-target_link_libraries(CppSamples Boost::boost)
-    
-add_executable(test_executable tst/solution_test.cpp src/Formula.cpp src/Formula.h)
-target_include_directories(test_executable PRIVATE Boost::unit_test_framework)
-    
-message(STATUS "Boost_LIBRARIES = ${Boost_LIBRARIES}")
-message(STATUS "Boost_INCLUDE_DIRS = ${Boost_INCLUDE_DIRS}")
+add_executable(CppSamples src/main.cpp)
+target_link_libraries(CppSamples)
 
-add_test(NAME test1 COMMAND test_executable)
+add_executable(redistribute_characters_to_make_all_strings_equal "tst/redistribute_characters_to_make_all_strings_equal.cc" src/leetcode/redistribute_characters_to_make_all_strings_equal.cc)
+target_include_directories(redistribute_characters_to_make_all_strings_equal PRIVATE Boost::unit_test_framework)
