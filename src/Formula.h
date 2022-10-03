@@ -1,9 +1,12 @@
+#include <cstddef>
 #ifndef EXAMPLEPROJECT_FORMULA_H
 #define EXAMPLEPROJECT_FORMULA_H
 
-class Formula {
-public:
-    static int bla(int arg1);
-};
+namespace mysamples {
+template <typename T, std::size_t N>
+constexpr std::size_t arraySize(T (&)[N]) noexcept {
+  return N;
+}
+}  // namespace mysamples
 
-#endif //EXAMPLEPROJECT_FORMULA_H
+#endif  // EXAMPLEPROJECT_FORMULA_H
