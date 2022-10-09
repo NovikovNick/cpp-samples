@@ -1,8 +1,6 @@
-﻿#include <algorithm>
-#include <iostream>
-#include <vector>
+﻿#include "algorithm.cc"
 
 int main() {
-  std::cout << "it works.." << std::endl;
+  rotateSample();
   return 0;
 }
