@@ -24,3 +24,6 @@ target_include_directories(redistribute_characters_to_make_all_strings_equal PRI
 
 add_executable(find-median-from-data-stream "tst/find-median-from-data-stream.cc" src/leetcode/find-median-from-data-stream.cc)
 target_include_directories(find-median-from-data-stream PRIVATE Boost::unit_test_framework)
+
+add_executable(two_sum "tst/two_sum.cc" src/leetcode/two_sum.cc)
+target_include_directories(two_sum PRIVATE Boost::unit_test_framework)
