@@ -12,44 +12,38 @@ namespace leetcode {
 using namespace std;
 
 template <typename Iter, typename BinaryPredicate>
-Iter is_valid_until(Iter start, Iter end, BinaryPredicate predicate) {
+std::pair<Iter, int> is_valid_until(Iter start, Iter end,
+                                    BinaryPredicate predicate) {
   auto fst = start;
   auto snd = std::next(start);
+  int distance = 1;
   while (snd != end) {
     if (!predicate(*fst, *snd)) {
-      return snd;
+      return std::make_pair(snd, distance);
     }
     ++fst;
     ++snd;
+    ++distance;
   }
-  return end;
-};
-
-struct Comparator {
- private:
-  std::string alfabet_ = "abcdefghijklmnopqrstuvwxyz";
-
- public:
-  bool operator()(const char& a, const char& b) const {
-    int nextElemIndex = static_cast<int>(a) - 96;
-    return nextElemIndex < 26 && alfabet_[nextElemIndex] == b;
-  }
+  return std::make_pair(end, distance);
 };
 
 class Solution {
  public:
   int longestContinuousSubstring(string s) {
     int res = 1;
-    auto prev = s.begin();
     auto cur = s.begin();
-    Comparator comparator;
-    while (cur != s.end()) {
-      cur = is_valid_until(cur, s.end(), comparator);
-      res = std::max(res, static_cast<int>(std::distance(prev, cur)));
-      prev = cur;
+    auto end = s.end();
+    auto continuousAlphabetOrder = [](const char& a, const char& b) -> bool {
+      return (static_cast<int>(b) - static_cast<int>(a)) == 1;
+    };
+    while (cur != end) {
+      auto [it, distance] = is_valid_until(cur, end, continuousAlphabetOrder);
+      res = std::max(res, distance);
       if (res == 26) {
         return res;
       }
+      cur = it;
     }
     return res;
   }
