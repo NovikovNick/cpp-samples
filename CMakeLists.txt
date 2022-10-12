@@ -27,3 +27,8 @@ target_include_directories(find-median-from-data-stream PRIVATE Boost::unit_test
 
 add_executable(two_sum "tst/two_sum.cc" src/leetcode/two_sum.cc)
 target_include_directories(two_sum PRIVATE Boost::unit_test_framework)
+
+add_executable(length-of-the-longest-alphabetical-continuous-substring "tst/length-of-the-longest-alphabetical-continuous-substring.cc" src/leetcode/length-of-the-longest-alphabetical-continuous-substring.cc)
+target_include_directories(length-of-the-longest-alphabetical-continuous-substring PRIVATE Boost::unit_test_framework)
+
+
