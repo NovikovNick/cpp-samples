@@ -31,4 +31,7 @@ target_include_directories(two_sum PRIVATE Boost::unit_test_framework)
 add_executable(length-of-the-longest-alphabetical-continuous-substring "tst/length-of-the-longest-alphabetical-continuous-substring.cc" src/leetcode/length-of-the-longest-alphabetical-continuous-substring.cc)
 target_include_directories(length-of-the-longest-alphabetical-continuous-substring PRIVATE Boost::unit_test_framework)
 
+add_executable(letter-case-permutation "tst/letter-case-permutation.cc" src/leetcode/letter-case-permutation.cc)
+target_include_directories(letter-case-permutation PRIVATE Boost::unit_test_framework)
+
 
