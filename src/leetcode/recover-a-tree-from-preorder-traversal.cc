@@ -23,36 +23,35 @@ struct TreeNode {
 };
 
 template <typename Iter>
-std::tuple<int, int, Iter> parseValAndDepth(Iter start, Iter end) {
+std::tuple<int, TreeNode*, Iter> parseValAndDepth(Iter start, Iter end) {
   int depth = 0;
-  std::string valStr;
   auto it = start;
+  int val = 0;
   for (; it != end; ++it) {
     char curChar = *it;
     if (curChar == '-') {
-      if (!valStr.empty()) {
+      if (val != 0) {
         break;
       }
       depth++;
     } else {
-      valStr += curChar;
+      val = 10 * val + (static_cast<int>(curChar) - static_cast<int>('0'));
     }
   }
-  return std::make_tuple(depth, std::stoi(valStr), it);
+  return std::make_tuple(depth, new TreeNode(val), it);
 }
 
 class Solution {
  public:
   TreeNode *recoverFromPreorder(string traversal) {
-    std::unordered_map<TreeNode *, TreeNode *> parents;
+    std::deque<TreeNode *> stack;
     TreeNode *root = nullptr;
     TreeNode *parent = nullptr;
     int prevDepth = 0;
     auto begin = traversal.cbegin();
     while (begin != traversal.cend()) {
-      auto [depth, value, iter] = parseValAndDepth(begin, traversal.cend());
+      auto [depth, node, iter] = parseValAndDepth(begin, traversal.cend());
       begin = iter;
-      TreeNode *node = new TreeNode(value);
       if (depth == 0) {
         root = node;
       } else if (prevDepth < depth) {
@@ -60,11 +59,12 @@ class Solution {
       } else {
         int distance = prevDepth - depth;
         while (--distance >= -1) {
-          parent = parents[parent];
+          stack.pop_back();
         }
+        parent = stack.back();
         parent->right = node;
       }
-      parents.insert({node, parent});
+      stack.push_back(node);
       parent = node;
       prevDepth = depth;
     }
