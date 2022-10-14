@@ -34,4 +34,7 @@ target_include_directories(length-of-the-longest-alphabetical-continuous-substri
 add_executable(letter-case-permutation "tst/letter-case-permutation.cc" src/leetcode/letter-case-permutation.cc)
 target_include_directories(letter-case-permutation PRIVATE Boost::unit_test_framework)
 
+add_executable(recover-a-tree-from-preorder-traversal "tst/recover-a-tree-from-preorder-traversal.cc" src/leetcode/recover-a-tree-from-preorder-traversal.cc)
+target_include_directories(recover-a-tree-from-preorder-traversal PRIVATE Boost::unit_test_framework)
+
 
