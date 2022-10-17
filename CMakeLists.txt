@@ -40,3 +40,6 @@ target_include_directories(recover-a-tree-from-preorder-traversal PRIVATE Boost:
 
 add_executable(minimum_number_of_work_sessions_to_finish_the_tasks "tst/minimum_number_of_work_sessions_to_finish_the_tasks.cc" src/leetcode/minimum_number_of_work_sessions_to_finish_the_tasks.cc)
 target_include_directories(minimum_number_of_work_sessions_to_finish_the_tasks PRIVATE Boost::unit_test_framework)
+
+add_executable(advantage_shuffle "tst/advantage_shuffle.cc" src/leetcode/advantage_shuffle.cc)
+target_include_directories(advantage_shuffle PRIVATE Boost::unit_test_framework)
