@@ -4,11 +4,29 @@
 #include <format>
 #include <iostream>
 #include <numeric>
+#include <set>
 #include <string>
 #include <unordered_map>
 #include <vector>
 
 #include "a_star.h"
+
+template <typename T>
+concept GraphNode = std::is_class_v<T> && std::is_lvalue_reference_v<T>;
+
+template <GraphNode T>
+void foo(T node) {
+  std::cout << " -- " << std::endl;
+}
+struct A {
+  int x;
+  A(int x) : x(x) {}
+};
+
+struct pair {
+  int key;
+  mutable int val;
+};
 
 int main() {
   /*int width = 28, height = 28;
@@ -22,20 +40,5 @@ int main() {
     std::cout << std::endl;
   }*/
 
-  std::vector<int> v{1, 2, 3, 4, 4};
-  std::vector<int> a{10, 20, 30, 40, 50};
-  std::unordered_map<int, int> map;
   
-  
-  int i = 0;
-  
-  for (auto it = v.begin(); it != v.end(); ++it) {
-    map.insert({*it, a[i++]});
-  }
-  map.extract(1);
-  //map.erase(map.begin());
-
-  for (auto [k, v] : map) {
-    std::cout << k << ": " << v << std::endl;
-  }
 }
