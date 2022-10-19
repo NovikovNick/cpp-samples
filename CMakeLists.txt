@@ -46,3 +46,7 @@ target_include_directories(advantage_shuffle PRIVATE Boost::unit_test_framework)
 
 add_executable(largest-rectangle-in-histogram "tst/largest-rectangle-in-histogram.cc" src/leetcode/largest-rectangle-in-histogram.cc)
 target_include_directories(largest-rectangle-in-histogram PRIVATE Boost::unit_test_framework)
+
+add_executable(integer_to_roman "tst/integer_to_roman.cc" src/leetcode/integer_to_roman.cc)
+target_include_directories(integer_to_roman PRIVATE Boost::unit_test_framework)
+
