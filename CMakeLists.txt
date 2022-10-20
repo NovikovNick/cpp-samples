@@ -50,3 +50,6 @@ target_include_directories(largest-rectangle-in-histogram PRIVATE Boost::unit_te
 add_executable(integer_to_roman "tst/integer_to_roman.cc" src/leetcode/integer_to_roman.cc)
 target_include_directories(integer_to_roman PRIVATE Boost::unit_test_framework)
 
+add_executable(can_make_palindrome_from_substring "tst/can_make_palindrome_from_substring.cc" src/leetcode/can_make_palindrome_from_substring.cc)
+target_include_directories(can_make_palindrome_from_substring PRIVATE Boost::unit_test_framework)
+

@@ -1,5 +1,7 @@
 #ifndef EXAMPLEPROJECT_A_STAR_H
 #define EXAMPLEPROJECT_A_STAR_H
+#include <queue>
+#include <unordered_set>
 
 namespace mysamples {
 
@@ -56,15 +58,21 @@ struct Grid2d {
   Iterator fbegin(int x, int y) { return Iterator(&grid_[width_ * y + x]); };
 };
 
-template <typename NODE>
+// NODE should contains pass with costs to prioritised into priority queue
+// GRID should return node by x,y??? FindAdjacents to check possible path. Write to output iterator
+// implement tests
+// template <typename NODE>
+using NODE = std::pair<int, int>;
 void find(NODE start, NODE goal, int widght, int height) {
-  //std::vector<NOTE> reacheable(widght * height, start.FindAdjacents());
-  //std::vector<NOTE> explored(widght * height, start);
+  //std::priority_queue<NODE> reacheable;
+  //std::unordered_set<NODE> explored;
 
-  //while (reachable.isNotEmpty()) {
-  //  auto cur = reachable.popMostPrioritiesNode();
+  //while (!reacheable.empty()) {
+  //  auto [x, y] = reacheable.top();
+  //  reacheable.pop();
+
   //  for (auto adjacent : cur.FindAdjacents()) {
-  //    if (contains(adjacent, explored)) {
+  //    if (explored.find(adjacent) != explored.end()) {
   //      continue;
   //    }
 

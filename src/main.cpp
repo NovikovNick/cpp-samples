@@ -12,7 +12,8 @@
 #include "a_star.h"
 
 template <typename T>
-concept GraphNode = std::is_class_v<T> && std::is_lvalue_reference_v<T>;
+concept GraphNode = std::is_class_v<T> 
+&& requires(T t) { t.func1() == std::int32_t(); };
 
 template <GraphNode T>
 void foo(T node) {
@@ -21,11 +22,8 @@ void foo(T node) {
 struct A {
   int x;
   A(int x) : x(x) {}
-};
 
-struct pair {
-  int key;
-  mutable int val;
+  void FindAdjacents() { std::cout << "!!!"; }
 };
 
 int main() {
@@ -39,6 +37,6 @@ int main() {
     std::copy_n(grid.fbegin(0, x), height, os);
     std::cout << std::endl;
   }*/
-
-  
+  /*A a = 1;
+  foo(a);*/
 }
