@@ -53,3 +53,6 @@ target_include_directories(integer_to_roman PRIVATE Boost::unit_test_framework)
 add_executable(can_make_palindrome_from_substring "tst/can_make_palindrome_from_substring.cc" src/leetcode/can_make_palindrome_from_substring.cc)
 target_include_directories(can_make_palindrome_from_substring PRIVATE Boost::unit_test_framework)
 
+add_executable(minimum_time_visiting_all_points "tst/minimum_time_visiting_all_points.cc" src/leetcode/minimum_time_visiting_all_points.cc)
+target_include_directories(minimum_time_visiting_all_points PRIVATE Boost::unit_test_framework)
+
