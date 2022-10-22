@@ -56,3 +56,6 @@ target_include_directories(can_make_palindrome_from_substring PRIVATE Boost::uni
 add_executable(minimum_time_visiting_all_points "tst/minimum_time_visiting_all_points.cc" src/leetcode/minimum_time_visiting_all_points.cc)
 target_include_directories(minimum_time_visiting_all_points PRIVATE Boost::unit_test_framework)
 
+add_executable(count_servers_that_communicate "tst/count_servers_that_communicate.cc" src/leetcode/count_servers_that_communicate.cc)
+target_include_directories(count_servers_that_communicate PRIVATE Boost::unit_test_framework)
+

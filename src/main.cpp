@@ -1,92 +1,132 @@
 ﻿#include <algorithm>
 #include <bit>
 #include <bitset>
+#include <deque>
 #include <format>
 #include <iostream>
 #include <numeric>
+#include <queue>
 #include <set>
 #include <string>
 #include <unordered_map>
+#include <unordered_set>
 #include <vector>
 
-#include "a_star.h"
-
-void printGrid() {
-  int width = 4, height = 4;
-
-  mysamples::Grid2d<int> grid(width, height);
-  std::iota(grid.begin(), grid.end(), 10);
-
-  std::ostream_iterator<int> os(std::cout, " ");
-  for (int x = 0; x < width; ++x) {
-    std::copy_n(grid.fbegin(0, x), height, os);
-    std::cout << std::endl;
-  }
-  std::cout << std::endl;
-
-  std::vector<int> out(4, -1);
-
-  for (int x = 0; x < width; ++x) {
-    for (int y = 0; y < height; ++y) {
-      std::cout << "[" << x << ":" << y << "] - ";
-      grid.FindAdjacents(x, y, out.begin());
-      std::copy(out.begin(), out.end(), os);
-      std::fill(out.begin(), out.end(), -1);
-      std::cout << std::endl;
-    }
-    std::cout << std::endl;
-  }
-}
-
 class Node {
-  std::pair<int, int> coord_;
+  int x_;
+  int y_;
 
  public:
-  Node(int x, int y) : coord_(std::make_pair(x, y)) {}
-  float getDistance(const Node& node) const {
-    return getDistance(node.coord_.first, node.coord_.second);
-  };
-  float getDistance(const int& x, const int& y) const {
-    return std::sqrt((coord_.first + x) * (coord_.first + x) +
-                     (coord_.second + y) * (coord_.second + y));
-  };
+  Node(int x, int y) : x_(x), y_(y) {}
 
-  std::string toString() const {
-    return std::to_string(coord_.first) + ":" + std::to_string(coord_.second);
+  int GetX() const { return x_; }
+  int GetY() const { return y_; }
+  std::string ToString() const {
+    return std::format("[{:2d},{:2d}]", GetX(), GetY());
+  }
+};
+
+class NodePath {
+ private:
+  Node start_;
+  Node end_;
+
+  Node head_;
+  std::deque<Node> path_;
+  float distanceFromStart_;
+  float distanceToEnd_;
+
+  float getDistance(const Node& n1, const Node& n2) const {
+    auto [x0, x1] = std::minmax(n1.GetX(), n2.GetX());
+    auto [y0, y1] = std::minmax(n1.GetY(), n2.GetY());
+    return std::sqrt(std::pow(x1 - x0, 2) + std::pow(y1 - y0, 2));
   }
 
-  std::pair<int, int> getCoord() const { return coord_;}
+ public:
+  NodePath(const Node& start, const Node& end)
+      : start_(start),
+        head_(start),
+        end_(end),
+        distanceFromStart_(0.0),
+        distanceToEnd_(getDistance(head_, end_)){};
+
+  void AddNode(const Node& node) {
+    distanceFromStart_ = getDistance(start_, node);
+    distanceToEnd_ = getDistance(end_, node);
+    path_.push_back(node);
+
+    std::cout << std::format("from start - {:2.1f}, to end - {:2.1f}",
+                             distanceFromStart_, distanceToEnd_)
+              << std::endl;
+    head_ = node;
+  };
+  float GetDistanceFromStart() const { return distanceFromStart_; };
+  float GetDistanceToEnd() const { return distanceToEnd_; };
+  std::string ToString() const {
+    auto res = "head: " + head_.ToString();
+
+    res += std::format(" from start - {:2.1f}, to end - {:2.1f} ",
+                       distanceFromStart_, distanceToEnd_);
+    res += "{ ";
+    for (auto it : path_) {
+      res += " " + it.ToString();
+    }
+    res += "}";
+    return res;
+  }
 };
 
 int main() {
-  Node start(0, 0);
+  std::cout << "it works..." << std::endl;
+
+  Node start(-1, -1);
   Node end(4, 4);
 
-  auto comp = [start](const Node& n1, const Node& n2) -> bool {
-    return n1.getDistance(start) > n2.getDistance(start);
+  auto comp = [](const NodePath& p1, const NodePath& p2) -> bool {
+    float distToEnd1 = p1.GetDistanceToEnd();
+    float distToEnd2 = p2.GetDistanceToEnd();
+    if (distToEnd1 == distToEnd2) {
+      return p1.GetDistanceFromStart() > p2.GetDistanceFromStart();
+    } else {
+      return distToEnd1 > distToEnd2;
+    }
   };
 
-  auto hashcode = [](const Node& n) -> int {
-    auto hash1 = std::hash<int>{}(n.getCoord().first);
-    auto hash2 = std::hash<int>{}(n.getCoord().second);
+  std::priority_queue<NodePath, std::vector<NodePath>, decltype(comp)> queue(
+      comp);
+
+  for (auto it : {1, 2, 3, 4}) {
+    NodePath path(start, end);
+    path.AddNode(Node(0, it + 1));
+    path.AddNode(Node(0, it + 2));
+    path.AddNode(Node(4, it + 3));
+    queue.push(path);
+  }
+
+  while (!queue.empty()) {
+    std::cout << queue.top().ToString() << std::endl;
+    queue.pop();
+  }
+
+  auto hashcode = [](const Node& n) {
+    auto hash1 = std::hash<int>{}(n.GetX());
+    auto hash2 = std::hash<int>{}(n.GetY());
     if (hash1 != hash2) {
       return hash1 ^ hash2;
     }
     return hash1;
   };
   auto equal = [](const Node& n1, const Node& n2) {
-    return ((n1.getCoord().first == n2.getCoord().first) &&
-            (n1.getCoord().second == n2.getCoord().second));
+    return ((n1.GetX() == n2.GetX()) && (n1.GetY() == n2.GetY()));
   };
-  std::priority_queue<Node, std::vector<Node>, decltype(comp)> queue(comp);
-  std::unordered_set<Node, decltype(hashcode), decltype(equal)> set(32, hashcode, equal);
-  set.insert({1, 2});
-  set.insert({6, 4});
-  set.insert({5, 4});
-
-  std::cout << "it works..." << std::endl;
-
+  std::unordered_set<Node, decltype(hashcode), decltype(equal)> set(
+      32, hashcode, equal);
+  for (int x = 0; x < 3; ++x) {
+    for (int y = 0; y < 3; ++y) {
+      set.insert({x, y});
+    }
+  }
   for (auto it : set) {
-    std::cout << it.toString() << std::endl;
+    std::cout << it.ToString() << std::endl;
   }
 }
