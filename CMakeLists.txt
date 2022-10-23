@@ -59,3 +59,5 @@ target_include_directories(minimum_time_visiting_all_points PRIVATE Boost::unit_
 add_executable(count_servers_that_communicate "tst/count_servers_that_communicate.cc" src/leetcode/count_servers_that_communicate.cc)
 target_include_directories(count_servers_that_communicate PRIVATE Boost::unit_test_framework)
 
+add_executable(maximum_product_of_three_numbers "tst/maximum_product_of_three_numbers.cc" src/leetcode/maximum_product_of_three_numbers.cc)
+target_include_directories(maximum_product_of_three_numbers PRIVATE Boost::unit_test_framework)

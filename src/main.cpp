@@ -119,8 +119,7 @@ int main() {
   auto equal = [](const Node& n1, const Node& n2) {
     return ((n1.GetX() == n2.GetX()) && (n1.GetY() == n2.GetY()));
   };
-  std::unordered_set<Node, decltype(hashcode), decltype(equal)> set(
-      32, hashcode, equal);
+  std::unordered_set<Node, decltype(hashcode), decltype(equal)> set(32, hashcode, equal);
   for (int x = 0; x < 3; ++x) {
     for (int y = 0; y < 3; ++y) {
       set.insert({x, y});
