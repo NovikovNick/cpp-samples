@@ -14,12 +14,13 @@ using namespace std;
 class Solution {
  public:
   int maximumProduct(vector<int>& nums) {
-    std::sort(nums.begin(), nums.end());
+    std::partial_sort(nums.rbegin(), nums.rbegin() + 2, nums.rend(),
+                      std::greater<int>());
+    std::partial_sort(nums.begin(), nums.end() - 2, nums.end());
 
-    int start = nums[0] * nums[1];
-    int end = nums[nums.size() - 1] * nums[nums.size() - 2];
-    
-    return std::max(start * nums[nums.size() - 1], end * nums[nums.size() - 3]);
+    int size = nums.size();
+    return std::max(nums[0] * nums[1] * nums[size - 1],
+                    nums[size - 3] * nums[size - 2] * nums[size - 1]);
   }
 };
 }  // namespace leetcode
