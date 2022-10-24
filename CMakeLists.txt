@@ -61,3 +61,6 @@ target_include_directories(count_servers_that_communicate PRIVATE Boost::unit_te
 
 add_executable(maximum_product_of_three_numbers "tst/maximum_product_of_three_numbers.cc" src/leetcode/maximum_product_of_three_numbers.cc)
 target_include_directories(maximum_product_of_three_numbers PRIVATE Boost::unit_test_framework)
+
+add_executable(determine_if_string_halves_are_alike "tst/determine_if_string_halves_are_alike.cc" src/leetcode/determine_if_string_halves_are_alike.cc)
+target_include_directories(determine_if_string_halves_are_alike PRIVATE Boost::unit_test_framework)
