@@ -125,6 +125,7 @@ int main() {
       set.insert({x, y});
     }
   }
+
   for (auto it : set) {
     std::cout << it.ToString() << std::endl;
   }

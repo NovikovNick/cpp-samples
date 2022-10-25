@@ -64,3 +64,6 @@ target_include_directories(maximum_product_of_three_numbers PRIVATE Boost::unit_
 
 add_executable(determine_if_string_halves_are_alike "tst/determine_if_string_halves_are_alike.cc" src/leetcode/determine_if_string_halves_are_alike.cc)
 target_include_directories(determine_if_string_halves_are_alike PRIVATE Boost::unit_test_framework)
+
+add_executable(minimum_initial_energy_to_finish_tasks "tst/minimum_initial_energy_to_finish_tasks.cc" src/leetcode/minimum_initial_energy_to_finish_tasks.cc)
+target_include_directories(minimum_initial_energy_to_finish_tasks PRIVATE Boost::unit_test_framework)
