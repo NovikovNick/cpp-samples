@@ -67,3 +67,6 @@ target_include_directories(determine_if_string_halves_are_alike PRIVATE Boost::u
 
 add_executable(minimum_initial_energy_to_finish_tasks "tst/minimum_initial_energy_to_finish_tasks.cc" src/leetcode/minimum_initial_energy_to_finish_tasks.cc)
 target_include_directories(minimum_initial_energy_to_finish_tasks PRIVATE Boost::unit_test_framework)
+
+add_executable(binary_tree_paths "tst/binary_tree_paths.cc" src/leetcode/binary_tree_paths.cc)
+target_include_directories(binary_tree_paths PRIVATE Boost::unit_test_framework)
