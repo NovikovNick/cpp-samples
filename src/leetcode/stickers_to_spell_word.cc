@@ -24,7 +24,6 @@ struct Wrapper {
   }
 
   const Wrapper operator-(const Wrapper& rv) const {
-    // std::vector<int> newLetters(letters.begin(), letters.end());
     std::vector<int> newLetters = letters;
     int length = 0;
     for (int i = 0; i < rv.letters.size(); ++i) {
@@ -41,7 +40,7 @@ struct Wrapper {
         res += std::string(count, static_cast<char>(static_cast<int>('a') + i));
       ++i;
     }
-    return res + std::format("({})", length);
+    return res;
   }
 };
 
@@ -50,6 +49,9 @@ using PAIR = std::pair<int, Wrapper>;
 class Solution {
  public:
   int minStickers(vector<string>& stickers, string target) {
+    // dynamic programming for memorisation
+    std::unordered_map<std::string, int> dp;
+
     std::vector<Wrapper> wrappedStickers;
     std::transform(stickers.begin(), stickers.end(),
                    std::back_inserter(wrappedStickers),
@@ -64,16 +66,19 @@ class Solution {
     while (!queue.empty()) {
       auto [count, wrapper] = queue.top();
       queue.pop();
-      std::cout << std::format("Checking count {} - {}\n", count, wrapper.ToString());
 
-      int length = wrapper.length;
+      // std::cout << std::format("Checking count {} - {}({})\n", count, wrapper.ToString(), wrapper.length);
 
       for (auto sticker : wrappedStickers) {
         auto diff = wrapper - sticker;
         if (diff.length == 0) {
           return count + 1;
-        } else if (diff.length < length) {
-          queue.push(std::make_pair(count + 1, diff));
+        } else if (diff.length < wrapper.length) {
+          auto str = diff.ToString();
+          if (dp.find(str) == dp.end() || dp[str] > count + 1) {
+            dp[str] = count + 1;
+            queue.push(std::make_pair(count + 1, diff));
+          }
         }
       }
     }
