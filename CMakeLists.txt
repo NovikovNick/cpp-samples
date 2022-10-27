@@ -70,3 +70,6 @@ target_include_directories(minimum_initial_energy_to_finish_tasks PRIVATE Boost:
 
 add_executable(binary_tree_paths "tst/binary_tree_paths.cc" src/leetcode/binary_tree_paths.cc)
 target_include_directories(binary_tree_paths PRIVATE Boost::unit_test_framework)
+
+add_executable(stickers_to_spell_word "tst/stickers_to_spell_word.cc" src/leetcode/stickers_to_spell_word.cc)
+target_include_directories(stickers_to_spell_word PRIVATE Boost::unit_test_framework)
