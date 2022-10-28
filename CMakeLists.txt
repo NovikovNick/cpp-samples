@@ -73,3 +73,6 @@ target_include_directories(binary_tree_paths PRIVATE Boost::unit_test_framework)
 
 add_executable(stickers_to_spell_word "tst/stickers_to_spell_word.cc" src/leetcode/stickers_to_spell_word.cc)
 target_include_directories(stickers_to_spell_word PRIVATE Boost::unit_test_framework)
+
+add_executable(reachable_nodes_with_restrictions "tst/reachable_nodes_with_restrictions.cc" src/leetcode/reachable_nodes_with_restrictions.cc)
+target_include_directories(reachable_nodes_with_restrictions PRIVATE Boost::unit_test_framework)
