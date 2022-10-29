@@ -76,3 +76,6 @@ target_include_directories(stickers_to_spell_word PRIVATE Boost::unit_test_frame
 
 add_executable(reachable_nodes_with_restrictions "tst/reachable_nodes_with_restrictions.cc" src/leetcode/reachable_nodes_with_restrictions.cc)
 target_include_directories(reachable_nodes_with_restrictions PRIVATE Boost::unit_test_framework)
+
+add_executable(minimum_operations_to_halve_array_sum "tst/minimum_operations_to_halve_array_sum.cc" src/leetcode/minimum_operations_to_halve_array_sum.cc)
+target_include_directories(minimum_operations_to_halve_array_sum PRIVATE Boost::unit_test_framework)
