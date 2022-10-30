@@ -79,3 +79,6 @@ target_include_directories(reachable_nodes_with_restrictions PRIVATE Boost::unit
 
 add_executable(minimum_operations_to_halve_array_sum "tst/minimum_operations_to_halve_array_sum.cc" src/leetcode/minimum_operations_to_halve_array_sum.cc)
 target_include_directories(minimum_operations_to_halve_array_sum PRIVATE Boost::unit_test_framework)
+
+add_executable(fin_bottom_left_tree_value "tst/fin_bottom_left_tree_value.cc" src/leetcode/fin_bottom_left_tree_value.cc)
+target_include_directories(fin_bottom_left_tree_value PRIVATE Boost::unit_test_framework)
