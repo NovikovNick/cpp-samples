@@ -82,3 +82,6 @@ target_include_directories(minimum_operations_to_halve_array_sum PRIVATE Boost::
 
 add_executable(fin_bottom_left_tree_value "tst/fin_bottom_left_tree_value.cc" src/leetcode/fin_bottom_left_tree_value.cc)
 target_include_directories(fin_bottom_left_tree_value PRIVATE Boost::unit_test_framework)
+
+add_executable(daily_temperatures "tst/daily_temperatures.cc" src/leetcode/daily_temperatures.cc)
+target_include_directories(daily_temperatures PRIVATE Boost::unit_test_framework)
