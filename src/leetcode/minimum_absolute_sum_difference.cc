@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <format>
 #include <iostream>
+#include <set>
 #include <unordered_map>
 #include <vector>
 
@@ -11,44 +12,41 @@ namespace leetcode {
 
 using namespace std;
 
-using ConstIter = vector<int>::const_iterator;
-using Iter = vector<int>::iterator;
-
-int diff(ConstIter begin1, ConstIter end1, ConstIter begin2) {
-  int res = 0;
-  int diff = 0;
-  std::cout << "Diff: ";
-  while (begin1 != end1) {
-    diff = std::abs(*begin1 - *begin2);
-    res += diff;
-    std::cout << std::format("|{:2d} - {:2d}| = ({:2d}) ", *begin1, *begin2, diff);
-    ++begin1;
-    ++begin2;
-  }
-
-  std::cout << std::format(" = {}\n", res);
-  return res;
-}
-
 class Solution {
  public:
+  Solution() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    wcin.tie(nullptr);
+    cerr.tie(nullptr);
+    wcerr.tie(nullptr);
+    clog.tie(nullptr);
+    wclog.tie(nullptr);
+  }
   int minAbsoluteSumDiff(vector<int>& nums1, vector<int>& nums2) {
-    vector<int> ref(nums1.cbegin(), nums1.cend());
+    std::set<int> set(nums1.begin(), nums1.end());
 
-    int res = diff(ref.cbegin(), ref.cend(), nums2.cbegin());
-    for (int i = 0; i < nums1.size(); ++i) {
-      for (int j = 0; j < nums1.size(); ++j) {
-        if (i == j) {
-          continue;
-        }
-        ref[i] = ref[j];
-        res = std::min(res, diff(ref.cbegin(), ref.cend(), nums2.cbegin()));
-        std::copy(nums1.cbegin(), nums1.cend(), ref.begin());
+    unsigned long long sum = 0;
+    int dist = 0;
+    for (int i = 0, sz = nums1.size(); i < sz; ++i) {
+      int diff = std::abs(nums1[i] - nums2[i]);
+      sum += diff;
+      if (diff <= dist) {
+        continue;
       }
-    }
+      auto it = set.lower_bound(nums2[i]);
+      dist = std::max(dist, diff - std::abs(*it - nums2[i]));
 
-    std::cout << std::format("--------\n");
-    return res;
+      if (it != set.begin()) {
+        dist = std::max(dist, diff - std::abs(*(std::prev(it)) - nums2[i]));
+      }
+
+      /*std::cout << std::format(
+          "sum[{}] = {}. diff is |{} - {}| = {}. Lower = {}, upper = {}\n", i,
+          sum, nums1[i], nums2[i], diff, *less, *great);*/
+
+    }
+    return (sum - dist) % 1000000007;
   }
 };
 }  // namespace leetcode
