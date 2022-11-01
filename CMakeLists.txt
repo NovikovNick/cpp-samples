@@ -85,3 +85,6 @@ target_include_directories(fin_bottom_left_tree_value PRIVATE Boost::unit_test_f
 
 add_executable(daily_temperatures "tst/daily_temperatures.cc" src/leetcode/daily_temperatures.cc)
 target_include_directories(daily_temperatures PRIVATE Boost::unit_test_framework)
+
+add_executable(minimum_absolute_sum_difference "tst/minimum_absolute_sum_difference.cc" src/leetcode/daily_temperatures.cc)
+target_include_directories(minimum_absolute_sum_difference PRIVATE Boost::unit_test_framework)
