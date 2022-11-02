@@ -88,3 +88,6 @@ target_include_directories(daily_temperatures PRIVATE Boost::unit_test_framework
 
 add_executable(minimum_absolute_sum_difference "tst/minimum_absolute_sum_difference.cc" src/leetcode/daily_temperatures.cc)
 target_include_directories(minimum_absolute_sum_difference PRIVATE Boost::unit_test_framework)
+
+add_executable(longest_consecutive_sequence "tst/longest_consecutive_sequence.cc" src/leetcode/longest_consecutive_sequence.cc)
+target_include_directories(longest_consecutive_sequence PRIVATE Boost::unit_test_framework)
