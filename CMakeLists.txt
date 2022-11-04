@@ -94,3 +94,6 @@ target_include_directories(longest_consecutive_sequence PRIVATE Boost::unit_test
 
 add_executable(longest_palindrome_by_concatenating_two_letter_words "tst/longest_palindrome_by_concatenating_two_letter_words.cc" src/leetcode/longest_palindrome_by_concatenating_two_letter_words.cc)
 target_include_directories(longest_palindrome_by_concatenating_two_letter_words PRIVATE Boost::unit_test_framework)
+
+add_executable(reverse_vowels_of_a_string "tst/reverse_vowels_of_a_string.cc" src/leetcode/reverse_vowels_of_a_string.cc)
+target_include_directories(reverse_vowels_of_a_string PRIVATE Boost::unit_test_framework)
