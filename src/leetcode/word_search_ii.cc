@@ -7,6 +7,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
+#include <queue>
 
 namespace leetcode {
 
@@ -26,6 +27,8 @@ struct Grid {
       return o1.first == o2.first && o1.second == o2.second;
     }
   };
+
+  using Traversal = std::tuple<Cell, int, std::unordered_set<Cell, CellHash, CellEquals>>;
 
   using LetterCoords = std::unordered_map<char, std::vector<Cell>>;
 
@@ -81,37 +84,42 @@ struct Grid {
   };
   bool Contains(const Cell head, const std::string& word) {
     std::unordered_set<Cell, CellHash, CellEquals> exp(32, CellHash(),
-                                                            CellEquals());
+                                                       CellEquals());
     exp.insert(head);
-    std::stack<
-        std::tuple<Cell, int, std::unordered_set<Cell, CellHash, CellEquals>>>
-        reachable;
+
+    /*auto comp = [](const Traversal& o1, const Traversal& o2) {
+      return std::get<1>(o1) < std::get<1>(o2);
+    };
+    std::priority_queue<Traversal, std::vector<Traversal>, decltype(comp)> reachable(comp);*/
+
+    std::stack<Traversal> reachable;
     reachable.push(std::make_tuple(head, 0, exp));
-    
+
     while (!reachable.empty()) {
       auto [cell, index, explored] = reachable.top();
       reachable.pop();
 
+      std::cout << std::string(index, '-');
+      for (auto [eX, eY] : explored) {
+        std::cout << std::format("[{},{}] ", eX, eY);
+      }
+      std::cout << std::endl;
+
       for (auto adjacent : FindAdjacent(cell)) {
         auto [x, y] = adjacent;
         if (explored.find(adjacent) != explored.end()) {
-          //std::cout << std::format("adjacent [{},{}] explored\n", x, y);
           continue;
         }
         if (board[y][x] == word[index + 1]) {
-          //std::cout << std::format("adjacent [{},{}] ", x, y);
           if (word.size() == index + 2) {
-            //std::cout << std::format("is last! ");
             return true;
           } else {
-            //std::cout << std::format("not last. Continue search...\n");
             auto explored_copy = explored;
             explored_copy.insert(adjacent);
             reachable.push(std::make_tuple(adjacent, index + 1, explored_copy));
           }
         }
       }
-      explored.insert(cell);
     }
     return false;
   }
@@ -134,12 +142,12 @@ class Solution {
 
     std::vector<std::string> res;
     for (auto word : words) {
-      //std::cout << std::format("Checking {}\n", word);
+      std::cout << std::format("Checking {}\n", word);
       if (grid.Contains(word)) {
         res.push_back(word);
-        //std::cout << std::format("There is {} on the board\n", word);
+        std::cout << std::format("There is {} on the board\n", word);
       } else {
-        //std::cout << std::format("NO {} on the board\n", word);
+        std::cout << std::format("NO {} on the board\n", word);
       }
     }
     std::sort(res.begin(), res.end());
