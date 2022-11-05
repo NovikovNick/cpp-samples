@@ -97,3 +97,6 @@ target_include_directories(longest_palindrome_by_concatenating_two_letter_words 
 
 add_executable(reverse_vowels_of_a_string "tst/reverse_vowels_of_a_string.cc" src/leetcode/reverse_vowels_of_a_string.cc)
 target_include_directories(reverse_vowels_of_a_string PRIVATE Boost::unit_test_framework)
+
+add_executable(word_search_ii "tst/word_search_ii.cc" src/leetcode/word_search_ii.cc)
+target_include_directories(word_search_ii PRIVATE Boost::unit_test_framework)
