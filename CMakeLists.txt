@@ -104,5 +104,8 @@ target_include_directories(word_search_ii PRIVATE Boost::unit_test_framework)
 add_executable(orderly_queue "tst/orderly_queue.cc" src/leetcode/orderly_queue.cc)
 target_include_directories(orderly_queue PRIVATE Boost::unit_test_framework)
 
+add_executable(maximum_69_number "tst/maximum_69_number.cc" src/leetcode/maximum_69_number.cc)
+target_include_directories(maximum_69_number PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
