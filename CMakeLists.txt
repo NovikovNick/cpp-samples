@@ -113,5 +113,8 @@ target_include_directories(make_the_string_great PRIVATE Boost::unit_test_framew
 add_executable(online_stock_span "tst/online_stock_span.cc" src/leetcode/online_stock_span.cc)
 target_include_directories(online_stock_span PRIVATE Boost::unit_test_framework)
 
+add_executable(remove_all_adjacent_duplicates_in_string "tst/remove_all_adjacent_duplicates_in_string.cc" src/leetcode/remove_all_adjacent_duplicates_in_string.cc)
+target_include_directories(remove_all_adjacent_duplicates_in_string PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
