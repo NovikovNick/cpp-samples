@@ -125,5 +125,8 @@ target_include_directories(remove_duplicates_from_sorted_array PRIVATE Boost::un
 add_executable(where_will_the_ball_fall "tst/where_will_the_ball_fall.cc" src/leetcode/where_will_the_ball_fall.cc)
 target_include_directories(where_will_the_ball_fall PRIVATE Boost::unit_test_framework)
 
+add_executable(implement_trie_prefix_tree "tst/implement_trie_prefix_tree.cc" src/leetcode/implement_trie_prefix_tree.cc)
+target_include_directories(implement_trie_prefix_tree PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
