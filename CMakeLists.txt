@@ -131,5 +131,8 @@ target_include_directories(implement_trie_prefix_tree PRIVATE Boost::unit_test_f
 add_executable(reverse_words_in_a_string "tst/reverse_words_in_a_string.cc" src/leetcode/reverse_words_in_a_string.cc)
 target_include_directories(reverse_words_in_a_string PRIVATE Boost::unit_test_framework)
 
+add_executable(most_stones_removed_with_same_row_or_column "tst/most_stones_removed_with_same_row_or_column.cc" src/leetcode/most_stones_removed_with_same_row_or_column.cc)
+target_include_directories(most_stones_removed_with_same_row_or_column PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
