@@ -134,5 +134,8 @@ target_include_directories(reverse_words_in_a_string PRIVATE Boost::unit_test_fr
 add_executable(most_stones_removed_with_same_row_or_column "tst/most_stones_removed_with_same_row_or_column.cc" src/leetcode/most_stones_removed_with_same_row_or_column.cc)
 target_include_directories(most_stones_removed_with_same_row_or_column PRIVATE Boost::unit_test_framework)
 
+add_executable(count_complete_tree_nodes "tst/count_complete_tree_nodes.cc" src/leetcode/count_complete_tree_nodes.cc)
+target_include_directories(count_complete_tree_nodes PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
