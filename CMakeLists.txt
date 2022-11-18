@@ -143,5 +143,8 @@ target_include_directories(guess_number_higher_or_lower PRIVATE Boost::unit_test
 add_executable(rectangle_area "tst/rectangle_area.cc" src/leetcode/rectangle_area.cc)
 target_include_directories(rectangle_area PRIVATE Boost::unit_test_framework)
 
+add_executable(ugly_number "tst/ugly_number.cc" src/leetcode/ugly_number.cc)
+target_include_directories(ugly_number PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
