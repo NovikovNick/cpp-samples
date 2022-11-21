@@ -1,8 +1,8 @@
 #define BOOST_TEST_MODULE SolutionTest
 #define CASE_4 1
-#define CASE_3 0
-#define CASE_2 0
-#define CASE_1 0
+#define CASE_3 1
+#define CASE_2 1
+#define CASE_1 1
 #define DEBUG 1
 
 #include "../src/leetcode/nearest_exit_from_entrance_in_maze.cc"
