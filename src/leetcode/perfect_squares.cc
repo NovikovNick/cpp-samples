@@ -5,6 +5,8 @@
 #include <iostream>
 #include <queue>
 #include <set>
+#include <unordered_map>
+#include <unordered_set>
 #include <vector>
 
 template <typename... Args>
@@ -33,6 +35,34 @@ using namespace std;
 //  }
 //};
 
+// good BFS solution
+//
+// class Solution {
+// public:
+//  int numSquares(int n) {
+//    std::queue<int> bfs;
+//    bfs.push(n);
+//
+//    int bfs_level = 0;
+//    while (!bfs.empty()) {
+//      int size = bfs.size();
+//
+//      while (size--) {
+//        int num = bfs.front();
+//        bfs.pop();
+//
+//        for (int i = 1, square = i * i; square <= num; ++i) {
+//          square = i * i;
+//          if ((num - square) == 0) return bfs_level + 1;
+//          if ((num - square) > 0) bfs.push(num - square);
+//        }
+//      }
+//      ++bfs_level;
+//    }
+//    return bfs_level;
+//  }
+//};
+
 class Solution {
  public:
   Solution() {
@@ -47,6 +77,7 @@ class Solution {
   int numSquares(int n) {
     std::queue<int> bfs;
     bfs.push(n);
+    std::unordered_set<int> dp;
 
     int bfs_level = 0;
     while (!bfs.empty()) {
@@ -56,12 +87,13 @@ class Solution {
         int num = bfs.front();
         bfs.pop();
 
-        for (int i = 1, square = i * i; square <= num; ++i) {
+        for (int i = 1, square = i * i, diff; square <= num; ++i) {
           square = i * i;
-          if ((num - square) == 0) {
-            return bfs_level + 1;
-          } else if ((num - square) > 0) {
-            bfs.push(num - square);
+          diff = num - square;
+          if (diff == 0) return bfs_level + 1;
+          if (diff > 0 && dp.find(diff) == dp.end()) {
+            bfs.push(diff);
+            dp.insert(diff);
           }
         }
       }
