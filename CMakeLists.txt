@@ -158,5 +158,8 @@ target_include_directories(nearest_exit_from_entrance_in_maze PRIVATE Boost::uni
 add_executable(perfect_squares "tst/perfect_squares.cc" src/leetcode/perfect_squares.cc)
 target_include_directories(perfect_squares PRIVATE Boost::unit_test_framework)
 
+add_executable(valid_sudoku "tst/valid_sudoku.cc" src/leetcode/valid_sudoku.cc)
+target_include_directories(valid_sudoku PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
