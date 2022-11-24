@@ -161,5 +161,8 @@ target_include_directories(perfect_squares PRIVATE Boost::unit_test_framework)
 add_executable(valid_sudoku "tst/valid_sudoku.cc" src/leetcode/valid_sudoku.cc)
 target_include_directories(valid_sudoku PRIVATE Boost::unit_test_framework)
 
+add_executable(word_search "tst/word_search.cc" src/leetcode/word_search.cc)
+target_include_directories(word_search PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
