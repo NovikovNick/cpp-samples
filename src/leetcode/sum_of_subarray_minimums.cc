@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <format>
 #include <iostream>
+#include <stack>
 #include <vector>
 
 template <typename... Args>
@@ -16,31 +17,27 @@ namespace leetcode {
 
 using namespace std;
 
-using It = std::vector<int>::const_iterator;
 class Solution {
+  int MOD = 1000000007;
+
  public:
   int sumSubarrayMins(vector<int>& arr) {
-    It begin = arr.cbegin(), end = arr.cend();
-    int sum = 0;
-    while (begin < end) {
-      sum = (sum + sumSubarrayMins(begin, end)) % 1000000007;
-      ++begin;
-      --end;
-    }
-    return sum;
-  }
+    int n = arr.size();
+    std::stack<int> stack;  // monotonic asc stack
+    uint64_t sum = 0;
+    for (int i = 0; i <= n; ++i) {
+      while (!stack.empty() && (i == n || arr[i] <= arr[stack.top()])) {
+        int mid = stack.top();
+        stack.pop();
+        int nxt = i;
+        int prv = stack.empty() ? -1 : stack.top();
 
-  int sumSubarrayMins(It begin, It end) {
-    int sum = 0, min = 3 * 1000000;
-    It curr = begin;
-    while (curr != end) {
-      if (begin != curr) {
-        min = *std::min_element(begin, curr);
-        sum += min;
+        debug("{:3d}({}) - {:3d}|{:3d}|{:3d}\n", arr[mid], mid, prv, mid, nxt);
+
+        uint64_t count = (mid - prv) * (nxt - mid);
+        sum = (sum + count * arr[mid]) % MOD;
       }
-      min = *std::min_element(curr, end);
-      sum += min;
-      ++curr;
+      stack.push(i);
     }
     return sum;
   }
