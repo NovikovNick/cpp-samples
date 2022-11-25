@@ -62,107 +62,110 @@ target_include_directories(count_servers_that_communicate PRIVATE Boost::unit_te
 add_executable(maximum_product_of_three_numbers "tst/maximum_product_of_three_numbers.cc" src/leetcode/maximum_product_of_three_numbers.cc)
 target_include_directories(maximum_product_of_three_numbers PRIVATE Boost::unit_test_framework)
 
-add_executable(determine_if_string_halves_are_alike "tst/determine_if_string_halves_are_alike.cc" src/leetcode/determine_if_string_halves_are_alike.cc)
-target_include_directories(determine_if_string_halves_are_alike PRIVATE Boost::unit_test_framework)
+#add_executable(determine_if_string_halves_are_alike "tst/determine_if_string_halves_are_alike.cc" src/leetcode/determine_if_string_halves_are_alike.cc)
+#target_include_directories(determine_if_string_halves_are_alike PRIVATE Boost::unit_test_framework)
 
-add_executable(minimum_initial_energy_to_finish_tasks "tst/minimum_initial_energy_to_finish_tasks.cc" src/leetcode/minimum_initial_energy_to_finish_tasks.cc)
-target_include_directories(minimum_initial_energy_to_finish_tasks PRIVATE Boost::unit_test_framework)
+#add_executable(minimum_initial_energy_to_finish_tasks "tst/minimum_initial_energy_to_finish_tasks.cc" src/leetcode/minimum_initial_energy_to_finish_tasks.cc)
+#target_include_directories(minimum_initial_energy_to_finish_tasks PRIVATE Boost::unit_test_framework)
 
-add_executable(binary_tree_paths "tst/binary_tree_paths.cc" src/leetcode/binary_tree_paths.cc)
-target_include_directories(binary_tree_paths PRIVATE Boost::unit_test_framework)
+#add_executable(binary_tree_paths "tst/binary_tree_paths.cc" src/leetcode/binary_tree_paths.cc)
+#target_include_directories(binary_tree_paths PRIVATE Boost::unit_test_framework)
 
-add_executable(stickers_to_spell_word "tst/stickers_to_spell_word.cc" src/leetcode/stickers_to_spell_word.cc)
-target_include_directories(stickers_to_spell_word PRIVATE Boost::unit_test_framework)
+#add_executable(stickers_to_spell_word "tst/stickers_to_spell_word.cc" src/leetcode/stickers_to_spell_word.cc)
+#target_include_directories(stickers_to_spell_word PRIVATE Boost::unit_test_framework)
 
-add_executable(reachable_nodes_with_restrictions "tst/reachable_nodes_with_restrictions.cc" src/leetcode/reachable_nodes_with_restrictions.cc)
-target_include_directories(reachable_nodes_with_restrictions PRIVATE Boost::unit_test_framework)
+#add_executable(reachable_nodes_with_restrictions "tst/reachable_nodes_with_restrictions.cc" src/leetcode/reachable_nodes_with_restrictions.cc)
+#target_include_directories(reachable_nodes_with_restrictions PRIVATE Boost::unit_test_framework)
 
-add_executable(minimum_operations_to_halve_array_sum "tst/minimum_operations_to_halve_array_sum.cc" src/leetcode/minimum_operations_to_halve_array_sum.cc)
-target_include_directories(minimum_operations_to_halve_array_sum PRIVATE Boost::unit_test_framework)
+#add_executable(minimum_operations_to_halve_array_sum "tst/minimum_operations_to_halve_array_sum.cc" src/leetcode/minimum_operations_to_halve_array_sum.cc)
+#target_include_directories(minimum_operations_to_halve_array_sum PRIVATE Boost::unit_test_framework)
 
-add_executable(fin_bottom_left_tree_value "tst/fin_bottom_left_tree_value.cc" src/leetcode/fin_bottom_left_tree_value.cc)
-target_include_directories(fin_bottom_left_tree_value PRIVATE Boost::unit_test_framework)
+#add_executable(fin_bottom_left_tree_value "tst/fin_bottom_left_tree_value.cc" src/leetcode/fin_bottom_left_tree_value.cc)
+#target_include_directories(fin_bottom_left_tree_value PRIVATE Boost::unit_test_framework)
 
-add_executable(daily_temperatures "tst/daily_temperatures.cc" src/leetcode/daily_temperatures.cc)
-target_include_directories(daily_temperatures PRIVATE Boost::unit_test_framework)
+#add_executable(daily_temperatures "tst/daily_temperatures.cc" src/leetcode/daily_temperatures.cc)
+#target_include_directories(daily_temperatures PRIVATE Boost::unit_test_framework)
 
-add_executable(minimum_absolute_sum_difference "tst/minimum_absolute_sum_difference.cc" src/leetcode/daily_temperatures.cc)
-target_include_directories(minimum_absolute_sum_difference PRIVATE Boost::unit_test_framework)
+#add_executable(minimum_absolute_sum_difference "tst/minimum_absolute_sum_difference.cc" src/leetcode/daily_temperatures.cc)
+#target_include_directories(minimum_absolute_sum_difference PRIVATE Boost::unit_test_framework)
 
-add_executable(longest_consecutive_sequence "tst/longest_consecutive_sequence.cc" src/leetcode/longest_consecutive_sequence.cc)
-target_include_directories(longest_consecutive_sequence PRIVATE Boost::unit_test_framework)
+#add_executable(longest_consecutive_sequence "tst/longest_consecutive_sequence.cc" src/leetcode/longest_consecutive_sequence.cc)
+#target_include_directories(longest_consecutive_sequence PRIVATE Boost::unit_test_framework)
 
-add_executable(longest_palindrome_by_concatenating_two_letter_words "tst/longest_palindrome_by_concatenating_two_letter_words.cc" src/leetcode/longest_palindrome_by_concatenating_two_letter_words.cc)
-target_include_directories(longest_palindrome_by_concatenating_two_letter_words PRIVATE Boost::unit_test_framework)
+#add_executable(longest_palindrome_by_concatenating_two_letter_words "tst/longest_palindrome_by_concatenating_two_letter_words.cc" src/leetcode/longest_palindrome_by_concatenating_two_letter_words.cc)
+#target_include_directories(longest_palindrome_by_concatenating_two_letter_words PRIVATE Boost::unit_test_framework)
 
-add_executable(reverse_vowels_of_a_string "tst/reverse_vowels_of_a_string.cc" src/leetcode/reverse_vowels_of_a_string.cc)
-target_include_directories(reverse_vowels_of_a_string PRIVATE Boost::unit_test_framework)
+#add_executable(reverse_vowels_of_a_string "tst/reverse_vowels_of_a_string.cc" src/leetcode/reverse_vowels_of_a_string.cc)
+#target_include_directories(reverse_vowels_of_a_string PRIVATE Boost::unit_test_framework)
 
-add_executable(word_search_ii "tst/word_search_ii.cc" src/leetcode/word_search_ii.cc)
-target_include_directories(word_search_ii PRIVATE Boost::unit_test_framework)
+#add_executable(word_search_ii "tst/word_search_ii.cc" src/leetcode/word_search_ii.cc)
+#target_include_directories(word_search_ii PRIVATE Boost::unit_test_framework)
 
-add_executable(orderly_queue "tst/orderly_queue.cc" src/leetcode/orderly_queue.cc)
-target_include_directories(orderly_queue PRIVATE Boost::unit_test_framework)
+#add_executable(orderly_queue "tst/orderly_queue.cc" src/leetcode/orderly_queue.cc)
+#target_include_directories(orderly_queue PRIVATE Boost::unit_test_framework)
 
-add_executable(maximum_69_number "tst/maximum_69_number.cc" src/leetcode/maximum_69_number.cc)
-target_include_directories(maximum_69_number PRIVATE Boost::unit_test_framework)
+#add_executable(maximum_69_number "tst/maximum_69_number.cc" src/leetcode/maximum_69_number.cc)
+#target_include_directories(maximum_69_number PRIVATE Boost::unit_test_framework)
 
-add_executable(make_the_string_great "tst/make_the_string_great.cc" src/leetcode/make_the_string_great.cc)
-target_include_directories(make_the_string_great PRIVATE Boost::unit_test_framework)
+#add_executable(make_the_string_great "tst/make_the_string_great.cc" src/leetcode/make_the_string_great.cc)
+#target_include_directories(make_the_string_great PRIVATE Boost::unit_test_framework)
 
-add_executable(online_stock_span "tst/online_stock_span.cc" src/leetcode/online_stock_span.cc)
-target_include_directories(online_stock_span PRIVATE Boost::unit_test_framework)
+#add_executable(online_stock_span "tst/online_stock_span.cc" src/leetcode/online_stock_span.cc)
+#target_include_directories(online_stock_span PRIVATE Boost::unit_test_framework)
 
-add_executable(remove_all_adjacent_duplicates_in_string "tst/remove_all_adjacent_duplicates_in_string.cc" src/leetcode/remove_all_adjacent_duplicates_in_string.cc)
-target_include_directories(remove_all_adjacent_duplicates_in_string PRIVATE Boost::unit_test_framework)
+#add_executable(remove_all_adjacent_duplicates_in_string "tst/remove_all_adjacent_duplicates_in_string.cc" src/leetcode/remove_all_adjacent_duplicates_in_string.cc)
+#target_include_directories(remove_all_adjacent_duplicates_in_string PRIVATE Boost::unit_test_framework)
 
-add_executable(minimum_genetic_mutation "tst/minimum_genetic_mutation.cc" src/leetcode/minimum_genetic_mutation.cc)
-target_include_directories(minimum_genetic_mutation PRIVATE Boost::unit_test_framework)
+#add_executable(minimum_genetic_mutation "tst/minimum_genetic_mutation.cc" src/leetcode/minimum_genetic_mutation.cc)
+#target_include_directories(minimum_genetic_mutation PRIVATE Boost::unit_test_framework)
 
-add_executable(remove_duplicates_from_sorted_array "tst/remove_duplicates_from_sorted_array.cc" src/leetcode/remove_duplicates_from_sorted_array.cc)
-target_include_directories(remove_duplicates_from_sorted_array PRIVATE Boost::unit_test_framework)
+#add_executable(remove_duplicates_from_sorted_array "tst/remove_duplicates_from_sorted_array.cc" src/leetcode/remove_duplicates_from_sorted_array.cc)
+#target_include_directories(remove_duplicates_from_sorted_array PRIVATE Boost::unit_test_framework)
 
-add_executable(where_will_the_ball_fall "tst/where_will_the_ball_fall.cc" src/leetcode/where_will_the_ball_fall.cc)
-target_include_directories(where_will_the_ball_fall PRIVATE Boost::unit_test_framework)
+#add_executable(where_will_the_ball_fall "tst/where_will_the_ball_fall.cc" src/leetcode/where_will_the_ball_fall.cc)
+#target_include_directories(where_will_the_ball_fall PRIVATE Boost::unit_test_framework)
 
-add_executable(implement_trie_prefix_tree "tst/implement_trie_prefix_tree.cc" src/leetcode/implement_trie_prefix_tree.cc)
-target_include_directories(implement_trie_prefix_tree PRIVATE Boost::unit_test_framework)
+#add_executable(implement_trie_prefix_tree "tst/implement_trie_prefix_tree.cc" src/leetcode/implement_trie_prefix_tree.cc)
+#target_include_directories(implement_trie_prefix_tree PRIVATE Boost::unit_test_framework)
 
-add_executable(reverse_words_in_a_string "tst/reverse_words_in_a_string.cc" src/leetcode/reverse_words_in_a_string.cc)
-target_include_directories(reverse_words_in_a_string PRIVATE Boost::unit_test_framework)
+#add_executable(reverse_words_in_a_string "tst/reverse_words_in_a_string.cc" src/leetcode/reverse_words_in_a_string.cc)
+#target_include_directories(reverse_words_in_a_string PRIVATE Boost::unit_test_framework)
 
-add_executable(most_stones_removed_with_same_row_or_column "tst/most_stones_removed_with_same_row_or_column.cc" src/leetcode/most_stones_removed_with_same_row_or_column.cc)
-target_include_directories(most_stones_removed_with_same_row_or_column PRIVATE Boost::unit_test_framework)
+#add_executable(most_stones_removed_with_same_row_or_column "tst/most_stones_removed_with_same_row_or_column.cc" src/leetcode/most_stones_removed_with_same_row_or_column.cc)
+#target_include_directories(most_stones_removed_with_same_row_or_column PRIVATE Boost::unit_test_framework)
 
-add_executable(count_complete_tree_nodes "tst/count_complete_tree_nodes.cc" src/leetcode/count_complete_tree_nodes.cc)
-target_include_directories(count_complete_tree_nodes PRIVATE Boost::unit_test_framework)
+#add_executable(count_complete_tree_nodes "tst/count_complete_tree_nodes.cc" src/leetcode/count_complete_tree_nodes.cc)
+#target_include_directories(count_complete_tree_nodes PRIVATE Boost::unit_test_framework)
 
-add_executable(guess_number_higher_or_lower "tst/guess_number_higher_or_lower.cc" src/leetcode/guess_number_higher_or_lower.cc)
-target_include_directories(guess_number_higher_or_lower PRIVATE Boost::unit_test_framework)
+#add_executable(guess_number_higher_or_lower "tst/guess_number_higher_or_lower.cc" src/leetcode/guess_number_higher_or_lower.cc)
+#target_include_directories(guess_number_higher_or_lower PRIVATE Boost::unit_test_framework)
 
-add_executable(rectangle_area "tst/rectangle_area.cc" src/leetcode/rectangle_area.cc)
-target_include_directories(rectangle_area PRIVATE Boost::unit_test_framework)
+#add_executable(rectangle_area "tst/rectangle_area.cc" src/leetcode/rectangle_area.cc)
+#target_include_directories(rectangle_area PRIVATE Boost::unit_test_framework)
 
-add_executable(ugly_number "tst/ugly_number.cc" src/leetcode/ugly_number.cc)
-target_include_directories(ugly_number PRIVATE Boost::unit_test_framework)
+#add_executable(ugly_number "tst/ugly_number.cc" src/leetcode/ugly_number.cc)
+#target_include_directories(ugly_number PRIVATE Boost::unit_test_framework)
 
-add_executable(erect_the_fence "tst/erect_the_fence.cc" src/leetcode/erect_the_fence.cc)
-target_include_directories(erect_the_fence PRIVATE Boost::unit_test_framework)
+#add_executable(erect_the_fence "tst/erect_the_fence.cc" src/leetcode/erect_the_fence.cc)
+#target_include_directories(erect_the_fence PRIVATE Boost::unit_test_framework)
 
-add_executable(basic_calculator "tst/basic_calculator.cc" src/leetcode/basic_calculator.cc)
-target_include_directories(basic_calculator PRIVATE Boost::unit_test_framework)
+#add_executable(basic_calculator "tst/basic_calculator.cc" src/leetcode/basic_calculator.cc)
+#target_include_directories(basic_calculator PRIVATE Boost::unit_test_framework)
 
-add_executable(nearest_exit_from_entrance_in_maze "tst/nearest_exit_from_entrance_in_maze.cc" src/leetcode/nearest_exit_from_entrance_in_maze.cc)
-target_include_directories(nearest_exit_from_entrance_in_maze PRIVATE Boost::unit_test_framework)
+#add_executable(nearest_exit_from_entrance_in_maze "tst/nearest_exit_from_entrance_in_maze.cc" src/leetcode/nearest_exit_from_entrance_in_maze.cc)
+#target_include_directories(nearest_exit_from_entrance_in_maze PRIVATE Boost::unit_test_framework)
 
-add_executable(perfect_squares "tst/perfect_squares.cc" src/leetcode/perfect_squares.cc)
-target_include_directories(perfect_squares PRIVATE Boost::unit_test_framework)
+#add_executable(perfect_squares "tst/perfect_squares.cc" src/leetcode/perfect_squares.cc)
+#target_include_directories(perfect_squares PRIVATE Boost::unit_test_framework)
 
-add_executable(valid_sudoku "tst/valid_sudoku.cc" src/leetcode/valid_sudoku.cc)
-target_include_directories(valid_sudoku PRIVATE Boost::unit_test_framework)
+#add_executable(valid_sudoku "tst/valid_sudoku.cc" src/leetcode/valid_sudoku.cc)
+#target_include_directories(valid_sudoku PRIVATE Boost::unit_test_framework)
 
-add_executable(word_search "tst/word_search.cc" src/leetcode/word_search.cc)
-target_include_directories(word_search PRIVATE Boost::unit_test_framework)
+#add_executable(word_search "tst/word_search.cc" src/leetcode/word_search.cc)
+#target_include_directories(word_search PRIVATE Boost::unit_test_framework)
+
+add_executable(sum_of_subarray_minimums "tst/sum_of_subarray_minimums.cc" src/leetcode/sum_of_subarray_minimums.cc)
+target_include_directories(sum_of_subarray_minimums PRIVATE Boost::unit_test_framework)
 
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
