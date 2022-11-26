@@ -164,8 +164,11 @@ target_link_libraries(CppSamples)
 #add_executable(word_search "tst/word_search.cc" src/leetcode/word_search.cc)
 #target_include_directories(word_search PRIVATE Boost::unit_test_framework)
 
-add_executable(sum_of_subarray_minimums "tst/sum_of_subarray_minimums.cc" src/leetcode/sum_of_subarray_minimums.cc)
-target_include_directories(sum_of_subarray_minimums PRIVATE Boost::unit_test_framework)
+#add_executable(sum_of_subarray_minimums "tst/sum_of_subarray_minimums.cc" src/leetcode/sum_of_subarray_minimums.cc)
+#target_include_directories(sum_of_subarray_minimums PRIVATE Boost::unit_test_framework)
+
+add_executable(maximum_profit_in_job_scheduling "tst/maximum_profit_in_job_scheduling.cc" src/leetcode/maximum_profit_in_job_scheduling.cc)
+target_include_directories(maximum_profit_in_job_scheduling PRIVATE Boost::unit_test_framework)
 
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
