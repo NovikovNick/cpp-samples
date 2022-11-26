@@ -41,6 +41,11 @@ std::string toString(const int prv, const int mid, const int nxt,
 4. heap for max/min element for O(1)
 */
 int main() {
+  int l = 0;
+  int h = 1;
+
+  debug("(h - l) / 2 = {}\n", static_cast<int>(0.9));
+
   std::vector<int> arr{2, 4, 8, 5, 7, 1, 0, 6, 3};
 
   std::cout << "Monotonic stack for input: " << std::endl;
@@ -61,7 +66,7 @@ int main() {
     }
     stack.push(i);
     if (i != n)
-      debug("+[{:2d}] ={:3d}.                                     stack:{}\n", i,
-            arr[i], toString(arr, stack));
+      debug("+[{:2d}] ={:3d}.                                     stack:{}\n",
+            i, arr[i], toString(arr, stack));
   }
 }

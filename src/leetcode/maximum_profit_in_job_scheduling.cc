@@ -17,6 +17,16 @@ namespace leetcode {
 
 using namespace std;
 
+struct Job {
+  int start, end, profit;
+  Job(const int start, const int end, const int profit)
+      : start(start), end(end), profit(profit) {}
+
+  static bool compareByEndAsc(const Job& a, const Job& b) {
+    return a.end < b.end;
+  }
+};
+
 class Solution {
  public:
   Solution() {
@@ -28,34 +38,42 @@ class Solution {
     clog.tie(nullptr);
     wclog.tie(nullptr);
   }
+  int lowerBoundBinarySearch(const std::vector<Job>& jobs, const int val,
+                             int low, int high) {
+    int res = -1;
+    while (low <= high) {
+      int mid = low + (high - low) / 2;
+      if (jobs[mid].end <= val) {
+        res = mid;
+        low = mid + 1;
+      } else {
+        high = mid - 1;
+      }
+    }
+    return res;
+  }
+
   int jobScheduling(vector<int>& startTime, vector<int>& endTime,
                     vector<int>& profit) {
     int n = profit.size();
 
-    std::vector<int> ordered_indexes(n);
-    std::iota(ordered_indexes.begin(), ordered_indexes.end(), 0);
-    std::sort(ordered_indexes.begin(), ordered_indexes.end(),
-              [startTime](const int& a, const int& b) {
-                return startTime[a] < startTime[b];
-              });
-    std::vector<int> dp(n);
-    dp[0] = profit[ordered_indexes[0]];
-    int res = dp[0];
+    std::vector<Job> jobs;
+    for (int i = 0; i < n; ++i)
+      jobs.emplace_back(startTime[i], endTime[i], profit[i]);
+
+    std::sort(jobs.begin(), jobs.end(), Job::compareByEndAsc);
+
+    std::vector<int> dp(n, 0);
+    dp[0] = jobs[0].profit;
     for (int i = 1; i < n; ++i) {
-      int curr = ordered_indexes[i];
-      int curr_start_time = startTime[curr];
-      dp[i] = profit[curr];
-      for (int j = i - 1; j >= 0; --j) {
-        int prev = ordered_indexes[j];
-        int prev_end_time = endTime[prev];
-        if (prev_end_time <= curr_start_time) {
-          dp[i] = std::max(dp[i], profit[curr] + dp[j]);
-        }
-      }
-      res = std::max(dp[i], res);
+      int start = jobs[i].start;
+      // find end time less or equal then start time;
+      int prev = lowerBoundBinarySearch(jobs, start, 0, i - 1);
+      int profit = prev == -1 ? jobs[i].profit : jobs[i].profit + dp[prev];
+      dp[i] = std::max(dp[i - 1], profit);
     }
 
-    return res;
+    return dp[n - 1];
   }
 };
 }  // namespace leetcode
