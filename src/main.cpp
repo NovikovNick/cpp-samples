@@ -34,18 +34,28 @@ std::string toString(const int prv, const int mid, const int nxt,
   if (nxt == arr.size()) res += "|";
   return res;
 }
+
+void monotonicStack();
+
+int binarySearch(std::vector<int>& arr, int low, int high, int val);
+
 /*
 1. backtracking: dfs and bfs
 2. dp or update input array to avoid redundant calculation
-3. monotonic stack
+3. monotonic stack. Track min/max elements
 4. heap for max/min element for O(1)
+5. binary search. Lower bound. Upper bound.
+6. Union find - Ranks? 
 */
 int main() {
-  int l = 0;
-  int h = 1;
 
-  debug("(h - l) / 2 = {}\n", static_cast<int>(0.9));
+  std::vector<int> arr{1, 2, 3, 5, 6};
+  int n = arr.size();
+  debug("index is {}\n", binarySearch(arr, 0, n - 1, 4));
+  // monotonicStack();
+}
 
+void monotonicStack() {
   std::vector<int> arr{2, 4, 8, 5, 7, 1, 0, 6, 3};
 
   std::cout << "Monotonic stack for input: " << std::endl;
@@ -70,3 +80,22 @@ int main() {
             i, arr[i], toString(arr, stack));
   }
 }
+
+int binarySearch(std::vector<int>& arr, int low, int high, int val) {
+  int res = -1;
+  debug(" low  mid high\n");
+  while (low <= high) {
+    int mid = low + (high - low) / 2;
+    debug("{:4d} {:4d} {:4d} ", low, mid, high);
+    if (arr[mid] >= val) {
+      debug(" left\n");
+      high = mid - 1;
+      res = mid; // upper bound
+    } else {
+      debug(" right\n");
+      low = mid + 1;
+      // lower bound res = mid;
+    }
+  }
+  return res;
+};
