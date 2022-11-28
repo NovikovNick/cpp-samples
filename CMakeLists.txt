@@ -170,5 +170,8 @@ target_link_libraries(CppSamples)
 #add_executable(maximum_profit_in_job_scheduling "tst/maximum_profit_in_job_scheduling.cc" src/leetcode/maximum_profit_in_job_scheduling.cc)
 #target_include_directories(maximum_profit_in_job_scheduling PRIVATE Boost::unit_test_framework)
 
+#add_executable(find_players_with_zero_or_one_losses "tst/find_players_with_zero_or_one_losses.cc" src/leetcode/find_players_with_zero_or_one_losses.cc)
+#target_include_directories(find_players_with_zero_or_one_losses PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
