@@ -173,5 +173,8 @@ target_link_libraries(CppSamples)
 #add_executable(find_players_with_zero_or_one_losses "tst/find_players_with_zero_or_one_losses.cc" src/leetcode/find_players_with_zero_or_one_losses.cc)
 #target_include_directories(find_players_with_zero_or_one_losses PRIVATE Boost::unit_test_framework)
 
+#add_executable(insert_delete_getrandom_o1 "tst/insert_delete_getrandom_o1.cc" src/leetcode/insert_delete_getrandom_o1.cc)
+#target_include_directories(insert_delete_getrandom_o1 PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
