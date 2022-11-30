@@ -176,5 +176,8 @@ target_link_libraries(CppSamples)
 #add_executable(insert_delete_getrandom_o1 "tst/insert_delete_getrandom_o1.cc" src/leetcode/insert_delete_getrandom_o1.cc)
 #target_include_directories(insert_delete_getrandom_o1 PRIVATE Boost::unit_test_framework)
 
+#add_executable(unique_number_of_occurrences "tst/unique_number_of_occurrences.cc" src/leetcode/unique_number_of_occurrences.cc)
+#target_include_directories(unique_number_of_occurrences PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
