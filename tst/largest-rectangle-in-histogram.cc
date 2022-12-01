@@ -1,10 +1,18 @@
 #define BOOST_TEST_MODULE SolutionTest
-
+#define CASE_1 1
+#define CASE_2 1
+#define CASE_3 1
+#define CASE_4 1
+#define CASE_5 1
+#define CASE_6 1
+#define CASE_7 1
+#define CASE_8 1
+#define DEBUG 0
 #include "../src/leetcode/largest-rectangle-in-histogram.cc"
 
 #include <boost/test/included/unit_test.hpp>
 #include <iostream>
-
+#if CASE_1
  BOOST_AUTO_TEST_CASE(case1) {
    // arrange
    leetcode::Solution solution;
@@ -14,7 +22,8 @@
    // assert
    BOOST_CHECK_EQUAL(10, res);
  }
-
+#endif  // !CASE_1
+#if CASE_2
  BOOST_AUTO_TEST_CASE(case2) {
    // arrange
    leetcode::Solution solution;
@@ -24,7 +33,9 @@
    // assert
    BOOST_CHECK_EQUAL(4, res);
  }
+#endif  // !CASE_2
 
+#if CASE_3
  BOOST_AUTO_TEST_CASE(case3) {
    // arrange
    leetcode::Solution solution;
@@ -34,7 +45,9 @@
    // assert
    BOOST_CHECK_EQUAL(4, res);
  }
+#endif  // !CASE_3
 
+#if CASE_4
  BOOST_AUTO_TEST_CASE(case4) {
    // arrange
    leetcode::Solution solution;
@@ -44,7 +57,9 @@
    // assert
    BOOST_CHECK_EQUAL(1, res);
  }
+#endif  // !CASE_4
 
+#if CASE_5
  BOOST_AUTO_TEST_CASE(case5) {
    // arrange
    leetcode::Solution solution;
@@ -54,7 +69,9 @@
    // assert
    BOOST_CHECK_EQUAL(8, res);
  }
+#endif  // !CASE_5
 
+#if CASE_6
  BOOST_AUTO_TEST_CASE(case6) {
    // arrange
    leetcode::Solution solution;
@@ -64,7 +81,9 @@
    // assert
    BOOST_CHECK_EQUAL(3, res);
  }
+#endif  // !CASE_6
 
+#if CASE_7
  BOOST_AUTO_TEST_CASE(case7) {
    // arrange
    leetcode::Solution solution;
@@ -74,8 +93,10 @@
    // assert
    BOOST_CHECK_EQUAL(20, res);
  }
+#endif  // !CASE_7
 
-BOOST_AUTO_TEST_CASE(case8) {
+#if CASE_8
+ BOOST_AUTO_TEST_CASE(case8) {
   // arrange
   leetcode::Solution solution;
   std::vector<int> heights = {
@@ -8418,5 +8439,6 @@ BOOST_AUTO_TEST_CASE(case8) {
   auto res = solution.largestRectangleArea(heights);
 
   // assert
-  BOOST_CHECK_EQUAL(20, res);
-}
+  BOOST_CHECK_EQUAL(250000000, res);
+ }
+#endif  // !CASE_8

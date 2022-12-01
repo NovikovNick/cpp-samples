@@ -1,60 +1,52 @@
-#include <algorithm>
-#include <iostream>
-#include <queue>
-#include <set>
-#include <unordered_map>
-#include <vector>
-
 #ifndef LEETCODE_LARGEST_RECTANGLE_IN_HISTOGRAM_H
 #define LEETCODE_LARGEST_RECTANGLE_IN_HISTOGRAM_H
+#include <algorithm>
+#include <format>
+#include <iostream>
+#include <stack>
+#include <vector>
+
+template <typename... Args>
+void debug(const std::string_view& str, Args&&... args) {
+#if DEBUG
+  std::cout << std::vformat(str, std::make_format_args(args...));
+#endif
+}
 
 namespace leetcode {
 
 using namespace std;
 
-struct my_pair {
-  int key;
-  mutable int val;
-};
-
 class Solution {
  public:
+  Solution() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    wcin.tie(nullptr);
+    cerr.tie(nullptr);
+    wcerr.tie(nullptr);
+    clog.tie(nullptr);
+    wclog.tie(nullptr);
+  }
   int largestRectangleArea(vector<int>& heights) {
-    int maxArea = 0;
-    auto comp = [](my_pair p1, my_pair p2) -> bool { return p1.key < p2.key; };
-    std::set<my_pair, decltype(comp)> set(comp);
+    int max_area = 0, n = heights.size();
 
-    for (auto height : heights) {
-      auto [pos, added] = set.insert({height, 0});
-      // std::cout << "1. curr: " << pos->key << ":" << pos->val << std::endl;
-      auto bound = std::next(pos);
-      
-      if (added && bound != set.end()) {
-        // std::cout << "2. added prevs: " << bound->key << ":" << bound->val << std::endl;
-        pos->val += bound->val;
-      }
+    std::stack<int> stack;  // monotonic asc stack
+    stack.push(heights[0]);
 
-      while (bound != set.end()) {
-        // std::cout << "3. remove prevs: " << bound->key << "-" << bound->val << std::endl;
-        auto next = std::next(bound);
-        set.erase(bound);
-        bound = next;
+    for (int i = 1; i <= n; ++i) {
+      auto height = i == n ? 0 : heights[i];
+      int count = 1;
+      // debug("{}. height = {}, max = {}\n", i, height, max_area);
+      while (!stack.empty() && height < stack.top()) {
+        max_area = std::max(max_area, stack.top() * count);
+        // debug(" ====> top = {}, max = {}\n", stack.top(), max_area);
+        stack.pop();
+        ++count;
       }
-
-      //std::cout << "added and calculate { ";
-      for (auto it = std::make_reverse_iterator(bound),
-                last = std::make_reverse_iterator(set.begin());
-           it != last; ++it) {
-        it->val++;
-        maxArea = std::max(maxArea, it->val * it->key);
-        //std::cout << it->key << "(" << it->val << ") ";
-      }
-      //std::cout << "}\n";
-      //std::cout << " total = " << maxArea << std::endl;
+      while (count-- > 0) stack.push(height);
     }
-
-    //std::cout << " ================================================= " << maxArea << std::endl;
-    return maxArea;
+    return max_area;
   }
 };
 }  // namespace leetcode
