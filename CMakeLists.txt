@@ -179,5 +179,8 @@ target_link_libraries(CppSamples)
 #add_executable(unique_number_of_occurrences "tst/unique_number_of_occurrences.cc" src/leetcode/unique_number_of_occurrences.cc)
 #target_include_directories(unique_number_of_occurrences PRIVATE Boost::unit_test_framework)
 
+#add_executable(determine_if_two_strings_are_close "tst/determine_if_two_strings_are_close.cc" src/leetcode/determine_if_two_strings_are_close.cc)
+#target_include_directories(determine_if_two_strings_are_close PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
