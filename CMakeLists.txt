@@ -182,5 +182,8 @@ target_link_libraries(CppSamples)
 #add_executable(determine_if_two_strings_are_close "tst/determine_if_two_strings_are_close.cc" src/leetcode/determine_if_two_strings_are_close.cc)
 #target_include_directories(determine_if_two_strings_are_close PRIVATE Boost::unit_test_framework)
 
+#add_executable(sort_characters_by_frequency "tst/sort_characters_by_frequency.cc" src/leetcode/sort_characters_by_frequency.cc)
+#target_include_directories(sort_characters_by_frequency PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
