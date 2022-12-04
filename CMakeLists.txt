@@ -15,10 +15,14 @@ add_subdirectory("src")
 
 include_directories(${Boost_INCLUDE_DIRS})
 
-file(GLOB CPP_SAMPLES_UTIL  "src/util/*.h" "src/util/*.cc")
-    
-add_executable(CppSamples src/main.cpp)
-target_link_libraries(CppSamples)
+file(GLOB CPP_SAMPLES_UTIL "src/util/*.h" "src/util/*.cc")
+file(GLOB SOCKET "src/socket/**/*.h" "src/socket/**/*.cc")
+
+
+add_executable(main src/main.cpp ${SOCKET})
+if(WIN32)
+  target_link_libraries(main wsock32 ws2_32)
+endif()
 
 #add_executable(redistribute_characters_to_make_all_strings_equal "tst/redistribute_characters_to_make_all_strings_equal.cc" src/leetcode/redistribute_characters_to_make_all_strings_equal.cc)
 #target_include_directories(redistribute_characters_to_make_all_strings_equal PRIVATE Boost::unit_test_framework)

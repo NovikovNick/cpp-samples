@@ -5,12 +5,9 @@
 #include <stack>
 #include <vector>
 
-template <typename... Args>
-void debug(const std::string_view& str, Args&&... args) {
-#if DEBUG
-  std::cout << std::vformat(str, std::make_format_args(args...));
-#endif
-}
+#include "socket/socket.cc"
+#include "util/log.h"
+
 std::string toString(const std::vector<int>& arr, std::stack<int> stack) {
   std::string res;
   while (!stack.empty()) {
@@ -45,13 +42,12 @@ int binarySearch(std::vector<int>& arr, int low, int high, int val);
 3. monotonic stack. Track min/max elements
 4. heap for max/min element for O(1)
 5. binary search. Lower bound. Upper bound.
-6. Union find - Ranks? 
+6. Union find - Ranks?
 */
 int main() {
+  socket_sample::foo();
 
-  std::vector<int> arr{1, 2, 3, 5, 6};
-  int n = arr.size();
-  debug("index is {}\n", binarySearch(arr, 0, n - 1, 4));
+  // debug("index is {}\n", binarySearch(arr, 0, n - 1, 4));
   // monotonicStack();
 }
 
@@ -71,28 +67,29 @@ void monotonicStack() {
       stack.pop();
       int nxt = i;
       int prv = stack.empty() ? -1 : stack.top();
-      debug("-[{:2d}] ={:3d}. {}      stack:{}\n", mid, arr[mid],
-            toString(prv, mid, nxt, arr), toString(arr, stack));
+      util::debug("-[{:2d}] ={:3d}. {}      stack:{}\n", mid, arr[mid],
+                  toString(prv, mid, nxt, arr), toString(arr, stack));
     }
     stack.push(i);
     if (i != n)
-      debug("+[{:2d}] ={:3d}.                                     stack:{}\n",
-            i, arr[i], toString(arr, stack));
+      util::debug(
+          "+[{:2d}] ={:3d}.                                     stack:{}\n", i,
+          arr[i], toString(arr, stack));
   }
 }
 
 int binarySearch(std::vector<int>& arr, int low, int high, int val) {
   int res = -1;
-  debug(" low  mid high\n");
+  util::debug(" low  mid high\n");
   while (low <= high) {
     int mid = low + (high - low) / 2;
-    debug("{:4d} {:4d} {:4d} ", low, mid, high);
+    util::debug("{:4d} {:4d} {:4d} ", low, mid, high);
     if (arr[mid] >= val) {
-      debug(" left\n");
+      util::debug(" left\n");
       high = mid - 1;
-      res = mid; // upper bound
+      res = mid;  // upper bound
     } else {
-      debug(" right\n");
+      util::debug(" right\n");
       low = mid + 1;
       // lower bound res = mid;
     }
