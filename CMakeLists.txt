@@ -198,5 +198,8 @@ endif()
 #add_executable(odd_even_linked_list "tst/odd_even_linked_list.cc" src/leetcode/odd_even_linked_list.cc)
 #target_include_directories(odd_even_linked_list PRIVATE Boost::unit_test_framework)
 
+add_executable(range_sum_of_bst "tst/range_sum_of_bst.cc" src/leetcode/range_sum_of_bst.cc)
+target_include_directories(range_sum_of_bst PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
