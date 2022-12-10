@@ -204,8 +204,11 @@ endif()
 #add_executable(leaf_similar_trees "tst/leaf_similar_trees.cc" src/leetcode/leaf_similar_trees.cc)
 #target_include_directories(leaf_similar_trees PRIVATE Boost::unit_test_framework)
 
-add_executable(maximum_difference_between_node_and_ancestor "tst/maximum_difference_between_node_and_ancestor.cc" src/leetcode/maximum_difference_between_node_and_ancestor.cc)
-target_include_directories(maximum_difference_between_node_and_ancestor PRIVATE Boost::unit_test_framework)
+#add_executable(maximum_difference_between_node_and_ancestor "tst/maximum_difference_between_node_and_ancestor.cc" src/leetcode/maximum_difference_between_node_and_ancestor.cc)
+#target_include_directories(maximum_difference_between_node_and_ancestor PRIVATE Boost::unit_test_framework)
+
+add_executable(maximum_product_of_splitted_binary_tree "tst/maximum_product_of_splitted_binary_tree.cc" src/leetcode/maximum_product_of_splitted_binary_tree.cc)
+target_include_directories(maximum_product_of_splitted_binary_tree PRIVATE Boost::unit_test_framework)
 
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
