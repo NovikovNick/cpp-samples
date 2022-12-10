@@ -5,8 +5,8 @@
 #include <stack>
 #include <vector>
 
-#include "socket/tcp_client.cc"
-#include "socket/tcp_server.cc"
+#include "socket/udp_client.cc"
+#include "socket/udp_server.cc"
 #include "util/log.h"
 
 /*
@@ -18,11 +18,30 @@
 6. Union find - Ranks?
 */
 int main(int argc, char* argv[]) {
-  try {
+  /*try {
+
     if (argc < 3) {
       tcp::server(argv[1]);
     } else {
       tcp::client(argv[1], argv[2]);
+    }
+
+  } catch (std::runtime_error const& e) {
+    util::debug("Runtime err: {}\n", e.what());
+  } catch (...) {
+    util::debug("Unexpected error\n");
+  }*/
+
+  try {
+
+    if (argc == 1) {
+      udp::UdpClient udp(9999);
+      udp.send("Does it work?");
+    } else {
+      std::string arg1 = argv[1];
+      if (arg1 == "s") {
+        udp::server(argv[1]);
+      }
     }
 
   } catch (std::runtime_error const& e) {

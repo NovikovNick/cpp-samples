@@ -11,9 +11,11 @@ void client(char* host, char* port) {
   int recvbuflen = 512;
   const char* sendbuf = "Does it works?";
   char recvbuf[512];
-  int iResult;
 
   WSADATA ws;
+  int iResult;
+  SOCKET ConnectSocket = INVALID_SOCKET;
+
   if (FAILED(WSAStartup(MAKEWORD(2, 2), &ws))) {
     int res = 1;
     res = WSAGetLastError();
@@ -38,7 +40,6 @@ void client(char* host, char* port) {
   }
 
   // Attempt to connect to an address until one succeeds
-  SOCKET ConnectSocket = INVALID_SOCKET;
   for (ptr = result; ptr != NULL; ptr = ptr->ai_next) {
     ConnectSocket = socket(ptr->ai_family, ptr->ai_socktype, ptr->ai_protocol);
     if (ConnectSocket == INVALID_SOCKET) {
