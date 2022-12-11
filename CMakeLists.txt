@@ -210,5 +210,8 @@ endif()
 #add_executable(maximum_product_of_splitted_binary_tree "tst/maximum_product_of_splitted_binary_tree.cc" src/leetcode/maximum_product_of_splitted_binary_tree.cc)
 #target_include_directories(maximum_product_of_splitted_binary_tree PRIVATE Boost::unit_test_framework)
 
+add_executable(binary_tree_maximum_path_sum "tst/binary_tree_maximum_path_sum.cc" src/leetcode/binary_tree_maximum_path_sum.cc)
+target_include_directories(binary_tree_maximum_path_sum PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
