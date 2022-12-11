@@ -5,6 +5,7 @@
 #include <stack>
 #include <vector>
 
+#include "ggpo_samples.cc"
 #include "socket/udp_client.cc"
 #include "socket/udp_server.cc"
 #include "util/log.h"
@@ -17,22 +18,16 @@
 5. binary search. Lower bound. Upper bound.
 6. Union find - Ranks?
 */
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
+  ggpo::GameAPI api;
+
+  ggpo::Callbacks cb{0};
+  cb.save_game_state = ggpo::saveGameState;
+  cb.load_game_state = ggpo::loadGameState;
+
+  ggpo::Launcher(cb).start();
+
   /*try {
-
-    if (argc < 3) {
-      tcp::server(argv[1]);
-    } else {
-      tcp::client(argv[1], argv[2]);
-    }
-
-  } catch (std::runtime_error const& e) {
-    util::debug("Runtime err: {}\n", e.what());
-  } catch (...) {
-    util::debug("Unexpected error\n");
-  }*/
-
-  try {
 
     if (argc == 1) {
       udp::UdpClient udp(9999);
@@ -48,5 +43,6 @@ int main(int argc, char* argv[]) {
     util::debug("Runtime err: {}\n", e.what());
   } catch (...) {
     util::debug("Unexpected error\n");
-  }
+  }*/
+  return 0;
 }
