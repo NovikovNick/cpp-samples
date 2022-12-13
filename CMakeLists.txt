@@ -219,5 +219,8 @@ endif()
 #add_executable(minimum_falling_path_sum "tst/minimum_falling_path_sum.cc" src/leetcode/minimum_falling_path_sum.cc)
 #target_include_directories(minimum_falling_path_sum PRIVATE Boost::unit_test_framework)
 
+#add_executable(surrounded_regions "tst/surrounded_regions.cc" src/leetcode/surrounded_regions.cc)
+#target_include_directories(surrounded_regions PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
