@@ -222,8 +222,11 @@ endif()
 #add_executable(surrounded_regions "tst/surrounded_regions.cc" src/leetcode/surrounded_regions.cc)
 #target_include_directories(surrounded_regions PRIVATE Boost::unit_test_framework)
 
-add_executable(house_robber "tst/house_robber.cc" src/leetcode/house_robber.cc)
-target_include_directories(house_robber PRIVATE Boost::unit_test_framework)
+#add_executable(house_robber "tst/house_robber.cc" src/leetcode/house_robber.cc)
+#target_include_directories(house_robber PRIVATE Boost::unit_test_framework)
+
+add_executable(longest_common_subsequence "tst/longest_common_subsequence.cc" src/leetcode/longest_common_subsequence.cc)
+target_include_directories(longest_common_subsequence PRIVATE Boost::unit_test_framework)
 
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
