@@ -228,8 +228,11 @@ endif()
 add_executable(longest_common_subsequence "tst/longest_common_subsequence.cc" src/leetcode/longest_common_subsequence.cc)
 target_include_directories(longest_common_subsequence PRIVATE Boost::unit_test_framework)
 
-add_executable(implement_queue_using_stacks "tst/implement_queue_using_stacks.cc" src/leetcode/implement_queue_using_stacks.cc)
-target_include_directories(implement_queue_using_stacks PRIVATE Boost::unit_test_framework)
+#add_executable(implement_queue_using_stacks "tst/implement_queue_using_stacks.cc" src/leetcode/implement_queue_using_stacks.cc)
+#target_include_directories(implement_queue_using_stacks PRIVATE Boost::unit_test_framework)
+
+add_executable(evaluate_reverse_polish_notation "tst/evaluate_reverse_polish_notation.cc" src/leetcode/evaluate_reverse_polish_notation.cc)
+target_include_directories(evaluate_reverse_polish_notation PRIVATE Boost::unit_test_framework)
 
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
