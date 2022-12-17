@@ -234,5 +234,8 @@ target_include_directories(longest_common_subsequence PRIVATE Boost::unit_test_f
 #add_executable(evaluate_reverse_polish_notation "tst/evaluate_reverse_polish_notation.cc" src/leetcode/evaluate_reverse_polish_notation.cc)
 #target_include_directories(evaluate_reverse_polish_notation PRIVATE Boost::unit_test_framework)
 
+#add_executable(longest_palindromic_subsequence "tst/longest_palindromic_subsequence.cc" src/leetcode/aaa_empty.cc)
+#target_include_directories(longest_palindromic_subsequence PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)

@@ -17,6 +17,7 @@
 4. heap for max/min element for O(1)
 5. binary search. Lower bound. Upper bound.
 6. Union find - Ranks?
+7. DP for finding common subsequence. Try to find DP formula in math notation
 */
 int main(int argc, char *argv[]) {
   ggpo::GameAPI api;
