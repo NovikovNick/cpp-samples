@@ -237,8 +237,11 @@ target_include_directories(longest_common_subsequence PRIVATE Boost::unit_test_f
 #add_executable(longest_palindromic_subsequence "tst/longest_palindromic_subsequence.cc" src/leetcode/aaa_empty.cc)
 #target_include_directories(longest_palindromic_subsequence PRIVATE Boost::unit_test_framework)
 
-add_executable(evaluate_the_bracket_pairs_of_a_string "tst/evaluate_the_bracket_pairs_of_a_string.cc" src/leetcode/evaluate_the_bracket_pairs_of_a_string.cc)
-target_include_directories(evaluate_the_bracket_pairs_of_a_string PRIVATE Boost::unit_test_framework)
+#add_executable(evaluate_the_bracket_pairs_of_a_string "tst/evaluate_the_bracket_pairs_of_a_string.cc" src/leetcode/evaluate_the_bracket_pairs_of_a_string.cc)
+#target_include_directories(evaluate_the_bracket_pairs_of_a_string PRIVATE Boost::unit_test_framework)
+
+#add_executable(delete_and_earn "tst/delete_and_earn.cc" src/leetcode/delete_and_earn.cc)
+#target_include_directories(delete_and_earn PRIVATE Boost::unit_test_framework)
 
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
