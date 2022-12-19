@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <format>
 #include <iostream>
+#include <numeric>
 #include <stack>
 #include <vector>
 
@@ -17,6 +18,35 @@ namespace leetcode {
 
 using namespace std;
 
+struct UnionFind {
+  std::vector<int> parents;
+  std::vector<int> ranks;
+  UnionFind(const int n)
+      : parents(std::vector<int>(n)), ranks(std::vector<int>(n, 1)) {
+    std::iota(parents.begin(), parents.end(), 0);
+  };
+
+  int find(int i) {
+    int res = parents[i];
+    while (i != res) res = parents[i = res];
+    return res;
+  }
+
+  void connect(const int a, const int b) {
+    int a_group = find(a);
+    int b_group = find(b);
+
+    if (ranks[a_group] > ranks[b_group]) {
+      parents[b_group] = a_group;
+      ranks[a_group] += ranks[b_group];
+      ranks[b_group] = 0;
+    } else {
+      parents[a_group] = b_group;
+      ranks[b_group] += ranks[a_group];
+      ranks[a_group] = 0;
+    }
+  }
+};
 class Solution {
  public:
   Solution() {
@@ -29,26 +59,9 @@ class Solution {
     wclog.tie(nullptr);
   }
   bool validPath(int n, vector<vector<int>>& edges, int src, int dst) {
-    // init
-    std::vector<std::vector<int>> nodes(n);
-    for (const auto& edge : edges) {
-      nodes[edge[0]].push_back(edge[1]);
-      nodes[edge[1]].push_back(edge[0]);
-    }
-
-    // dfs
-    std::stack<int> dfs;
-    dfs.push(src);
-    while (!dfs.empty()) {
-      auto node = dfs.top();
-      dfs.pop();
-
-      if (node == dst) return true;
-
-      for (const auto& adjacent : nodes[node]) dfs.push(adjacent);
-      nodes[node].clear();
-    }
-    return false;
+    UnionFind uf(n);
+    for (const auto& edge : edges) uf.connect(edge[0], edge[1]);
+    return uf.find(src) == uf.find(dst);
   }
 };
 }  // namespace leetcode
