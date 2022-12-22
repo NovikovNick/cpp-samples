@@ -17,36 +17,50 @@ namespace leetcode {
 using namespace std;
 
 class Solution {
+  std::vector<int> res;
+  std::vector<int> count;
+  std::vector<std::vector<int>> adj;
+  int N;
+
  public:
   vector<int> sumOfDistancesInTree(int n, vector<vector<int>>& edges) {
-    std::vector<std::vector<int>> adj(n);
+    N = n;
+    res = std::vector<int>(N);
+    count = std::vector<int>(N, 1);
+    adj = std::vector<std::vector<int>>(N);
+
     for (const auto& edge : edges) {
       adj[edge[0]].push_back(edge[1]);
       adj[edge[1]].push_back(edge[0]);
     }
 
-    std::vector<int> res(n);
-    for (int i = 0; i < n; ++i) {
-      std::vector<bool> seen(n, false);
-      seen[i] = true;
-      res[i] = dfs(i, adj, seen, 0);
-    }
+    dfs(0, -1);
+    dfs2(0, -1);
 
+    for (const auto& it : count) debug("{}, ", it);
+    debug("\n");
     for (const auto& it : res) debug("{}, ", it);
     debug("\n");
     return res;
   }
 
-  int dfs(const int i, const std::vector<std::vector<int>>& adj,
-          std::vector<bool>& seen, const int level) {
-    int res = 0;
-    for (const auto& neighbor : adj[i]) {
-      if (!seen[neighbor]) {
-        seen[neighbor] = true;
-        res += dfs(neighbor, adj, seen, level + 1);
+  void dfs(const int node, const int parent) {
+    for (const auto& child : adj[node]) {
+      if (child != parent) {
+        dfs(child, node);
+        count[node] += count[child];
+        res[node] += res[child] + count[child];
       }
     }
-    return level + res;
+  }
+
+  void dfs2(const int node, const int parent) {
+    for (const auto& child : adj[node]) {
+      if (child != parent) {
+        res[child] = res[node] - count[child] + N - count[child];
+        dfs2(child, node);
+      }
+    }
   }
 };
 }  // namespace leetcode
