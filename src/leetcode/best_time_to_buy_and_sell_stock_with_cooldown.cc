@@ -16,51 +16,28 @@ namespace leetcode {
 
 using namespace std;
 
-struct State {
-  int profit, stock, waiting_days;
-
-  State(const int profit, const int stock, const int waiting_days)
-      : profit(profit), stock(stock), waiting_days(waiting_days) {}
-
-  State buy(const int price) { return State(profit, price, waiting_days); };
-
-  State sell(const int price) {
-    return State(profit + (price - stock), -1, 0);
-  };
-
-  State cooldown() { return State(profit, stock, waiting_days + 1); };
-
-  bool can_buy() { return stock < 0 && waiting_days > 0; }
-  bool can_sell() { return stock >= 0; }
-};
 class Solution {
-  std::vector<int> dp;
-  int n, profit;
-
  public:
   int maxProfit(vector<int>& prices) {
-    n = prices.size();
-    dp = std::vector<int>(n);
-    profit = 0;
+    int n = prices.size();
+    std::vector<int> dp(n + 2);
+    print(dp);
 
-    dfs(State(0, -1, 1), 0, prices);
-    return profit;
-  }
-
-  void dfs(State state, const int day, std::vector<int>& prices) {
-    if (day >= n) return;
-
-    debug("Day {}. Profit = {}, stock = {}\n", day, state.profit, state.stock);
-    if (state.can_buy()) dfs(state.buy(prices[day]), day + 1, prices);
-    if (state.can_sell()) {
-      auto new_state = state.sell(prices[day]);
-      if (dp[day] < new_state.profit) {
-        dp[day] = new_state.profit;
-        dfs(new_state, day + 1, prices);
-        profit = std::max(profit, new_state.profit);
+    for (int i = 2; i < dp.size(); ++i) {
+      for (int j = i + 1; j < dp.size(); ++j) {
+        dp[j] = std::max(
+            dp[j - 1],
+            std::max(dp[i - 2] + prices[j - 2] - prices[i - 2], dp[j]));
       }
+      print(dp);
     }
-    dfs(state.cooldown(), day + 1, prices);
+
+    return dp[n + 1];
+  }
+   
+  void print(const std::vector<int>& dp) {
+    for (const auto& it : dp) debug("{} ", it);
+    debug("\n");
   }
 };
 }  // namespace leetcode

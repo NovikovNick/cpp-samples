@@ -90,7 +90,7 @@ BOOST_AUTO_TEST_CASE(case1) {
 BOOST_AUTO_TEST_CASE(case2) {
   // arrange
   leetcode::Solution solution;
-  std::vector<int> prices{1, 2, 3, 0, 2};
+  std::vector<int> prices{6, 1, 3, 2, 4, 7};
 
   // act
   auto res = solution.maxProfit(prices);
