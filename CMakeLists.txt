@@ -261,5 +261,8 @@ target_include_directories(sum_of_distances_in_tree PRIVATE Boost::unit_test_fra
 add_executable(best_time_to_buy_and_sell_stock_with_cooldown "tst/best_time_to_buy_and_sell_stock_with_cooldown.cc" src/leetcode/best_time_to_buy_and_sell_stock_with_cooldown.cc)
 target_include_directories(best_time_to_buy_and_sell_stock_with_cooldown PRIVATE Boost::unit_test_framework)
 
+#add_executable(domino_and_tromino_tiling "tst/domino_and_tromino_tiling.cc" src/leetcode/domino_and_tromino_tiling.cc)
+#target_include_directories(domino_and_tromino_tiling PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
