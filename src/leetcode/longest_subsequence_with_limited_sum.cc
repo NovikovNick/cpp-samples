@@ -27,16 +27,17 @@ class Solution {
     wcerr.tie(nullptr);
     clog.tie(nullptr);
     wclog.tie(nullptr);
-  }  
+  }
   vector<int> answerQueries(vector<int>& nums, vector<int>& queries) {
     int n = nums.size(), m = queries.size();
-    std::vector<int> res(m);
+    std::vector<uint64_t> res(m);
     std::sort(nums.begin(), nums.end());
+    for (int i = 1; i < n; ++i) nums[i] += nums[i - 1];
+
     for (int q = 0, query = 0; q < m; ++q) {
-      query = queries[q];
-      queries[q] = 0;
-      for (int sum = 0, j = 0; j < n; ++j)
-        if ((sum += nums[j]) <= query) ++queries[q];
+     queries[q] = std::distance(
+         nums.cbegin(),
+         std::upper_bound(nums.cbegin(), nums.cend(), queries[q]));
     }
     return queries;
   }

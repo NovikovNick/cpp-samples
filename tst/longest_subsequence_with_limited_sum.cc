@@ -1,5 +1,5 @@
 #define BOOST_TEST_MODULE SolutionTest
-#define CASE_2 0
+#define CASE_2 1
 #define CASE_1 1
 #define DEBUG 1
 
