@@ -270,5 +270,8 @@ target_include_directories(best_time_to_buy_and_sell_stock_with_cooldown PRIVATE
 #add_executable(jump_game "tst/jump_game.cc" src/leetcode/jump_game.cc)
 #target_include_directories(jump_game PRIVATE Boost::unit_test_framework)
 
+add_executable(maximum_bags_with_full_capacity_of_rocks "tst/maximum_bags_with_full_capacity_of_rocks.cc" src/leetcode/maximum_bags_with_full_capacity_of_rocks.cc)
+target_include_directories(maximum_bags_with_full_capacity_of_rocks PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
