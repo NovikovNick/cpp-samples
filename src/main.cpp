@@ -18,6 +18,9 @@
 5. binary search. Lower bound. Upper bound.
 6. Union find - Ranks?
 7. DP for finding common subsequence. Try to find DP formula in math notation
+
+8. don't forget to use priority_queue<int> heap(piles.begin(), piles.end());
+9. don't forget to use int totalSum = accumulate(piles.begin(), piles.end(), 0);
 */
 int main(int argc, char *argv[]) {
   ggpo::GameAPI api;
