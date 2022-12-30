@@ -282,5 +282,8 @@ target_include_directories(best_time_to_buy_and_sell_stock_with_cooldown PRIVATE
 add_executable(single_threaded_cpu "tst/single_threaded_cpu.cc" src/leetcode/single_threaded_cpu.cc)
 target_include_directories(single_threaded_cpu PRIVATE Boost::unit_test_framework)
 
+add_executable(all_paths_from_source_to_target "tst/all_paths_from_source_to_target.cc" src/leetcode/all_paths_from_source_to_target.cc)
+target_include_directories(all_paths_from_source_to_target PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
