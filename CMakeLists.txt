@@ -291,5 +291,8 @@ target_include_directories(subsets_ii PRIVATE Boost::unit_test_framework)
 #add_executable(unique_paths_iii "tst/unique_paths_iii.cc" src/leetcode/unique_paths_iii.cc)
 #target_include_directories(unique_paths_iii PRIVATE Boost::unit_test_framework)
 
+add_executable(distribute_candies "tst/distribute_candies.cc" src/leetcode/distribute_candies.cc)
+target_include_directories(distribute_candies PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
