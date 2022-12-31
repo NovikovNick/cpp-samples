@@ -21,35 +21,25 @@ using namespace std;
 class Solution {
   using SET = std::vector<int>;
 
-  struct hash {
-    size_t operator()(const SET& nums) const {
-      size_t res = 0;
-      for (const auto& it : nums) res = res ^ std::hash<int>{}(it);
-      return res;
-    }
-  };
-
-  struct equals {
-    bool operator()(const SET& a, const SET& b) const {
-      std::vector<int> aTable(20), bTable(20);
-      for (const auto& it : a) ++aTable[it + 9];
-      for (const auto& it : b) ++bTable[it + 9];
-      return aTable == bTable;
-    }
-  };
-
-  using HASHSET = std::unordered_set<SET, hash, equals>;
-
  public:
+  Solution() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    wcin.tie(nullptr);
+    cerr.tie(nullptr);
+    wcerr.tie(nullptr);
+    clog.tie(nullptr);
+    wclog.tie(nullptr);
+  }  
   vector<SET> subsetsWithDup(SET& nums) {
-    HASHSET set;
+    std::sort(nums.begin(), nums.end());
+    std::set<SET> set;
     dfs(0, {}, set, nums);
-
     std::vector<SET> res(set.begin(), set.end());
     return res;
   }
 
-  void dfs(int i, SET set, HASHSET& res, const SET& nums) {
+  void dfs(int i, SET set, std::set<SET>& res, const SET& nums) {
     res.insert(set);
     for (; i < nums.size(); ++i) {
       SET set2 = set;

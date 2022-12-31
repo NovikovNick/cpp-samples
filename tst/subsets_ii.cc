@@ -11,7 +11,7 @@
 BOOST_AUTO_TEST_CASE(case1) {
   // arrange
   leetcode::Solution solution;
-  std::vector<int> nums{1, 2, 3, 4, 5, 6, 7, 8, 10, 0};
+  std::vector<int> nums{4, 4, 4, 1, 4};
   // act
   auto res = solution.subsetsWithDup(nums);
 
