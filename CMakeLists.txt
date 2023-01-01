@@ -297,5 +297,8 @@ target_include_directories(single_threaded_cpu PRIVATE Boost::unit_test_framewor
 #add_executable(word_pattern "tst/word_pattern.cc" src/leetcode/word_pattern.cc)
 #target_include_directories(word_pattern PRIVATE Boost::unit_test_framework)
 
+add_executable(contains_duplicate_iii "tst/contains_duplicate_iii.cc" src/leetcode/contains_duplicate_iii.cc)
+target_include_directories(contains_duplicate_iii PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
