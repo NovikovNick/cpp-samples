@@ -17,9 +17,10 @@ include_directories(${Boost_INCLUDE_DIRS})
 
 file(GLOB CPP_SAMPLES_UTIL "src/util/*.h" "src/util/*.cc")
 file(GLOB SOCKET "src/socket/**/*.h" "src/socket/**/*.cc")
+file(GLOB CONCURRENCY "src/concurrency/**/*.h" "src/concurrency/**/*.cc")
 
 
-add_executable(main src/main.cpp ${SOCKET})
+add_executable(main src/main.cpp ${SOCKET} ${CONCURRENCY})
 if(WIN32)
   target_link_libraries(main wsock32 ws2_32)
 endif()
@@ -297,8 +298,11 @@ target_include_directories(single_threaded_cpu PRIVATE Boost::unit_test_framewor
 #add_executable(word_pattern "tst/word_pattern.cc" src/leetcode/word_pattern.cc)
 #target_include_directories(word_pattern PRIVATE Boost::unit_test_framework)
 
-add_executable(contains_duplicate_iii "tst/contains_duplicate_iii.cc" src/leetcode/contains_duplicate_iii.cc)
-target_include_directories(contains_duplicate_iii PRIVATE Boost::unit_test_framework)
+#add_executable(contains_duplicate_iii "tst/contains_duplicate_iii.cc" src/leetcode/contains_duplicate_iii.cc)
+#target_include_directories(contains_duplicate_iii PRIVATE Boost::unit_test_framework)
+
+#add_executable(detect_capital "tst/detect_capital.cc" src/leetcode/detect_capital.cc)
+#target_include_directories(detect_capital PRIVATE Boost::unit_test_framework)
 
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
