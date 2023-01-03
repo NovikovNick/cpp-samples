@@ -310,5 +310,8 @@ target_include_directories(find_palindrome_with_fixed_length PRIVATE Boost::unit
 #add_executable(delete_columns_to_make_sorted "tst/delete_columns_to_make_sorted.cc" src/leetcode/delete_columns_to_make_sorted.cc)
 #target_include_directories(delete_columns_to_make_sorted PRIVATE Boost::unit_test_framework)
 
+#add_executable(contains_duplicate "tst/contains_duplicate.cc" src/leetcode/contains_duplicate.cc)
+#target_include_directories(contains_duplicate PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
