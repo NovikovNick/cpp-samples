@@ -304,5 +304,11 @@ target_include_directories(single_threaded_cpu PRIVATE Boost::unit_test_framewor
 #add_executable(detect_capital "tst/detect_capital.cc" src/leetcode/detect_capital.cc)
 #target_include_directories(detect_capital PRIVATE Boost::unit_test_framework)
 
+add_executable(find_palindrome_with_fixed_length "tst/find_palindrome_with_fixed_length.cc" src/leetcode/find_palindrome_with_fixed_length.cc)
+target_include_directories(find_palindrome_with_fixed_length PRIVATE Boost::unit_test_framework)
+
+#add_executable(delete_columns_to_make_sorted "tst/delete_columns_to_make_sorted.cc" src/leetcode/delete_columns_to_make_sorted.cc)
+#target_include_directories(delete_columns_to_make_sorted PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
