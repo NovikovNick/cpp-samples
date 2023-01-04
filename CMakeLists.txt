@@ -316,5 +316,8 @@ target_include_directories(find_palindrome_with_fixed_length PRIVATE Boost::unit
 #add_executable(maximum_subarray "tst/maximum_subarray.cc" src/leetcode/maximum_subarray.cc)
 #target_include_directories(maximum_subarray PRIVATE Boost::unit_test_framework)
 
+add_executable(minimum_rounds_to_complete_all_tasks "tst/minimum_rounds_to_complete_all_tasks.cc" src/leetcode/minimum_rounds_to_complete_all_tasks.cc)
+target_include_directories(minimum_rounds_to_complete_all_tasks PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
