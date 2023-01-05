@@ -3,7 +3,9 @@
 #include <iostream>
 #include <stack>
 #include <thread>
+#include <vector>
 
+#include "concurrency/call_once.cc"
 #include "concurrency/hello_world.cc"
 #include "concurrency/hierarchical_mutex.cc"
 #include "util/log.h"
@@ -29,7 +31,6 @@
  11.
 */
 
-
 int main(int argc, char* argv[]) {
   std::cout << "This thread id is " << std::this_thread::get_id() << std::endl;
   util::debug("{} of the threads can run concurrently.\n",
@@ -41,11 +42,18 @@ int main(int argc, char* argv[]) {
   std::scoped_lock g1(m1, m2);
   */
 
+  /*
   concurrency::hierarchical_mutex m1000{1000};
   concurrency::hierarchical_mutex m500{500};
-  std::scoped_lock g2(m500);
   std::scoped_lock g1(m1000);
+  std::scoped_lock g2(m500);
+  */
 
+  concurrency::SomeResource resource;
+  std::vector<std::thread> threads;
+  for (int i = 0; i < 10; ++i)
+    threads.emplace_back( [&resource]() { util::debug("{}\n", resource.get()); });
+  for (auto& t : threads) t.join();
 
   // concurrency::ScopedGuard g{std::thread(concurrency::run)};
   // throw std::runtime_error("!");
