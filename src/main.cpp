@@ -1,13 +1,11 @@
 ﻿#define DEBUG 1
 
-#include <format>
 #include <iostream>
 #include <stack>
-#include <vector>
+#include <thread>
 
-#include "ggpo_samples.cc"
-#include "socket/udp_client.cc"
-#include "socket/udp_server.cc"
+#include "concurrency/hello_world.cc"
+#include "concurrency/hierarchical_mutex.cc"
 #include "util/log.h"
 
 /*
@@ -21,32 +19,36 @@
 
 8. don't forget to use priority_queue<int> heap(piles.begin(), piles.end());
 9. don't forget to use int totalSum = accumulate(piles.begin(), piles.end(), 0);
-*/
-int main(int argc, char *argv[]) {
-  ggpo::GameAPI api;
 
-  ggpo::Callbacks cb{0};
-  cb.save_game_state = ggpo::saveGameState;
-  cb.load_game_state = ggpo::loadGameState;
-
-  ggpo::Launcher(cb).start();
-
-  /*try {
-
-    if (argc == 1) {
-      udp::UdpClient udp(9999);
-      udp.send("Does it work?");
-    } else {
-      std::string arg1 = argv[1];
-      if (arg1 == "s") {
-        udp::server(argv[1]);
-      }
+10. bool containsDuplicate(vector<int>& nums) {
+        std::unordered_set<int> set;
+        for (const auto& num : nums)
+            if (set.insert(num).second == false) return false;
+        return true;
     }
+ 11.
+*/
 
-  } catch (std::runtime_error const& e) {
-    util::debug("Runtime err: {}\n", e.what());
-  } catch (...) {
-    util::debug("Unexpected error\n");
-  }*/
+
+int main(int argc, char* argv[]) {
+  std::cout << "This thread id is " << std::this_thread::get_id() << std::endl;
+  util::debug("{} of the threads can run concurrently.\n",
+              std::thread::hardware_concurrency());
+
+  /*
+  std::mutex m1;
+  std::mutex m2;
+  std::scoped_lock g1(m1, m2);
+  */
+
+  concurrency::hierarchical_mutex m1000{1000};
+  concurrency::hierarchical_mutex m500{500};
+  std::scoped_lock g2(m500);
+  std::scoped_lock g1(m1000);
+
+
+  // concurrency::ScopedGuard g{std::thread(concurrency::run)};
+  // throw std::runtime_error("!");
+  // t.detach();
   return 0;
 }

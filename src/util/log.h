@@ -1,5 +1,6 @@
 #ifndef UTIL_LOGGER_H
 #define UTIL_LOGGER_H
+#include <format>
 
 namespace util {
 
