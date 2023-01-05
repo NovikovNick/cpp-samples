@@ -328,5 +328,8 @@ target_include_directories(find_palindrome_with_fixed_length PRIVATE Boost::unit
 #add_executable(intersection_of_two_arrays_ii "tst/intersection_of_two_arrays_ii.cc" src/leetcode/aaa_empty.cc)
 #target_include_directories(intersection_of_two_arrays_ii PRIVATE Boost::unit_test_framework)
 
+#add_executable(best_time_to_buy_and_sell_stock "tst/best_time_to_buy_and_sell_stock.cc" src/leetcode/best_time_to_buy_and_sell_stock.cc)
+#target_include_directories(best_time_to_buy_and_sell_stock PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
