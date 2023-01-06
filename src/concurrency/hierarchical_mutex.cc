@@ -3,7 +3,12 @@
 #include "../util/log.h"
 
 namespace concurrency {
-
+/*
+concurrency::hierarchical_mutex m1000{1000};
+concurrency::hierarchical_mutex m500{500};
+std::scoped_lock g1(m1000);
+std::scoped_lock g2(m500);
+*/
 class hierarchical_mutex {
   std::mutex internal_mutex;
   const uint64_t hierarchy_val;
