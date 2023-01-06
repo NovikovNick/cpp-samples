@@ -337,8 +337,11 @@ target_include_directories(find_palindrome_with_fixed_length PRIVATE Boost::unit
 #add_executable(reshape_the_matrix "tst/reshape_the_matrix.cc" src/leetcode/reshape_the_matrix.cc)
 #target_include_directories(reshape_the_matrix PRIVATE Boost::unit_test_framework)
 
-add_executable(pascals_triangle "tst/pascals_triangle.cc" src/leetcode/pascals_triangle.cc)
-target_include_directories(pascals_triangle PRIVATE Boost::unit_test_framework)
+#add_executable(pascals_triangle "tst/pascals_triangle.cc" src/leetcode/pascals_triangle.cc)
+#target_include_directories(pascals_triangle PRIVATE Boost::unit_test_framework)
+
+add_executable(pascals_triangle_ii "tst/pascals_triangle_ii.cc" src/leetcode/pascals_triangle_ii.cc)
+target_include_directories(pascals_triangle_ii PRIVATE Boost::unit_test_framework)
 
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
