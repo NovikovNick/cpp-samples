@@ -343,8 +343,11 @@ target_include_directories(find_palindrome_with_fixed_length PRIVATE Boost::unit
 #add_executable(pascals_triangle_ii "tst/pascals_triangle_ii.cc" src/leetcode/pascals_triangle_ii.cc)
 #target_include_directories(pascals_triangle_ii PRIVATE Boost::unit_test_framework)
 
-add_executable(gas_station "tst/gas_station.cc" src/leetcode/gas_station.cc)
-target_include_directories(gas_station PRIVATE Boost::unit_test_framework)
+#add_executable(gas_station "tst/gas_station.cc" src/leetcode/gas_station.cc)
+#target_include_directories(gas_station PRIVATE Boost::unit_test_framework)
+
+#add_executable(search_a_2d_matrix "tst/search_a_2d_matrix.cc" src/leetcode/search_a_2d_matrix.cc)
+#target_include_directories(search_a_2d_matrix PRIVATE Boost::unit_test_framework)
 
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
