@@ -1,16 +1,13 @@
 ﻿#define DEBUG 1
 
+#include <future>
 #include <iostream>
 #include <stack>
 #include <thread>
 #include <vector>
 
-#include "concurrency/call_once.cc"
-#include "concurrency/execution_service.cc"
-#include "concurrency/hello_world.cc"
-#include "concurrency/hierarchical_mutex.cc"
+#include "concurrency/chrono.cc"
 #include "util/log.h"
-
 /*
 1. backtracking: dfs and bfs
 2. dp or update input array to avoid redundant calculation
@@ -36,7 +33,6 @@ int main(int argc, char* argv[]) {
   std::cout << "This thread id is " << std::this_thread::get_id() << std::endl;
   util::debug("{} of the threads can run concurrently.\n",
               std::thread::hardware_concurrency());
-
-  
+  sample_concur::startGameLoop();
   return 0;
 }
