@@ -355,5 +355,8 @@ target_include_directories(max_points_on_a_line PRIVATE Boost::unit_test_framewo
 #add_executable(first_unique_character_in_a_string "tst/first_unique_character_in_a_string.cc" src/leetcode/first_unique_character_in_a_string.cc)
 #target_include_directories(first_unique_character_in_a_string PRIVATE Boost::unit_test_framework)
 
+#add_executable(ransom_note "tst/ransom_note.cc" src/leetcode/ransom_note.cc)
+#target_include_directories(ransom_note PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
