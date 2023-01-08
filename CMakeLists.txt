@@ -358,5 +358,8 @@ target_include_directories(max_points_on_a_line PRIVATE Boost::unit_test_framewo
 #add_executable(ransom_note "tst/ransom_note.cc" src/leetcode/ransom_note.cc)
 #target_include_directories(ransom_note PRIVATE Boost::unit_test_framework)
 
+#add_executable(valid_anagram "tst/valid_anagram.cc" src/leetcode/valid_anagram.cc)
+#target_include_directories(valid_anagram PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
