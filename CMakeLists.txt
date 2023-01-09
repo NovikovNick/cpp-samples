@@ -364,5 +364,8 @@ target_include_directories(max_points_on_a_line PRIVATE Boost::unit_test_framewo
 #add_executable(binary_tree_preorder_traversal "tst/binary_tree_preorder_traversal.cc" src/leetcode/binary_tree_preorder_traversal.cc)
 #target_include_directories(binary_tree_preorder_traversal PRIVATE Boost::unit_test_framework)
 
+#add_executable(linked_list_cycle "tst/linked_list_cycle.cc" src/leetcode/linked_list_cycle.cc)
+#target_include_directories(linked_list_cycle PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
