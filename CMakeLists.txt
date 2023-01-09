@@ -367,5 +367,8 @@ target_include_directories(max_points_on_a_line PRIVATE Boost::unit_test_framewo
 #add_executable(linked_list_cycle "tst/linked_list_cycle.cc" src/leetcode/linked_list_cycle.cc)
 #target_include_directories(linked_list_cycle PRIVATE Boost::unit_test_framework)
 
+#add_executable(merge_two_sorted_lists "tst/merge_two_sorted_lists.cc" src/leetcode/merge_two_sorted_lists.cc)
+#target_include_directories(merge_two_sorted_lists PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
