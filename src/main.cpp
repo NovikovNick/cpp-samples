@@ -7,6 +7,8 @@
 #include <vector>
 
 #include "concurrency/chrono.cc"
+#include "concurrency/barrier.cc"
+#include "concurrency/sort.cc"
 #include "util/log.h"
 /*
 1. backtracking: dfs and bfs
@@ -33,6 +35,10 @@ int main(int argc, char* argv[]) {
   std::cout << "This thread id is " << std::this_thread::get_id() << std::endl;
   util::debug("{} of the threads can run concurrently.\n",
               std::thread::hardware_concurrency());
-  sample_concur::startGameLoop();
+
+  // sample_concur::startGameLoop();
+  // sample_concur::quick_sort_sample();
+
+  sample_concur::when_all_sample();
   return 0;
 }
