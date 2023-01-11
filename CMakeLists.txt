@@ -379,5 +379,8 @@ target_include_directories(sort_list PRIVATE Boost::unit_test_framework)
 #add_executable(reverse_linked_list "tst/reverse_linked_list.cc" src/leetcode/reverse_linked_list.cc)
 #target_include_directories(reverse_linked_list PRIVATE Boost::unit_test_framework)
 
+add_executable(minimum_time_to_collect_all_apples_in_a_tree "tst/minimum_time_to_collect_all_apples_in_a_tree.cc" src/leetcode/minimum_time_to_collect_all_apples_in_a_tree.cc)
+target_include_directories(minimum_time_to_collect_all_apples_in_a_tree PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
