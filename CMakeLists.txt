@@ -385,5 +385,8 @@ target_include_directories(sort_list PRIVATE Boost::unit_test_framework)
 #add_executable(valid_parentheses "tst/valid_parentheses.cc" src/leetcode/valid_parentheses.cc)
 #target_include_directories(valid_parentheses PRIVATE Boost::unit_test_framework)
 
+#add_executable(number_of_nodes_in_the_sub_tree_with_the_same_label "tst/number_of_nodes_in_the_sub_tree_with_the_same_label.cc" src/leetcode/number_of_nodes_in_the_sub_tree_with_the_same_label.cc)
+#target_include_directories(number_of_nodes_in_the_sub_tree_with_the_same_label PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
