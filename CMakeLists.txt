@@ -388,5 +388,8 @@ target_include_directories(sort_list PRIVATE Boost::unit_test_framework)
 #add_executable(number_of_nodes_in_the_sub_tree_with_the_same_label "tst/number_of_nodes_in_the_sub_tree_with_the_same_label.cc" src/leetcode/number_of_nodes_in_the_sub_tree_with_the_same_label.cc)
 #target_include_directories(number_of_nodes_in_the_sub_tree_with_the_same_label PRIVATE Boost::unit_test_framework)
 
+#add_executable(binary_tree_level_order_traversal "tst/binary_tree_level_order_traversal.cc" src/leetcode/binary_tree_level_order_traversal.cc)
+#target_include_directories(binary_tree_level_order_traversal PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
