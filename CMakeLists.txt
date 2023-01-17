@@ -406,5 +406,8 @@ target_include_directories(sort_list PRIVATE Boost::unit_test_framework)
 add_executable(flip_string_to_monotone_increasing "tst/flip_string_to_monotone_increasing.cc" src/leetcode/flip_string_to_monotone_increasing.cc)
 target_include_directories(flip_string_to_monotone_increasing PRIVATE Boost::unit_test_framework)
 
+#add_executable(binary_search "tst/binary_search.cc" src/leetcode/binary_search.cc)
+#target_include_directories(binary_search PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
