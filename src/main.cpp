@@ -28,7 +28,8 @@
             if (set.insert(num).second == false) return false;
         return true;
     }
- 11.
+11. binary search tree traversal: preorder, inorder, postorder
+12. 
 */
 
 int main(int argc, char* argv[]) {
