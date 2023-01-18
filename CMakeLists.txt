@@ -412,5 +412,8 @@ target_include_directories(flip_string_to_monotone_increasing PRIVATE Boost::uni
 add_executable(maximum_sum_circular_subarray "tst/maximum_sum_circular_subarray.cc" src/leetcode/maximum_sum_circular_subarray.cc)
 target_include_directories(maximum_sum_circular_subarray PRIVATE Boost::unit_test_framework)
 
+#add_executable(squares_of_a_sorted_array "tst/squares_of_a_sorted_array.cc" src/leetcode/squares_of_a_sorted_array.cc)
+#target_include_directories(squares_of_a_sorted_array PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
