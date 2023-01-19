@@ -18,9 +18,9 @@ include_directories(${Boost_INCLUDE_DIRS})
 file(GLOB CPP_SAMPLES_UTIL "src/util/*.h" "src/util/*.cc")
 file(GLOB SOCKET "src/socket/**/*.h" "src/socket/**/*.cc")
 file(GLOB CONCURRENCY "src/concurrency/**/*.h" "src/concurrency/**/*.cc")
+file(GLOB GAME_SAMPLE "src/snake_game_sample/*.h" "src/snake_game_sample/*.cc")
 
-
-add_executable(main src/main.cpp ${SOCKET} ${CONCURRENCY})
+add_executable(main src/main.cpp ${SOCKET} ${CONCURRENCY} ${GAME_SAMPLE})
 if(WIN32)
   target_link_libraries(main wsock32 ws2_32)
 endif()
@@ -414,6 +414,9 @@ target_include_directories(maximum_sum_circular_subarray PRIVATE Boost::unit_tes
 
 #add_executable(squares_of_a_sorted_array "tst/squares_of_a_sorted_array.cc" src/leetcode/squares_of_a_sorted_array.cc)
 #target_include_directories(squares_of_a_sorted_array PRIVATE Boost::unit_test_framework)
+
+add_executable(subarray_sums_divisible_by_k "tst/subarray_sums_divisible_by_k.cc" src/leetcode/subarray_sums_divisible_by_k.cc)
+target_include_directories(subarray_sums_divisible_by_k PRIVATE Boost::unit_test_framework)
 
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
