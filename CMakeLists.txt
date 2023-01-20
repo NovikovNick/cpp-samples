@@ -421,5 +421,8 @@ target_include_directories(subarray_sums_divisible_by_k PRIVATE Boost::unit_test
 #add_executable(reverse_words_in_a_string_iii "tst/reverse_words_in_a_string_iii.cc" src/leetcode/reverse_words_in_a_string_iii.cc)
 #target_include_directories(reverse_words_in_a_string_iii PRIVATE Boost::unit_test_framework)
 
+add_executable(non_decreasing_subsequences "tst/non_decreasing_subsequences.cc" src/leetcode/non_decreasing_subsequences.cc)
+target_include_directories(non_decreasing_subsequences PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
