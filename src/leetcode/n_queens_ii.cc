@@ -23,37 +23,38 @@ class Solution {
   int totalNQueens(int n) {
     BOARD board(n, std::vector<bool>(n));
     int res = 0;
-    /*for (int row = 0; row < n; ++row) {
-      for (int col = 0; col < n; ++col) {
-        res += backtracking(col, row, 1, board);
-      }
-    }*/
-    res = backtracking(0, 1, 1, board);
+    res += backtracking(0, 0, board);
     return res;
   }
 
-  int backtracking(const int x, const int y, const int queen_count,
-                   BOARD& board) {
+  int backtracking(const int i, const int queen_count, BOARD& board) {
     int n = board.size();
-    debug("queen_count {} {}\n", queen_count, n);
-    if (queen_count == n ) return 1;
-
-    placeQueen(x, y, board);
-    //debug("place queen at {} {}\n", x, y);
-
+    if (queen_count == n) return 1;
     int count = 0;
-    for (int row = 0; row < n; ++row) {
-      for (int col = 0; col < n; ++col) {
-        if (notOnAttack(row, col, board)) {
-          count += backtracking(row, col, queen_count + 1, board);
-        }
+    for (int j = i; j < n * n; ++j) {
+      int row = j / n;
+      int col = j % n;
+      if (notOnAttack(row, col, board)) {
+        placeQueen(row, col, board);
+        //debug("{}. place queen at {} {} {}\n", queen_count, j, row, col);
+        //print(board);
+        count += backtracking(j + 1, queen_count + 1, board);
+        removeQueen(row, col, board);
+        //debug("{}. remove queen from {} {} {}\n", queen_count, j, row, col);
       }
     }
-
-    removeQueen(x, y, board);
-    //debug("remove queen from {} {}\n", x, y);
-
     return count;
+  }
+
+  void print(BOARD& board) {
+    int n = board.size();
+    for (int j = 0; j < n * n; ++j) {
+      int row = j / n;
+      int col = j % n;
+      debug("{} ", notOnAttack(row, col, board) ? "*" : "0");
+      if (col == (n - 1)) debug("\n");
+    }
+    debug("\n");
   }
 
   void placeQueen(const int x, const int y, BOARD& board) {
@@ -65,13 +66,19 @@ class Solution {
 
   bool notOnAttack(const int x, const int y, BOARD& board) {
     int n = board.size();
-    for (int row = 0; row < n; ++row) if (board[row][y]) return false;
-    for (int col = 0; col < n; ++col) if (board[x][col]) return false;
+    for (int row = 0; row < n; ++row)
+      if (board[row][y]) return false;
+    for (int col = 0; col < n; ++col)
+      if (board[x][col]) return false;
 
-    for (int row = x, col = y; row < n  &&  col < n; ++col, ++row) if (board[row][col]) return false;
-    for (int row = x, col = y; row < n  && col >= 0; --col, ++row) if (board[row][col]) return false;
-    for (int row = x, col = y; row >= 0 && col >= 0; --col, --row) if (board[row][col]) return false;
-    for (int row = x, col = y; row >= 0 &&  col < n; ++col, --row) if (board[row][col]) return false;
+    for (int row = x, col = y; row < n && col < n; ++col, ++row)
+      if (board[row][col]) return false;
+    for (int row = x, col = y; row < n && col >= 0; --col, ++row)
+      if (board[row][col]) return false;
+    for (int row = x, col = y; row >= 0 && col >= 0; --col, --row)
+      if (board[row][col]) return false;
+    for (int row = x, col = y; row >= 0 && col < n; ++col, --row)
+      if (board[row][col]) return false;
 
     return true;
   }
