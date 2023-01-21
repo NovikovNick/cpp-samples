@@ -427,5 +427,8 @@ target_include_directories(non_decreasing_subsequences PRIVATE Boost::unit_test_
 add_executable(n_queens_ii "tst/n_queens_ii.cc" src/leetcode/n_queens_ii.cc)
 target_include_directories(n_queens_ii PRIVATE Boost::unit_test_framework)
 
+#add_executable(restore_ip_addresses "tst/restore_ip_addresses.cc" src/leetcode/restore_ip_addresses.cc)
+#target_include_directories(restore_ip_addresses PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
