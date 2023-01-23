@@ -439,5 +439,8 @@ target_include_directories(non_decreasing_subsequences PRIVATE Boost::unit_test_
 #add_executable(find_the_town_judge "tst/find_the_town_judge.cc" src/leetcode/find_the_town_judge.cc)
 #target_include_directories(find_the_town_judge PRIVATE Boost::unit_test_framework)
 
+add_executable(merge_two_binary_trees "tst/merge_two_binary_trees.cc" src/leetcode/merge_two_binary_trees.cc)
+target_include_directories(merge_two_binary_trees PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
