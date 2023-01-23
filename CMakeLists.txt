@@ -436,5 +436,8 @@ target_include_directories(non_decreasing_subsequences PRIVATE Boost::unit_test_
 #add_executable(longest_substring_without_repeating_characters "tst/longest_substring_without_repeating_characters.cc" src/leetcode/longest_substring_without_repeating_characters.cc)
 #target_include_directories(longest_substring_without_repeating_characters PRIVATE Boost::unit_test_framework)
 
+#add_executable(find_the_town_judge "tst/find_the_town_judge.cc" src/leetcode/find_the_town_judge.cc)
+#target_include_directories(find_the_town_judge PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
