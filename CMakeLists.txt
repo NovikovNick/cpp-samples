@@ -442,5 +442,8 @@ target_include_directories(non_decreasing_subsequences PRIVATE Boost::unit_test_
 add_executable(merge_two_binary_trees "tst/merge_two_binary_trees.cc" src/leetcode/merge_two_binary_trees.cc)
 target_include_directories(merge_two_binary_trees PRIVATE Boost::unit_test_framework)
 
+add_executable(snakes_and_ladders "tst/snakes_and_ladders.cc" src/leetcode/snakes_and_ladders.cc)
+target_include_directories(snakes_and_ladders PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
