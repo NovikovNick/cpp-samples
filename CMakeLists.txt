@@ -445,5 +445,8 @@ target_include_directories(merge_two_binary_trees PRIVATE Boost::unit_test_frame
 add_executable(snakes_and_ladders "tst/snakes_and_ladders.cc" src/leetcode/snakes_and_ladders.cc)
 target_include_directories(snakes_and_ladders PRIVATE Boost::unit_test_framework)
 
+add_executable(find_closest_node_to_given_two_nodes "tst/find_closest_node_to_given_two_nodes.cc" src/leetcode/find_closest_node_to_given_two_nodes.cc)
+target_include_directories(find_closest_node_to_given_two_nodes PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
