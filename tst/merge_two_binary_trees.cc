@@ -1,4 +1,5 @@
 #define BOOST_TEST_MODULE SolutionTest
+#define CASE_2 0
 #define CASE_1 1
 #define DEBUG 1
 
@@ -7,12 +8,19 @@
 #include <boost/test/included/unit_test.hpp>
 #include <iostream>
 
-void print(leetcode::TreeNode* node) {
+void printReqursive(leetcode::TreeNode* node) {
   if (node) {
     debug("{} ", node->val);
-    print(node->left);
-    print(node->right);
+    printReqursive(node->left);
+    printReqursive(node->right);
+  } else {
+    debug("null ");
   }
+}
+
+void print(leetcode::TreeNode* node) {
+  printReqursive(node);
+  debug("\n");
 }
 
 #if CASE_1
@@ -21,32 +29,51 @@ BOOST_AUTO_TEST_CASE(case1) {
   leetcode::Solution solution;
   std::vector<leetcode::TreeNode*> n1, n2;
 
-  for (std::string it : {"1", "3", "2", "5"})
+  for (std::string it : {"1", "2", "null", "3"})
     n1.push_back(it != "null" ? new leetcode::TreeNode(std::stoi(it))
                               : nullptr);
 
-  for (std::string it : {"2", "1", "3", "null", "4", "null", "7"})
+  for (std::string it : {
+                    "1", 
+               "null", "2", 
+      "null", "null", "null", "3"})
     n2.push_back(it != "null" ? new leetcode::TreeNode(std::stoi(it))
                               : nullptr);
 
-  for (int i = 0; (i * 2 + 2) < n1.size(); ++i) {
+  for (int i = 0; i < n1.size(); ++i) {
     if (n1[i]) {
-      n1[i] = n1[i * 2 + 1];
-      n1[i] = n1[i * 2 + 2];
+      if (i * 2 + 1 < n1.size()) n1[i]->left = n1[i * 2 + 1];
+      if (i * 2 + 2 < n1.size()) n1[i]->right = n1[i * 2 + 2];
     }
   }
 
-  for (int i = 0; (i * 2 + 2) < n2.size(); ++i) {
+  for (int i = 0; i < n2.size(); ++i) {
     if (n2[i]) {
-      n2[i] = n2[i * 2 + 1];
-      n2[i] = n2[i * 2 + 2];
+      if (i * 2 + 1 < n2.size()) n2[i]->left = n2[i * 2 + 1];
+      if (i * 2 + 2 < n2.size()) n2[i]->right = n2[i * 2 + 2];
     }
   }
 
   // act
+  print(n1[0]);
+  print(n2[0]);
   auto res = solution.mergeTrees(n1[0], n2[0]);
 
   // assert
   print(res);
 }
 #endif  // !CASE_1
+
+#if CASE_2
+BOOST_AUTO_TEST_CASE(case2) {
+  // arrange
+  leetcode::Solution solution;
+  auto n1 = new leetcode::TreeNode(1);
+
+  // act
+  auto res = solution.mergeTrees(n1, nullptr);
+
+  // assert
+  print(res);
+}
+#endif  // !CASE_2
