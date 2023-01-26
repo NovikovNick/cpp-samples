@@ -451,5 +451,8 @@ target_include_directories(find_closest_node_to_given_two_nodes PRIVATE Boost::u
 add_executable(cheapest_flights_within_k_stops "tst/cheapest_flights_within_k_stops.cc" src/leetcode/cheapest_flights_within_k_stops.cc)
 target_include_directories(cheapest_flights_within_k_stops PRIVATE Boost::unit_test_framework)
 
+add_executable(01_matrix "tst/01_matrix.cc" src/leetcode/01_matrix.cc)
+target_include_directories(01_matrix PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
