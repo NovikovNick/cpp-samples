@@ -448,5 +448,8 @@ target_include_directories(snakes_and_ladders PRIVATE Boost::unit_test_framework
 add_executable(find_closest_node_to_given_two_nodes "tst/find_closest_node_to_given_two_nodes.cc" src/leetcode/find_closest_node_to_given_two_nodes.cc)
 target_include_directories(find_closest_node_to_given_two_nodes PRIVATE Boost::unit_test_framework)
 
+add_executable(cheapest_flights_within_k_stops "tst/cheapest_flights_within_k_stops.cc" src/leetcode/cheapest_flights_within_k_stops.cc)
+target_include_directories(cheapest_flights_within_k_stops PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
