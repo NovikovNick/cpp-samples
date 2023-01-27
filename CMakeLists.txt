@@ -454,5 +454,8 @@ target_include_directories(cheapest_flights_within_k_stops PRIVATE Boost::unit_t
 add_executable(01_matrix "tst/01_matrix.cc" src/leetcode/01_matrix.cc)
 target_include_directories(01_matrix PRIVATE Boost::unit_test_framework)
 
+add_executable(concatenated_words "tst/concatenated_words.cc" src/leetcode/concatenated_words.cc)
+target_include_directories(concatenated_words PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
