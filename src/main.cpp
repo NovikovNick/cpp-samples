@@ -9,6 +9,8 @@
 
 #include "snake_game_sample/ggpo_samples.h"
 #include "util/log.h"
+#include "concurrency/chrono.cc"
+#include "algorithm/backtracking.cc"
 
 /*
 1. dfs and bfs
@@ -30,31 +32,21 @@
     }
 11. binary search tree traversal: preorder, inorder, postorder
 12. Whenever you have a problem where you need to check the subsequences/combinations/permutations of some group of letters/numbers, the first thought you should have is backtracking. Backtracking - поиск с возвратом.
+
 */
 
 int main(int argc, char* argv[]) {
   std::cout << "This thread id is " << std::this_thread::get_id() << std::endl;
   util::debug("{} of the threads can run concurrently.\n",
               std::thread::hardware_concurrency());
+  // sample_concur::startGameLoop();
 
-  int fst_player = (1 << 4);
-  int snd_player = (2 << 4);
-
-  int up = 0b00000000;
-  int down = (2 << 0);
-  int bottom = (1 << 0);
-
-  /*int num = 0 | dir_lft;
-  std::cout << (dir_btm == (num & dir_msk)) << std::endl;*/
-  ggpo::GridCell cell(1);
-  std::cout << sizeof(cell) << std::endl;
-  std::cout << std::bitset<8>(cell.data) << std::endl;
-  std::cout << cell.isEmpty() << std::endl;
-
-
-  ggpo::Callbacks cb{0};
-  cb.load_game_state = ggpo::loadGameState;
-  cb.save_game_state = ggpo::saveGameState;
-  ggpo::Launcher(cb).start();
+  Combinator combinator;
+  int n = 4, k = 3;
+  for (const auto& combination : combinator.combine(4, 3)) {
+    util::debug("combination: ");
+    for (const auto num : combination) util::debug("{:3d}", num);
+    util::debug("\n");
+  }
   return 0;
 }
