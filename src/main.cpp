@@ -41,11 +41,11 @@ int main(int argc, char* argv[]) {
               std::thread::hardware_concurrency());
   // sample_concur::startGameLoop();
 
-  Combinator combinator;
-  int n = 4, k = 3;
-  for (const auto& combination : combinator.combine(4, 3)) {
-    util::debug("combination: ");
-    for (const auto num : combination) util::debug("{:3d}", num);
+  Permutator permutator;
+  std::vector<int> nums{1, 2, 3};
+  for (const auto& permutation : permutator.permute(nums)) {
+    util::debug("permutation: ");
+    for (const auto num : permutation) util::debug("{:3d}", num);
     util::debug("\n");
   }
   return 0;
