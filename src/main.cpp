@@ -11,6 +11,7 @@
 #include "util/log.h"
 #include "concurrency/chrono.cc"
 #include "algorithm/backtracking.cc"
+#include "algorithm/bit_manipulation.cc"
 
 /*
 1. dfs and bfs
@@ -41,12 +42,11 @@ int main(int argc, char* argv[]) {
               std::thread::hardware_concurrency());
   // sample_concur::startGameLoop();
 
-  Permutator permutator;
-  std::vector<int> nums{1, 2, 3};
-  for (const auto& permutation : permutator.permute(nums)) {
-    util::debug("permutation: ");
-    for (const auto num : permutation) util::debug("{:3d}", num);
-    util::debug("\n");
-  }
+  int x = 1;
+  int base = 2;
+  util::debug("convert {} to base-{} string: {}\n", x, base, toBaseString(x, base));
+  std::cout << hammingWeight(16) << std::endl;
+  
+
   return 0;
 }
