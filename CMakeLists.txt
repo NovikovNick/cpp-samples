@@ -463,5 +463,8 @@ target_include_directories(data_stream_as_disjoint_intervals PRIVATE Boost::unit
 add_executable(lfu_cache "tst/lfu_cache.cc" src/leetcode/lfu_cache.cc)
 target_include_directories(lfu_cache PRIVATE Boost::unit_test_framework)
 
+#add_executable(n_th_tribonacci_number "tst/n_th_tribonacci_number.cc" src/leetcode/n_th_tribonacci_number.cc)
+#target_include_directories(n_th_tribonacci_number PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
