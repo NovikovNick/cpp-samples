@@ -460,11 +460,14 @@ target_include_directories(concatenated_words PRIVATE Boost::unit_test_framework
 add_executable(data_stream_as_disjoint_intervals "tst/data_stream_as_disjoint_intervals.cc" src/leetcode/data_stream_as_disjoint_intervals.cc)
 target_include_directories(data_stream_as_disjoint_intervals PRIVATE Boost::unit_test_framework)
 
-add_executable(lfu_cache "tst/lfu_cache.cc" src/leetcode/lfu_cache.cc)
-target_include_directories(lfu_cache PRIVATE Boost::unit_test_framework)
+#add_executable(lfu_cache "tst/lfu_cache.cc" src/leetcode/lfu_cache.cc)
+#target_include_directories(lfu_cache PRIVATE Boost::unit_test_framework)
 
 #add_executable(n_th_tribonacci_number "tst/n_th_tribonacci_number.cc" src/leetcode/n_th_tribonacci_number.cc)
 #target_include_directories(n_th_tribonacci_number PRIVATE Boost::unit_test_framework)
+
+add_executable(best_team_with_no_conflicts "tst/best_team_with_no_conflicts.cc" src/leetcode/best_team_with_no_conflicts.cc)
+target_include_directories(best_team_with_no_conflicts PRIVATE Boost::unit_test_framework)
 
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
