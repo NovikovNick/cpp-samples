@@ -17,99 +17,59 @@ namespace leetcode {
 
 using namespace std;
 
-struct Node {
-  std::shared_ptr<Node> prev, next;
-  int counter;
-  int val;
-  Node(const int val) : val(val), counter(1), prev(nullptr), next(nullptr) {}
-};
-
 class LFUCache {
-  int capacity, size;
-  std::shared_ptr<Node> tail;
-  std::unordered_map<int, std::shared_ptr<Node>> map;
+  using KEY = int;
+  using VAL = int;
+  using FREQUENCY = uint32_t;
+  using KEY_VAL = std::pair<KEY, VAL>;
+
+  std::unordered_map<FREQUENCY, std::list<std::pair<KEY, VAL>>> frequencies;
+  std::unordered_map<KEY, std::pair<FREQUENCY, list<KEY_VAL>::iterator>> cache;
+  int min_freq, capacity;
 
  public:
-  LFUCache(int capacity)
-      : capacity(capacity),
-        size(0),
-        tail(nullptr),
-        map(std::unordered_map<int, std::shared_ptr<Node>>()) {}
+  LFUCache(int capacity) : capacity(capacity), min_freq(0) {}
 
-  int get(int key) {
-    const auto it = map.find(key);
+  int get(KEY key) {
+    auto it = cache.find(key);
+    if (it == cache.end()) return -1;
 
-    if (it == map.end()) {
-      return -1;
-    } else {
-      incrementUsage(it->second);
-      return it->second->val;
-    }
+    auto freq = it->second.first;
+    auto iter = it->second.second;
+    auto [k, val] = *iter;
+
+    frequencies[freq].erase(iter);
+    if (frequencies[freq].empty() && min_freq == freq) ++min_freq;
+    insert(key, freq + 1, val);
+
+    return val;
   }
 
-  void put(int key, int value) {
+  void put(KEY key, VAL value) {
     if (capacity == 0) return;
 
-    auto [it, inserted] = map.emplace(key, std::make_shared<Node>(value));
-    if (inserted) {
-      insert(it->second);
+    auto it = cache.find(key);
+    if (it == cache.end()) {
+
+      if (cache.size() == capacity) {
+        auto min_key = frequencies[min_freq].front().first;
+        frequencies[min_freq].pop_front();
+        cache.erase(key);
+      }
+
+      min_freq = 1;
+      insert(key, 1, value);
+
     } else {
-      if (capacity == 1) return;
-      incrementUsage(it->second);
+      it->second.second->second = value;
+      get(key);
     }
   }
 
  private:
-  void incrementUsage(std::shared_ptr<Node> node) {
-    node->counter += 1;
-    while (node->next != nullptr && node->next->counter <= node->counter) {
-      auto next = node->next;
-      auto next_next = next->next;
-      auto prev = node->prev;
-
-      node->next = next_next;
-      node->prev = next;
-      if (next_next != nullptr) next_next->prev = node;
-
-      next->next = node;
-      next->prev = prev;
-      if (prev != nullptr) prev->next = next;
-
-      if (node == tail) tail = next;
-    }
-  }
-
-  void insert(std::shared_ptr<Node> node) {
-    ++size;
-    if (capacity == 1 || tail == nullptr) {
-      tail = node;
-      return;
-    }
-
-    if (tail->counter > 1) {
-      tail->prev = node;
-      node->next = tail;
-      tail = node;
-    } else {
-      auto curr = tail;
-      while (curr->next != nullptr && curr->counter <= node->counter) {
-        curr = curr->next;
-      }
-      if (curr->counter <= node->counter) {
-        curr->next = node;
-        node->prev = curr;
-      } else {
-        node->prev = curr->prev;
-        curr->prev = node;
-        node->next = curr;
-      }
-    }
-
-    if (size > capacity) {
-      map.erase(tail->val);
-      tail = tail->next;
-      tail->prev = nullptr;
-    }
+  void insert(KEY key, FREQUENCY freq, VAL val) {
+    frequencies[freq].emplace_back(key, val);
+    cache[key] = {freq, std::prev(frequencies[freq].end())};
   }
 };
 }  // namespace leetcode

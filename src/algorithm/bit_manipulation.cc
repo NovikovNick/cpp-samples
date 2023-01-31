@@ -4,12 +4,12 @@
 /*
 convert num to base string
 */
-std::string toBaseString(int num, const int base) {
+std::string toBaseString(uint32_t num, const uint8_t base) {
   std::string res;
   while (num != 0) {
-    util::debug("{} % {} = {}\n", num, base, num % base);
+    util::debug("{:10d} % {:2d} = {}\n", num, base, num % base);
     res.append(std::to_string(num % base));
-    num = num / base;
+    num /= base; // num >>= 1;
   }
   std::reverse(res.begin(), res.end());
   return res;
@@ -18,7 +18,6 @@ std::string toBaseString(int num, const int base) {
 int hammingWeight(uint32_t n) {
   int ans = 0;
   for (int i = 0; i < 32; i++) {
-    std::cout << std::bitset<32>(1 << i) << std::endl;
     if (n & (1 << i)) ans++;
   }
   return ans;

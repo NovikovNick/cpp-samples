@@ -33,7 +33,7 @@
     }
 11. binary search tree traversal: preorder, inorder, postorder
 12. Whenever you have a problem where you need to check the subsequences/combinations/permutations of some group of letters/numbers, the first thought you should have is backtracking. Backtracking - поиск с возвратом.
-
+13. std::list<int> - double linked list. Adding, removing and moving the elements within the list or across several lists does not invalidate the iterators or references.
 */
 
 int main(int argc, char* argv[]) {
@@ -42,11 +42,11 @@ int main(int argc, char* argv[]) {
               std::thread::hardware_concurrency());
   // sample_concur::startGameLoop();
 
-  int x = 1;
-  int base = 2;
+  uint32_t x = 42;
+  uint8_t base = 2;
   util::debug("convert {} to base-{} string: {}\n", x, base, toBaseString(x, base));
-  std::cout << hammingWeight(16) << std::endl;
-  
+
+
 
   return 0;
 }
