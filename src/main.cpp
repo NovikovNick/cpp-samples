@@ -7,11 +7,12 @@
 #include <thread>
 #include <vector>
 
-#include "snake_game_sample/ggpo_samples.h"
-#include "util/log.h"
-#include "concurrency/chrono.cc"
 #include "algorithm/backtracking.cc"
 #include "algorithm/bit_manipulation.cc"
+#include "algorithm/sorting.cc"
+#include "concurrency/chrono.cc"
+#include "snake_game_sample/ggpo_samples.h"
+#include "util/log.h"
 
 /*
 1. dfs and bfs
@@ -32,21 +33,32 @@
         return true;
     }
 11. binary search tree traversal: preorder, inorder, postorder
-12. Whenever you have a problem where you need to check the subsequences/combinations/permutations of some group of letters/numbers, the first thought you should have is backtracking. Backtracking - поиск с возвратом.
-13. std::list<int> - double linked list. Adding, removing and moving the elements within the list or across several lists does not invalidate the iterators or references.
+12. Whenever you have a problem where you need to check the
+    subsequences/combinations/permutations of some group of letters/numbers, the
+    first thought you should have is backtracking. Backtracking - поиск с возвратом.
+13. std::list<int> - double linked list. Adding, removing and moving the
+    elements within the list or across several lists does not invalidate the
+    iterators or references.
+14. Sorting: selection sort, bubble sort
+
 */
+
+void print(auto begin, auto end) {
+  while (begin != end) {
+    util::debug("{} ", *begin);
+    begin = std::next(begin);
+  }
+  util::debug("\n");
+}
 
 int main(int argc, char* argv[]) {
   std::cout << "This thread id is " << std::this_thread::get_id() << std::endl;
   util::debug("{} of the threads can run concurrently.\n",
               std::thread::hardware_concurrency());
-  // sample_concur::startGameLoop();
 
-  uint32_t x = 42;
-  uint8_t base = 2;
-  util::debug("convert {} to base-{} string: {}\n", x, base, toBaseString(x, base));
-
-
-
+  std::vector<int> nums{8, 9, 7, 1, 2, 3, 4, 6, 5};
+  print(nums.begin(), nums.end());
+  bubbleSort(nums.begin(), nums.end());
+  print(nums.begin(), nums.end());
   return 0;
 }
