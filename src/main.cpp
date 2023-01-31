@@ -40,8 +40,19 @@
     elements within the list or across several lists does not invalidate the
     iterators or references.
 14. Sorting: selection sort, bubble sort
-
+15. Custom specialization of std::hash can be injected in namespace std
+    namespace std {
+    template <>
+    struct std::hash<S> {
+      size_t operator()(const S& s) const {
+        std::size_t h1 = std::hash<int>{}(s.x);
+        std::size_t h2 = std::hash<int>{}(s.y);
+        return h1 == h2 ? h1 : h1 ^ h2; 
+      }
+    };
+    }
 */
+
 
 void print(auto begin, auto end) {
   while (begin != end) {
