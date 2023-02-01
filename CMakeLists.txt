@@ -469,5 +469,8 @@ target_include_directories(data_stream_as_disjoint_intervals PRIVATE Boost::unit
 add_executable(best_team_with_no_conflicts "tst/best_team_with_no_conflicts.cc" src/leetcode/best_team_with_no_conflicts.cc)
 target_include_directories(best_team_with_no_conflicts PRIVATE Boost::unit_test_framework)
 
+#add_executable(greatest_common_divisor_of_strings "tst/greatest_common_divisor_of_strings.cc" src/leetcode/greatest_common_divisor_of_strings.cc)
+#target_include_directories(greatest_common_divisor_of_strings PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
