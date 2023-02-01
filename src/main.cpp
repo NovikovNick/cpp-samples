@@ -39,7 +39,7 @@
 13. std::list<int> - double linked list. Adding, removing and moving the
     elements within the list or across several lists does not invalidate the
     iterators or references.
-14. Sorting: selection sort, bubble sort
+14. Insertion sort best choice for small array(less then 15) or on almost sorted arrays. 
 15. Custom specialization of std::hash can be injected in namespace std
     namespace std {
     template <>
@@ -69,7 +69,7 @@ int main(int argc, char* argv[]) {
 
   std::vector<int> nums{8, 9, 7, 1, 2, 3, 4, 6, 5};
   print(nums.begin(), nums.end());
-  bubbleSort(nums.begin(), nums.end());
+  insertionSort(nums.begin(), nums.end());
   print(nums.begin(), nums.end());
   return 0;
 }
