@@ -3,6 +3,7 @@
 #include <bitset>
 #include <future>
 #include <iostream>
+#include <queue>
 #include <stack>
 #include <thread>
 #include <vector>
@@ -13,12 +14,13 @@
 #include "concurrency/chrono.cc"
 #include "snake_game_sample/ggpo_samples.h"
 #include "util/log.h"
+#include "algorithm/heap.cc"
 
 /*
 1. dfs and bfs
 2. dp or update input array to avoid redundant calculation
 3. monotonic stack. Track min/max elements
-4. heap for max/min element for O(1)
+4. heap for max/min element for O(1). Insersion and deletion for O(logN)
 5. binary search. Lower bound. Upper bound.
 6. Union find - Ranks?
 7. DP for finding common subsequence. Try to find DP formula in math notation
@@ -35,11 +37,13 @@
 11. binary search tree traversal: preorder, inorder, postorder
 12. Whenever you have a problem where you need to check the
     subsequences/combinations/permutations of some group of letters/numbers, the
-    first thought you should have is backtracking. Backtracking - поиск с возвратом.
+    first thought you should have is backtracking. Backtracking - поиск с
+возвратом.
 13. std::list<int> - double linked list. Adding, removing and moving the
     elements within the list or across several lists does not invalidate the
     iterators or references.
-14. Insertion sort best choice for small array(less then 15) or on almost sorted arrays. 
+14. Insertion sort best choice for small array(less then 15) or on almost sorted
+arrays.
 15. Custom specialization of std::hash can be injected in namespace std
     namespace std {
     template <>
@@ -47,12 +51,11 @@
       size_t operator()(const S& s) const {
         std::size_t h1 = std::hash<int>{}(s.x);
         std::size_t h2 = std::hash<int>{}(s.y);
-        return h1 == h2 ? h1 : h1 ^ h2; 
+        return h1 == h2 ? h1 : h1 ^ h2;
       }
     };
     }
 */
-
 
 void print(auto begin, auto end) {
   while (begin != end) {
@@ -71,5 +74,7 @@ int main(int argc, char* argv[]) {
   print(nums.begin(), nums.end());
   insertionSort(nums.begin(), nums.end());
   print(nums.begin(), nums.end());
+
+  
   return 0;
 }
