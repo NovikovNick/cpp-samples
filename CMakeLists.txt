@@ -472,8 +472,11 @@ target_include_directories(best_team_with_no_conflicts PRIVATE Boost::unit_test_
 #add_executable(greatest_common_divisor_of_strings "tst/greatest_common_divisor_of_strings.cc" src/leetcode/greatest_common_divisor_of_strings.cc)
 #target_include_directories(greatest_common_divisor_of_strings PRIVATE Boost::unit_test_framework)
 
-add_executable(insertion_sort_list "tst/insertion_sort_list.cc" src/leetcode/insertion_sort_list.cc)
-target_include_directories(insertion_sort_list PRIVATE Boost::unit_test_framework)
+#add_executable(insertion_sort_list "tst/insertion_sort_list.cc" src/leetcode/insertion_sort_list.cc)
+#target_include_directories(insertion_sort_list PRIVATE Boost::unit_test_framework)
+
+#add_executable(verifying_an_alien_dictionary "tst/verifying_an_alien_dictionary.cc" src/leetcode/verifying_an_alien_dictionary.cc)
+#target_include_directories(verifying_an_alien_dictionary PRIVATE Boost::unit_test_framework)
 
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
