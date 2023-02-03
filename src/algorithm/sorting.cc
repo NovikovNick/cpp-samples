@@ -57,3 +57,19 @@ void insertionSort(auto begin, auto end) {
     forward = std::next(forward);
   }
 }
+
+/// <summary>
+/// The main advantage of heapsort is it's generally much faster than the other
+/// comparison based sorts on sufficiently large inputs as a consequence of the
+/// running time. However, there are a few undesirable qualities in the
+/// algorithm. For one, it is not a stable sort. It also turns out that in
+/// practice, this algorithm performs worse than other O(NlogN) sorts as a
+/// result of bad cache locality properties.
+/// </summary>
+/// <param name="begin"></param>
+/// <param name="end"></param>
+void heapSort(auto begin, auto end) {
+  std::make_heap(begin, end);
+  // std::sort_heap(begin, end);
+  while (begin != end) std::pop_heap(begin, end--);
+}

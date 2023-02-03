@@ -72,7 +72,7 @@ int main(int argc, char* argv[]) {
 
   std::vector<int> nums{8, 9, 7, 1, 2, 3, 4, 6, 5};
   print(nums.begin(), nums.end());
-  insertionSort(nums.begin(), nums.end());
+  heapSort(nums.begin(), nums.end());
   print(nums.begin(), nums.end());
 
   
