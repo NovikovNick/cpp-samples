@@ -10,11 +10,11 @@
 
 #include "algorithm/backtracking.cc"
 #include "algorithm/bit_manipulation.cc"
+#include "algorithm/heap.cc"
 #include "algorithm/sorting.cc"
 #include "concurrency/chrono.cc"
 #include "snake_game_sample/ggpo_samples.h"
 #include "util/log.h"
-#include "algorithm/heap.cc"
 
 /*
 1. dfs and bfs
@@ -38,13 +38,16 @@
 12. Whenever you have a problem where you need to check the
     subsequences/combinations/permutations of some group of letters/numbers, the
     first thought you should have is backtracking. Backtracking - поиск с
-возвратом.
+    возвратом.
 13. std::list<int> - double linked list. Adding, removing and moving the
     elements within the list or across several lists does not invalidate the
     iterators or references.
 14. Insertion sort best choice for small array(less then 15) or on almost sorted
-arrays.
-15. Custom specialization of std::hash can be injected in namespace std
+    arrays.
+15. Counting sort is all about using a predefined range of keys and track
+    frequency of each value. Then overwrite count with the starting index and then
+    shift index by count.
+16. Custom specialization of std::hash can be injected in namespace std
     namespace std {
     template <>
     struct std::hash<S> {
@@ -70,11 +73,11 @@ int main(int argc, char* argv[]) {
   util::debug("{} of the threads can run concurrently.\n",
               std::thread::hardware_concurrency());
 
-  std::vector<int> nums{8, 9, 7, 1, 2, 3, 4, 6, 5};
+  std::vector<int> nums{1, 2, 3, 3, 3, 3, 2, 3, 1, 1, 2,
+                        3, 2, 1, 2, 2, 1, 3, 3, 3, 1};
   print(nums.begin(), nums.end());
-  heapSort(nums.begin(), nums.end());
+  countingSort(nums.begin(), nums.end());
   print(nums.begin(), nums.end());
 
-  
   return 0;
 }

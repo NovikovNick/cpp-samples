@@ -66,10 +66,43 @@ void insertionSort(auto begin, auto end) {
 /// practice, this algorithm performs worse than other O(NlogN) sorts as a
 /// result of bad cache locality properties.
 /// </summary>
-/// <param name="begin"></param>
-/// <param name="end"></param>
+/// <param name="begin"> - forward iterator</param>
+/// <param name="end"> - forward iterator</param>
 void heapSort(auto begin, auto end) {
   std::make_heap(begin, end);
   // std::sort_heap(begin, end);
   while (begin != end) std::pop_heap(begin, end--);
+}
+
+/// <summary>
+/// O(N + K), stable
+/// </summary>
+/// <param name="begin"> - forward iterator</param>
+/// <param name="end"> - forward iterator</param>
+void countingSort(auto begin, auto end) {
+  auto size = 0, offset = 0, max = 0;
+  for (auto it = begin; it != end; ++it) {
+    ++size;
+    offset = std::min(offset, *it);
+    max = std::max(max, *it);
+  }
+
+  int n = max + 1 - offset;
+  std::vector<int> counts(n, 0);
+  for (auto it = begin; it != end; ++it) ++counts[*it - offset];
+
+  int sorted_index = 0;
+  for (int i = 0; i < n; ++i) {
+    auto count = counts[i];
+    counts[i] = sorted_index;
+    sorted_index += count;
+  }
+
+  std::vector<int> res(size);
+  for (auto it = begin; it != end; ++it) {
+    res[counts[*it - offset]] = *it;
+    ++counts[*it - offset];
+  }
+
+  std::copy(res.begin(), res.end(), begin);
 }
