@@ -45,8 +45,8 @@
 14. Insertion sort best choice for small array(less then 15) or on almost sorted
     arrays.
 15. Counting sort is all about using a predefined range of keys and track
-    frequency of each value. Then overwrite count with the starting index and then
-    shift index by count.
+    frequency of each value. Then overwrite count with the starting index and
+then shift index by count.
 16. Custom specialization of std::hash can be injected in namespace std
     namespace std {
     template <>
@@ -68,6 +68,19 @@ void print(auto begin, auto end) {
   util::debug("\n");
 }
 
+class Base {
+ public:
+  virtual ~Base() = default;
+  virtual void foo() = 0;
+};
+
+class Derrived : public Base {
+ public:
+  void foo() override;
+};
+
+void Derrived::foo() { util::debug("it works..."); };
+
 int main(int argc, char* argv[]) {
   std::cout << "This thread id is " << std::this_thread::get_id() << std::endl;
   util::debug("{} of the threads can run concurrently.\n",
@@ -78,6 +91,9 @@ int main(int argc, char* argv[]) {
   print(nums.begin(), nums.end());
   countingSort(nums.begin(), nums.end());
   print(nums.begin(), nums.end());
+
+  std::shared_ptr<Base> base = std::make_shared<Derrived>();
+  base->foo();
 
   return 0;
 }

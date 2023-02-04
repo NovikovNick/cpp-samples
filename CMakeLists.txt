@@ -481,5 +481,8 @@ target_include_directories(best_team_with_no_conflicts PRIVATE Boost::unit_test_
 #add_executable(zigzag_conversion "tst/zigzag_conversion.cc" src/leetcode/zigzag_conversion.cc)
 #target_include_directories(zigzag_conversion PRIVATE Boost::unit_test_framework)
 
+#add_executable(minimum_absolute_difference "tst/minimum_absolute_difference.cc" src/leetcode/minimum_absolute_difference.cc)
+#target_include_directories(minimum_absolute_difference PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
