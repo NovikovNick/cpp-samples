@@ -47,6 +47,7 @@
 15. Counting sort is all about using a predefined range of keys and track
     frequency of each value. Then overwrite count with the starting index and
 then shift index by count.
+16. LSD radix sort and MSD radix sort.
 16. Custom specialization of std::hash can be injected in namespace std
     namespace std {
     template <>
