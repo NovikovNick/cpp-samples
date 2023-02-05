@@ -96,5 +96,11 @@ int main(int argc, char* argv[]) {
   std::shared_ptr<Base> base = std::make_shared<Derrived>();
   base->foo();
 
+  int lhs = 24;
+  int radix = 0;
+  int h = (lhs / radix) * radix;
+  int lhs2 = lhs - h;
+
+
   return 0;
 }

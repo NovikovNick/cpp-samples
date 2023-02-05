@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <format>
 #include <iostream>
+#include <queue>
 #include <vector>
 
 template <typename... Args>
@@ -17,42 +18,32 @@ namespace leetcode {
 using namespace std;
 
 class Solution {
-  struct Item {
-    std::string str;
-    int index;
-  };
-
-  void radixSort(std::vector<Item>& nums, const int radix_count) {
-    int n = nums[0].str.size();
-    for (int i = 1; i <= radix_count; ++i) {
-      // todo: countingSort
-      std::stable_sort(nums.begin(), nums.end(),
-                       [radix = n - i](const Item& lhs, const Item& rhs) {
-                         return lhs.str[radix] < rhs.str[radix];
-                       });
-    }
-  }
-
  public:
   vector<int> smallestTrimmedNumbers(vector<string>& nums,
                                      vector<vector<int>>& queries) {
-    std::vector<Item> items(nums.size());
-    for (int i = 0; i < nums.size(); ++i) items[i] = {nums[i], i};
+    int n = nums[0].size();
+    std::vector<uint64_t> input(nums.size());
+    for (int i = 0; i < nums.size(); ++i) input[i] = std::stoi(nums[i]);
 
-    for (const auto& it : items) debug("{}({}) ", it.str, it.index);
-    debug("\n");
-    
     std::vector<int> res(queries.size());
     for (int i = 0; i < queries.size(); ++i) {
-      radixSort(items, queries[i][1]);
-      for (const auto& it : items) debug("{}({}) ", it.str, it.index);
-      debug("\n");
+      int radix = std::pow(10, queries[i][1]);
+      auto cmp = [&nums = input, radix = radix](const int& lhs,
+                                                const int& rhs) {
+        int lhs_trimmed = nums[lhs] - (nums[lhs] / radix) * radix;
+        int rhs_trimmed = nums[rhs] - (nums[rhs] / radix) * radix;
+        if (lhs_trimmed < rhs_trimmed) return true;
+        if (lhs_trimmed == rhs_trimmed) return lhs < rhs;
+        return false;
+      };
+      std::priority_queue<int, std::vector<int>, decltype(cmp)> max_heap(cmp);
 
-      res[i] = items[queries[i][0] - 1].index;
-      std::sort(items.begin(), items.end(),
-                [](const Item& lhs, const Item& rhs) {
-                  return lhs.index < rhs.index;
-                });
+      for (int j = 0; j < nums.size(); ++j) {
+        max_heap.push(j);
+        if (max_heap.size() > queries[i][0]) max_heap.pop();
+      };
+
+      res[i] = max_heap.top();
     }
     return res;
   }
