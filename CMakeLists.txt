@@ -487,5 +487,8 @@ target_include_directories(best_team_with_no_conflicts PRIVATE Boost::unit_test_
 add_executable(query_kth_smallest_trimmed_number "tst/query_kth_smallest_trimmed_number.cc" src/leetcode/query_kth_smallest_trimmed_number.cc)
 target_include_directories(query_kth_smallest_trimmed_number PRIVATE Boost::unit_test_framework)
 
+#add_executable(find_all_anagrams_in_a_string "tst/find_all_anagrams_in_a_string.cc" src/leetcode/find_all_anagrams_in_a_string.cc)
+#target_include_directories(find_all_anagrams_in_a_string PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
