@@ -21,29 +21,19 @@ class Solution {
  public:
   vector<int> smallestTrimmedNumbers(vector<string>& nums,
                                      vector<vector<int>>& queries) {
-    int n = nums[0].size();
-    std::vector<uint64_t> input(nums.size());
-    for (int i = 0; i < nums.size(); ++i) input[i] = std::stoi(nums[i]);
+    auto n = nums[0].size();
 
     std::vector<int> res(queries.size());
-    for (int i = 0; i < queries.size(); ++i) {
-      int radix = std::pow(10, queries[i][1]);
-      auto cmp = [&nums = input, radix = radix](const int& lhs,
-                                                const int& rhs) {
-        int lhs_trimmed = nums[lhs] - (nums[lhs] / radix) * radix;
-        int rhs_trimmed = nums[rhs] - (nums[rhs] / radix) * radix;
-        if (lhs_trimmed < rhs_trimmed) return true;
-        if (lhs_trimmed == rhs_trimmed) return lhs < rhs;
-        return false;
-      };
-      std::priority_queue<int, std::vector<int>, decltype(cmp)> max_heap(cmp);
+    for (uint8_t i = 0; i < queries.size(); ++i) {
+      auto k = queries[i][0];
+      auto radix = n - queries[i][1];
 
+      std::priority_queue<std::pair<std::string, int>> max_heap;
       for (int j = 0; j < nums.size(); ++j) {
-        max_heap.push(j);
-        if (max_heap.size() > queries[i][0]) max_heap.pop();
+        max_heap.push({nums[j].substr(radix), j});
+        if (max_heap.size() > k) max_heap.pop();
       };
-
-      res[i] = max_heap.top();
+      res[i] = max_heap.top().second;
     }
     return res;
   }
