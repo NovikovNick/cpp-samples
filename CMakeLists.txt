@@ -493,5 +493,8 @@ target_include_directories(query_kth_smallest_trimmed_number PRIVATE Boost::unit
 #add_executable(shuffle_the_array "tst/shuffle_the_array.cc" src/leetcode/shuffle_the_array.cc)
 #target_include_directories(shuffle_the_array PRIVATE Boost::unit_test_framework)
 
+#add_executable(fruit_into_baskets "tst/fruit_into_baskets.cc" src/leetcode/fruit_into_baskets.cc)
+#target_include_directories(fruit_into_baskets PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
