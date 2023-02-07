@@ -91,11 +91,10 @@ void countingSort(auto begin, auto end) {
   std::vector<int> counts(n, 0);
   for (auto it = begin; it != end; ++it) ++counts[*it - offset];
 
-  int sorted_index = 0;
-  for (int i = 0; i < n; ++i) {
-    auto count = counts[i];
-    counts[i] = sorted_index;
-    sorted_index += count;
+  int index = 0;
+  for (auto& count : counts) {
+    std::swap(count, index);
+    index += count;
   }
 
   std::vector<int> res(size);
@@ -104,5 +103,24 @@ void countingSort(auto begin, auto end) {
     ++counts[*it - offset];
   }
 
+  std::copy(res.begin(), res.end(), begin);
+}
+
+void bucketSort(auto begin, auto end, const int bucket_count) {
+  auto [min, max] = std::minmax_element(begin, end);
+  auto size = *max - *min;
+  auto offset = std::abs(*min);
+  std::vector<std::vector<int>> buckets(bucket_count + 1);
+  for (auto it = begin; it != end; ++it) {
+    auto val = *it;
+    auto bucket = std::abs(bucket_count * (offset + val) / size);
+    buckets[bucket].push_back(val);
+  }
+
+  std::vector<int> res;
+  for (auto bucket : buckets) {
+    insertionSort(bucket.begin(), bucket.end());
+    res.insert(res.end(), bucket.begin(), bucket.end());
+  }
   std::copy(res.begin(), res.end(), begin);
 }
