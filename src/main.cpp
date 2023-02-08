@@ -46,6 +46,7 @@ int main(int argc, char* argv[]) {
   print(nums.begin(), nums.end());
 
   util::debug("num {}\n", 1e4);
+  util::debug("{} > {} = {}\n", "a", "aa", "a" > "aa");
 
   return 0;
 }
