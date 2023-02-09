@@ -502,5 +502,8 @@ target_include_directories(query_kth_smallest_trimmed_number PRIVATE Boost::unit
 #add_executable(top_k_frequent_words "tst/top_k_frequent_words.cc" src/leetcode/top_k_frequent_words.cc)
 #target_include_directories(top_k_frequent_words PRIVATE Boost::unit_test_framework)
 
+add_executable(naming_a_company "tst/naming_a_company.cc" src/leetcode/naming_a_company.cc)
+target_include_directories(naming_a_company PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)

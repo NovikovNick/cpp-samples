@@ -46,7 +46,11 @@ int main(int argc, char* argv[]) {
   print(nums.begin(), nums.end());
 
   util::debug("num {}\n", 1e4);
-  util::debug("{} > {} = {}\n", "a", "aa", "a" > "aa");
+
+  auto l = convert(1, 2);
+  auto [lhs, rhs] = convert(l);
+  util::debug("{} + {} = {}\n", 1, 2, convert(1, 2));
+  util::debug("{} = {} + {}\n", l, lhs, rhs);
 
   return 0;
 }
