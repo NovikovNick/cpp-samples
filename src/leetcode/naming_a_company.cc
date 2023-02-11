@@ -88,7 +88,21 @@ class Solution {
 
   long long distinctNames(vector<string>& ideas) {
     std::vector<std::unordered_set<std::string>> dp(26);
-    return 1;
+    for (const auto& idea : ideas) dp[idea[0] - 'a'].insert(idea.substr(1));
+
+    long long res = 0;
+    for (int i = 0; i < 26; ++i) {
+      if (dp[i].empty()) continue;
+      for (int j = i + 1; j < 26; ++j) {
+        if (dp[j].empty()) continue;
+        int union_count = 0;
+        for (const auto& suffix: dp[i]) {
+          if (dp[j].find(suffix) != dp[j].end()) ++union_count;
+        }
+        res += 2ll * (dp[i].size() - union_count) * (dp[j].size() - union_count);
+      }
+    }
+    return res;
   }
 };
 }  // namespace leetcode
