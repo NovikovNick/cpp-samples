@@ -508,5 +508,8 @@ target_include_directories(naming_a_company PRIVATE Boost::unit_test_framework)
 #add_executable(as_far_from_land_as_possible "tst/as_far_from_land_as_possible.cc" src/leetcode/as_far_from_land_as_possible.cc)
 #target_include_directories(as_far_from_land_as_possible PRIVATE Boost::unit_test_framework)
 
+#add_executable(shortest_path_with_alternating_colors "tst/shortest_path_with_alternating_colors.cc" src/leetcode/shortest_path_with_alternating_colors.cc)
+#target_include_directories(shortest_path_with_alternating_colors PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
