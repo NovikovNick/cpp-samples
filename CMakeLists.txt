@@ -511,5 +511,8 @@ target_include_directories(naming_a_company PRIVATE Boost::unit_test_framework)
 #add_executable(shortest_path_with_alternating_colors "tst/shortest_path_with_alternating_colors.cc" src/leetcode/shortest_path_with_alternating_colors.cc)
 #target_include_directories(shortest_path_with_alternating_colors PRIVATE Boost::unit_test_framework)
 
+#add_executable(minimum_fuel_cost_to_report_to_the_capital "tst/minimum_fuel_cost_to_report_to_the_capital.cc" src/leetcode/minimum_fuel_cost_to_report_to_the_capital.cc)
+#target_include_directories(minimum_fuel_cost_to_report_to_the_capital PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
