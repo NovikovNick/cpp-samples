@@ -514,5 +514,8 @@ target_include_directories(naming_a_company PRIVATE Boost::unit_test_framework)
 #add_executable(minimum_fuel_cost_to_report_to_the_capital "tst/minimum_fuel_cost_to_report_to_the_capital.cc" src/leetcode/minimum_fuel_cost_to_report_to_the_capital.cc)
 #target_include_directories(minimum_fuel_cost_to_report_to_the_capital PRIVATE Boost::unit_test_framework)
 
+#add_executable(count_odd_numbers_in_an_interval_range "tst/count_odd_numbers_in_an_interval_range.cc" src/leetcode/count_odd_numbers_in_an_interval_range.cc)
+#target_include_directories(count_odd_numbers_in_an_interval_range PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
