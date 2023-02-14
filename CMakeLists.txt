@@ -517,5 +517,8 @@ target_include_directories(naming_a_company PRIVATE Boost::unit_test_framework)
 #add_executable(count_odd_numbers_in_an_interval_range "tst/count_odd_numbers_in_an_interval_range.cc" src/leetcode/count_odd_numbers_in_an_interval_range.cc)
 #target_include_directories(count_odd_numbers_in_an_interval_range PRIVATE Boost::unit_test_framework)
 
+#add_executable(add_binary "tst/add_binary.cc" src/leetcode/add_binary.cc)
+#target_include_directories(add_binary PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
