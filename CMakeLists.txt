@@ -520,5 +520,8 @@ target_include_directories(naming_a_company PRIVATE Boost::unit_test_framework)
 #add_executable(add_binary "tst/add_binary.cc" src/leetcode/add_binary.cc)
 #target_include_directories(add_binary PRIVATE Boost::unit_test_framework)
 
+#add_executable(add_to_array_form_of_integer "tst/add_to_array_form_of_integer.cc" src/leetcode/add_to_array_form_of_integer.cc)
+#target_include_directories(add_to_array_form_of_integer PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
