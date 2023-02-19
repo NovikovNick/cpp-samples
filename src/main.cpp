@@ -39,18 +39,10 @@ int main(int argc, char* argv[]) {
   std::cout << "This thread id is " << std::this_thread::get_id() << std::endl;
   util::debug("{} of the threads can run concurrently.\n",
               std::thread::hardware_concurrency());
+  const double pi = std::acos(-1);
 
-  std::vector<int> nums{-100,200,2,1,2,34,563,346,100000};
-  print(nums.begin(), nums.end());
-  bucketSort(nums.begin(), nums.end(), 5);
-  print(nums.begin(), nums.end());
-
-  util::debug("num {}\n", 1e4);
-
-  auto l = convert(1, 2);
-  auto [lhs, rhs] = convert(l);
-  util::debug("{} + {} = {}\n", 1, 2, convert(1, 2));
-  util::debug("{} = {} + {}\n", l, lhs, rhs);
+  float fst = 0.2;
+  if (fst != 0.2) std::cout << "problem with floating point\n";
 
   return 0;
 }

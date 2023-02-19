@@ -526,5 +526,8 @@ target_include_directories(naming_a_company PRIVATE Boost::unit_test_framework)
 #add_executable(minimum_distance_between_bst_nodes "tst/minimum_distance_between_bst_nodes.cc" src/leetcode/minimum_distance_between_bst_nodes.cc)
 #target_include_directories(minimum_distance_between_bst_nodes PRIVATE Boost::unit_test_framework)
 
+#add_executable(binary_tree_zigzag_level_order_traversal "tst/binary_tree_zigzag_level_order_traversal.cc" src/leetcode/binary_tree_zigzag_level_order_traversal.cc)
+#target_include_directories(binary_tree_zigzag_level_order_traversal PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
