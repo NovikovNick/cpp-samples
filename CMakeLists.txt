@@ -532,5 +532,8 @@ target_include_directories(naming_a_company PRIVATE Boost::unit_test_framework)
 #add_executable(queries_on_number_of_points_inside_a_circle "tst/queries_on_number_of_points_inside_a_circle.cc" src/leetcode/queries_on_number_of_points_inside_a_circle.cc)
 #target_include_directories(queries_on_number_of_points_inside_a_circle PRIVATE Boost::unit_test_framework)
 
+#add_executable(single_element_in_a_sorted_array "tst/single_element_in_a_sorted_array.cc" src/leetcode/single_element_in_a_sorted_array.cc)
+#target_include_directories(single_element_in_a_sorted_array PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
