@@ -5,6 +5,7 @@
 #include <iostream>
 #include <list>
 #include <map>
+#include <queue>
 #include <vector>
 
 template <typename... Args>
@@ -23,50 +24,20 @@ class Solution {
   int findMaximizedCapital(int k, int w, vector<int>& profits,
                            vector<int>& capitals) {
     int n = profits.size();
-    std::list<PAIR> list;
-    for (int i = 0; i < n; ++i) {
-      list.push_back({capitals[i], profits[i]});
-    }
+    std::vector<PAIR> pairs;
+    for (int i = 0; i < n; ++i) pairs.push_back({capitals[i], profits[i]});
 
-    auto cmp = [](const PAIR& lhs, const PAIR& rhs) {
-      if (lhs.first < rhs.first) return true;
-      if (lhs.first == rhs.first) return lhs.second > rhs.second;
-      return false;
-    };
-    list.sort(cmp);
+    std::sort(pairs.begin(), pairs.end());
 
-    std::map<int, std::list<PAIR>::iterator> map;
-    auto prev = list.begin();
-    map[prev->first] = prev;
-    for (auto it = std::next(prev); it != list.end(); ++it) {
-      if (it->first == prev->first) continue;
-      map[it->first] = it;
-      prev = it;
-    }
+    std::priority_queue<int> max_heap;
+    int i = 0;
+    for (; i < n && pairs[i].first <= w; ++i) max_heap.push(pairs[i].second);
 
-    for (int i = 0; i < k; ++i) {
-      auto max_pair = list.end();
-      for (const auto& [capit, it] : map) {
-        if (capit > w) break;
-        if (max_pair == list.end() || it->second > max_pair->second)
-          max_pair = it;
-      }
-
-      if (max_pair == list.end()) return w;
-
-      w += max_pair->second;
-
-      auto next = std::next(max_pair);
-      if (next == list.end() || next->first != max_pair->first) {
-        map.erase(max_pair->first);
-      } else {
-        map[next->first] = next;
-      }
-      list.erase(max_pair);
-
-      /*debug("---- {} \n", w);
-      for (const auto& [capit, prof] : list) debug("{}-{}\n", capit, prof);
-      for (const auto& [capit, it] : map) debug("{}: {}\n", capit, it->second);*/
+    while (!max_heap.empty() && k != 0) {
+      w += max_heap.top();
+      max_heap.pop();
+      --k;
+      for (; i < n && pairs[i].first <= w; ++i) max_heap.push(pairs[i].second);
     }
     return w;
   }
