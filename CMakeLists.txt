@@ -538,5 +538,8 @@ target_include_directories(naming_a_company PRIVATE Boost::unit_test_framework)
 add_executable(capacity_to_ship_packages_within_d_days "tst/capacity_to_ship_packages_within_d_days.cc" src/leetcode/capacity_to_ship_packages_within_d_days.cc)
 target_include_directories(capacity_to_ship_packages_within_d_days PRIVATE Boost::unit_test_framework)
 
+add_executable(ipo "tst/ipo.cc" src/leetcode/ipo.cc)
+target_include_directories(ipo PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
