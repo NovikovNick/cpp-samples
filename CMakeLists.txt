@@ -544,5 +544,8 @@ target_include_directories(capacity_to_ship_packages_within_d_days PRIVATE Boost
 add_executable(minimize_deviation_in_array "tst/minimize_deviation_in_array.cc" src/leetcode/minimize_deviation_in_array.cc)
 target_include_directories(minimize_deviation_in_array PRIVATE Boost::unit_test_framework)
 
+add_executable(edit_distance "tst/edit_distance.cc" src/leetcode/edit_distance.cc)
+target_include_directories(edit_distance PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
