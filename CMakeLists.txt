@@ -547,5 +547,8 @@ target_include_directories(minimize_deviation_in_array PRIVATE Boost::unit_test_
 add_executable(edit_distance "tst/edit_distance.cc" src/leetcode/edit_distance.cc)
 target_include_directories(edit_distance PRIVATE Boost::unit_test_framework)
 
+#add_executable(construct_quad_tree "tst/construct_quad_tree.cc" src/leetcode/construct_quad_tree.cc)
+#target_include_directories(construct_quad_tree PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
