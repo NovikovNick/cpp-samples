@@ -556,5 +556,8 @@ target_include_directories(find_duplicate_subtrees PRIVATE Boost::unit_test_fram
 #add_executable(string_compression "tst/string_compression.cc" src/leetcode/string_compression.cc)
 #target_include_directories(string_compression PRIVATE Boost::unit_test_framework)
 
+#add_executable(find_the_index_of_the_first_occurrence_in_a_string "tst/find_the_index_of_the_first_occurrence_in_a_string.cc" src/leetcode/find_the_index_of_the_first_occurrence_in_a_string.cc)
+#target_include_directories(find_the_index_of_the_first_occurrence_in_a_string PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
