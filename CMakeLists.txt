@@ -562,5 +562,8 @@ target_include_directories(find_duplicate_subtrees PRIVATE Boost::unit_test_fram
 add_executable(count_subarrays_with_fixed_bounds "tst/count_subarrays_with_fixed_bounds.cc" src/leetcode/count_subarrays_with_fixed_bounds.cc)
 target_include_directories(count_subarrays_with_fixed_bounds PRIVATE Boost::unit_test_framework)
 
+add_executable(jump_game_iv "tst/jump_game_iv.cc" src/leetcode/jump_game_iv.cc)
+target_include_directories(jump_game_iv PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
