@@ -565,5 +565,8 @@ target_include_directories(count_subarrays_with_fixed_bounds PRIVATE Boost::unit
 add_executable(jump_game_iv "tst/jump_game_iv.cc" src/leetcode/jump_game_iv.cc)
 target_include_directories(jump_game_iv PRIVATE Boost::unit_test_framework)
 
+add_executable(kth_missing_positive_number "tst/kth_missing_positive_number.cc" src/leetcode/kth_missing_positive_number.cc)
+target_include_directories(kth_missing_positive_number PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
