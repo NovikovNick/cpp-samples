@@ -568,5 +568,8 @@ target_include_directories(jump_game_iv PRIVATE Boost::unit_test_framework)
 add_executable(kth_missing_positive_number "tst/kth_missing_positive_number.cc" src/leetcode/kth_missing_positive_number.cc)
 target_include_directories(kth_missing_positive_number PRIVATE Boost::unit_test_framework)
 
+#add_executable(minimum_time_to_complete_trips "tst/minimum_time_to_complete_trips.cc" src/leetcode/minimum_time_to_complete_trips.cc)
+#target_include_directories(minimum_time_to_complete_trips PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
