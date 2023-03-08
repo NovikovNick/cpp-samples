@@ -52,8 +52,13 @@ int main(int argc, char* argv[]) {
   //                   0  1  2  3  4  5  6  7  8
   std::vector<int> arr{1, 2, 3, 4, 4, 5, 5, 6, 7};
 
+  for (int i = 0; i < arr.size(); ++i) util::debug("[{}]", i);
+  util::debug("\n");
+  for (const auto& it : arr) util::debug(" {} ", it);
+  util::debug("\n");
+
   {
-    int lower_bound = lowerBound(arr, -3);
+    int lower_bound = lowerBound(arr, 5);
     if (lower_bound >= 0)
       util::debug("lower: arr[{}] = {}\n", lower_bound, arr[lower_bound]);
   }

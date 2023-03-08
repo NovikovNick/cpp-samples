@@ -571,5 +571,8 @@ target_include_directories(kth_missing_positive_number PRIVATE Boost::unit_test_
 #add_executable(minimum_time_to_complete_trips "tst/minimum_time_to_complete_trips.cc" src/leetcode/minimum_time_to_complete_trips.cc)
 #target_include_directories(minimum_time_to_complete_trips PRIVATE Boost::unit_test_framework)
 
+add_executable(koko_eating_bananas "tst/koko_eating_bananas.cc" src/leetcode/koko_eating_bananas.cc)
+target_include_directories(koko_eating_bananas PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
