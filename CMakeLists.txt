@@ -580,5 +580,8 @@ target_include_directories(linked_list_cycle_ii PRIVATE Boost::unit_test_framewo
 #add_executable(linked_list_random_node "tst/linked_list_random_node.cc" src/leetcode/linked_list_random_node.cc)
 #target_include_directories(linked_list_random_node PRIVATE Boost::unit_test_framework)
 
+#add_executable(convert_sorted_list_to_binary_search_tree "tst/convert_sorted_list_to_binary_search_tree.cc" src/leetcode/convert_sorted_list_to_binary_search_tree.cc)
+#target_include_directories(convert_sorted_list_to_binary_search_tree PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
