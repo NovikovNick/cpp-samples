@@ -586,5 +586,8 @@ target_include_directories(linked_list_cycle_ii PRIVATE Boost::unit_test_framewo
 #add_executable(merge_k_sorted_lists "tst/merge_k_sorted_lists.cc" src/leetcode/merge_k_sorted_lists.cc)
 #target_include_directories(merge_k_sorted_lists PRIVATE Boost::unit_test_framework)
 
+#add_executable(projection_area_of_3d_shapes "tst/projection_area_of_3d_shapes.cc" src/leetcode/projection_area_of_3d_shapes.cc)
+#target_include_directories(projection_area_of_3d_shapes PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
