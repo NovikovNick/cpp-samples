@@ -1,6 +1,7 @@
-﻿cmake_minimum_required (VERSION 3.8)
+﻿cmake_minimum_required (VERSION 3.14)
 project (CppSamples)
 
+add_subdirectory(external)
 enable_testing()
 
 set(CMAKE_CXX_STANDARD 20)
@@ -21,8 +22,10 @@ file(GLOB CONCURRENCY "src/concurrency/**/*.h" "src/concurrency/**/*.cc")
 file(GLOB GAME_SAMPLE "src/snake_game_sample/*.h" "src/snake_game_sample/*.cc")
 
 add_executable(main src/main.cpp ${SOCKET} ${CONCURRENCY} ${GAME_SAMPLE})
+target_include_directories(main INTERFACE external/boost)
+#target_link_libraries(main PRIVATE boost_ext::sml)
 if(WIN32)
-  target_link_libraries(main wsock32 ws2_32)
+  target_link_libraries(main PRIVATE wsock32 ws2_32)
 endif()
 
 #add_executable(redistribute_characters_to_make_all_strings_equal "tst/redistribute_characters_to_make_all_strings_equal.cc" src/leetcode/redistribute_characters_to_make_all_strings_equal.cc)
@@ -588,6 +591,9 @@ target_include_directories(linked_list_cycle_ii PRIVATE Boost::unit_test_framewo
 
 #add_executable(projection_area_of_3d_shapes "tst/projection_area_of_3d_shapes.cc" src/leetcode/projection_area_of_3d_shapes.cc)
 #target_include_directories(projection_area_of_3d_shapes PRIVATE Boost::unit_test_framework)
+
+#add_executable(sum_root_to_leaf_numbers "tst/sum_root_to_leaf_numbers.cc" src/leetcode/sum_root_to_leaf_numbers.cc)
+#target_include_directories(sum_root_to_leaf_numbers PRIVATE Boost::unit_test_framework)
 
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
