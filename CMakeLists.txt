@@ -23,7 +23,7 @@ file(GLOB GAME_SAMPLE "src/snake_game_sample/*.h" "src/snake_game_sample/*.cc")
 
 add_executable(main src/main.cpp ${SOCKET} ${CONCURRENCY} ${GAME_SAMPLE})
 target_include_directories(main INTERFACE external/boost)
-#target_link_libraries(main PRIVATE boost_ext::sml)
+target_link_libraries(main PRIVATE boost_ext::sml)
 if(WIN32)
   target_link_libraries(main PRIVATE wsock32 ws2_32)
 endif()
