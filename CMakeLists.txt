@@ -121,5 +121,8 @@ target_include_directories(koko_eating_bananas PRIVATE Boost::unit_test_framewor
 add_executable(linked_list_cycle_ii "tst/linked_list_cycle_ii.cc" src/leetcode/linked_list_cycle_ii.cc)
 target_include_directories(linked_list_cycle_ii PRIVATE Boost::unit_test_framework)
 
+add_executable(construct_binary_tree_from_inorder_and_postorder_traversal "tst/construct_binary_tree_from_inorder_and_postorder_traversal.cc" src/leetcode/construct_binary_tree_from_inorder_and_postorder_traversal.cc)
+target_include_directories(construct_binary_tree_from_inorder_and_postorder_traversal PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
