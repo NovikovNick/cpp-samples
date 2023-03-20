@@ -4,7 +4,6 @@ project (CppSamples)
 add_subdirectory(external)
 enable_testing()
 
-set(CMAKE_CXX_STANDARD 20)
 set(BOOST_ROOT "C:\\local\\boost_1_80_0")
 set(Boost_DEBUG ON)
 
@@ -13,6 +12,7 @@ add_definitions( -DBOOST_ALL_NO_LIB )
 add_definitions( -DBOOST_ALL_DYN_LINK )
 
 add_subdirectory("src")
+add_subdirectory("c_library")
 
 include_directories(${Boost_INCLUDE_DIRS})
 
@@ -22,8 +22,9 @@ file(GLOB CONCURRENCY "src/concurrency/**/*.h" "src/concurrency/**/*.cc")
 file(GLOB GAME_SAMPLE "src/snake_game_sample/*.h" "src/snake_game_sample/*.cc")
 
 add_executable(main src/main.cpp ${SOCKET} ${CONCURRENCY} ${GAME_SAMPLE})
+target_compile_features(main PUBLIC cxx_std_20)
 target_include_directories(main INTERFACE external/boost)
-target_link_libraries(main PRIVATE boost_ext::sml)
+target_link_libraries(main PRIVATE boost_ext::sml sample::c_lib)
 if(WIN32)
   target_link_libraries(main PRIVATE wsock32 ws2_32)
 endif()
@@ -128,4 +129,5 @@ add_executable(design_add_and_search_words_data_structure "tst/design_add_and_se
 target_include_directories(design_add_and_search_words_data_structure PRIVATE Boost::unit_test_framework)
 
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
+target_compile_features(aaa_empty PUBLIC cxx_std_20)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
