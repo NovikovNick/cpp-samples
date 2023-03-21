@@ -1,8 +1,11 @@
 ﻿#define DEBUG 1;
 
-#include "finite_state_machine.cc"
+#include <sample.c>
 
-int main() {
-  fsm::test();
+#include "algorithm/math.h"
+#include "util/log.h"
+
+int main(int argc, char argv[]) {
+  dynamicArray2dTest();
   return 0;
 }
