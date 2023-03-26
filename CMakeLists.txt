@@ -136,6 +136,10 @@ add_executable(count_unreachable_pairs_of_nodes_in_an_undirected_graph "tst/coun
 target_compile_features(count_unreachable_pairs_of_nodes_in_an_undirected_graph PUBLIC cxx_std_20)
 target_include_directories(count_unreachable_pairs_of_nodes_in_an_undirected_graph PRIVATE Boost::unit_test_framework)
 
+add_executable(longest_cycle_in_a_graph "tst/longest_cycle_in_a_graph.cc" src/leetcode/longest_cycle_in_a_graph.cc)
+target_compile_features(longest_cycle_in_a_graph PUBLIC cxx_std_20)
+target_include_directories(longest_cycle_in_a_graph PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_compile_features(aaa_empty PUBLIC cxx_std_20)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
