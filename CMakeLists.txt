@@ -140,6 +140,10 @@ add_executable(longest_cycle_in_a_graph "tst/longest_cycle_in_a_graph.cc" src/le
 target_compile_features(longest_cycle_in_a_graph PUBLIC cxx_std_20)
 target_include_directories(longest_cycle_in_a_graph PRIVATE Boost::unit_test_framework)
 
+add_executable(minimum_path_sum "tst/minimum_path_sum.cc" src/leetcode/minimum_path_sum.cc)
+target_compile_features(minimum_path_sum PUBLIC cxx_std_20)
+target_include_directories(minimum_path_sum PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_compile_features(aaa_empty PUBLIC cxx_std_20)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
