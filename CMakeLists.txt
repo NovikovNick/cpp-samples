@@ -144,6 +144,10 @@ add_executable(minimum_path_sum "tst/minimum_path_sum.cc" src/leetcode/minimum_p
 target_compile_features(minimum_path_sum PUBLIC cxx_std_20)
 target_include_directories(minimum_path_sum PRIVATE Boost::unit_test_framework)
 
+#add_executable(minimum_cost_for_tickets "tst/minimum_cost_for_tickets.cc" src/leetcode/minimum_cost_for_tickets.cc)
+#target_compile_features(minimum_cost_for_tickets PUBLIC cxx_std_20)
+#target_include_directories(minimum_cost_for_tickets PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_compile_features(aaa_empty PUBLIC cxx_std_20)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
