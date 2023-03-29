@@ -148,6 +148,10 @@ target_include_directories(minimum_path_sum PRIVATE Boost::unit_test_framework)
 #target_compile_features(minimum_cost_for_tickets PUBLIC cxx_std_20)
 #target_include_directories(minimum_cost_for_tickets PRIVATE Boost::unit_test_framework)
 
+#add_executable(reducing_dishes "tst/reducing_dishes.cc" src/leetcode/reducing_dishes.cc)
+#target_compile_features(reducing_dishes PUBLIC cxx_std_20)
+#target_include_directories(reducing_dishes PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_compile_features(aaa_empty PUBLIC cxx_std_20)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
