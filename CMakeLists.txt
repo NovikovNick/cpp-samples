@@ -156,6 +156,10 @@ add_executable(scramble_string "tst/scramble_string.cc" src/leetcode/scramble_st
 target_compile_features(scramble_string PUBLIC cxx_std_20)
 target_include_directories(scramble_string PRIVATE Boost::unit_test_framework)
 
+add_executable(number_of_ways_of_cutting_a_pizza "tst/number_of_ways_of_cutting_a_pizza.cc" src/leetcode/number_of_ways_of_cutting_a_pizza.cc)
+target_compile_features(number_of_ways_of_cutting_a_pizza PUBLIC cxx_std_20)
+target_include_directories(number_of_ways_of_cutting_a_pizza PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_compile_features(aaa_empty PUBLIC cxx_std_20)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
