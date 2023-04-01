@@ -160,6 +160,10 @@ add_executable(number_of_ways_of_cutting_a_pizza "tst/number_of_ways_of_cutting_
 target_compile_features(number_of_ways_of_cutting_a_pizza PUBLIC cxx_std_20)
 target_include_directories(number_of_ways_of_cutting_a_pizza PRIVATE Boost::unit_test_framework)
 
+#add_executable(k_closest_points_to_origin "tst/k_closest_points_to_origin.cc" src/leetcode/k_closest_points_to_origin.cc)
+#target_compile_features(k_closest_points_to_origin PUBLIC cxx_std_20)
+#target_include_directories(k_closest_points_to_origin PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_compile_features(aaa_empty PUBLIC cxx_std_20)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
