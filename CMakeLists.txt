@@ -164,6 +164,10 @@ target_include_directories(number_of_ways_of_cutting_a_pizza PRIVATE Boost::unit
 #target_compile_features(k_closest_points_to_origin PUBLIC cxx_std_20)
 #target_include_directories(k_closest_points_to_origin PRIVATE Boost::unit_test_framework)
 
+#add_executable(successful_pairs_of_spells_and_potions "tst/successful_pairs_of_spells_and_potions.cc" src/leetcode/successful_pairs_of_spells_and_potions.cc)
+#target_compile_features(successful_pairs_of_spells_and_potions PUBLIC cxx_std_20)
+#target_include_directories(successful_pairs_of_spells_and_potions PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_compile_features(aaa_empty PUBLIC cxx_std_20)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
