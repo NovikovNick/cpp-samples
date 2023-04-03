@@ -1,0 +1,23 @@
+#define BOOST_TEST_MODULE SolutionTest
+#define CASE_1 1
+#define DEBUG 1
+
+#include "../src/leetcode/boats_to_save_people.cc"
+
+#include <boost/test/included/unit_test.hpp>
+#include <iostream>
+
+#if CASE_1
+BOOST_AUTO_TEST_CASE(case1) {
+  // arrange
+  leetcode::Solution solution;
+  std::vector<int> people{3, 2, 2, 1};
+  int limit = 3;
+
+  // act
+  auto res = solution.numRescueBoats(people, limit);
+
+  // assert
+  BOOST_CHECK_EQUAL(3, res);
+}
+#endif  // !CASE_1
