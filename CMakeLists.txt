@@ -172,6 +172,11 @@ target_include_directories(number_of_ways_of_cutting_a_pizza PRIVATE Boost::unit
 #target_compile_features(boats_to_save_people PUBLIC cxx_std_20)
 #target_include_directories(boats_to_save_people PRIVATE Boost::unit_test_framework)
 
+add_executable(optimal_partition_of_string "tst/optimal_partition_of_string.cc" src/leetcode/optimal_partition_of_string.cc)
+target_compile_features(optimal_partition_of_string PUBLIC cxx_std_20)
+target_include_directories(optimal_partition_of_string PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_compile_features(aaa_empty PUBLIC cxx_std_20)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
+
