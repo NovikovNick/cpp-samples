@@ -180,6 +180,10 @@ add_executable(minimize_maximum_of_array "tst/minimize_maximum_of_array.cc" src/
 target_compile_features(minimize_maximum_of_array PUBLIC cxx_std_20)
 target_include_directories(minimize_maximum_of_array PRIVATE Boost::unit_test_framework)
 
+#add_executable(number_of_closed_islands "tst/number_of_closed_islands.cc" src/leetcode/number_of_closed_islands.cc)
+#target_compile_features(number_of_closed_islands PUBLIC cxx_std_20)
+#target_include_directories(number_of_closed_islands PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_compile_features(aaa_empty PUBLIC cxx_std_20)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
