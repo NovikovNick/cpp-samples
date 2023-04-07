@@ -184,6 +184,10 @@ target_include_directories(minimize_maximum_of_array PRIVATE Boost::unit_test_fr
 #target_compile_features(number_of_closed_islands PUBLIC cxx_std_20)
 #target_include_directories(number_of_closed_islands PRIVATE Boost::unit_test_framework)
 
+#add_executable(number_of_enclaves "tst/number_of_enclaves.cc" src/leetcode/number_of_enclaves.cc)
+#target_compile_features(number_of_enclaves PUBLIC cxx_std_20)
+#target_include_directories(number_of_enclaves PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_compile_features(aaa_empty PUBLIC cxx_std_20)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
