@@ -196,6 +196,10 @@ add_executable(largest_color_value_in_a_directed_graph "tst/largest_color_value_
 target_compile_features(largest_color_value_in_a_directed_graph PUBLIC cxx_std_20)
 target_include_directories(largest_color_value_in_a_directed_graph PRIVATE Boost::unit_test_framework)
 
+#add_executable(surface_area_of_3d_shapes "tst/surface_area_of_3d_shapes.cc" src/leetcode/surface_area_of_3d_shapes.cc)
+#target_compile_features(surface_area_of_3d_shapes PUBLIC cxx_std_20)
+#target_include_directories(surface_area_of_3d_shapes PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_compile_features(aaa_empty PUBLIC cxx_std_20)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
