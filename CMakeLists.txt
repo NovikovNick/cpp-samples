@@ -20,6 +20,10 @@ file(GLOB CPP_SAMPLES_UTIL "src/util/*.h" "src/util/*.cc")
 file(GLOB SOCKET "src/socket/**/*.h" "src/socket/**/*.cc")
 file(GLOB CONCURRENCY "src/concurrency/**/*.h" "src/concurrency/**/*.cc")
 file(GLOB GAME_SAMPLE "src/snake_game_sample/*.h" "src/snake_game_sample/*.cc")
+set(STUN_SRC 
+	"src/stun/packet.h"
+	"src/stun/stun_client.h"
+	"src/stun/stun_client.cc")
 
 add_executable(main src/main.cpp ${SOCKET} ${CONCURRENCY} ${GAME_SAMPLE})
 target_compile_features(main PUBLIC cxx_std_20)
@@ -28,6 +32,14 @@ target_link_libraries(main PRIVATE boost_ext::sml sample::c_lib)
 if(WIN32)
   target_link_libraries(main PRIVATE wsock32 ws2_32)
 endif()
+
+add_executable(stun src/stun.cpp ${STUN_SRC} ${CPP_SAMPLES_UTIL})
+target_compile_features(stun PUBLIC cxx_std_20)
+target_link_libraries(stun PRIVATE winmm.lib ws2_32.lib)
+
+add_executable(stun_ref src/ref/socket.cpp)
+target_compile_features(stun_ref PUBLIC c_std_17)
+target_link_libraries(stun_ref PRIVATE winmm.lib ws2_32.lib)
 
 add_executable(longest_common_subsequence "tst/longest_common_subsequence.cc" src/leetcode/longest_common_subsequence.cc)
 target_include_directories(longest_common_subsequence PRIVATE Boost::unit_test_framework)

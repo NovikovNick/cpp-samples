@@ -1,5 +1,4 @@
-﻿#define PORT 9999
-#define BUFLEN 1024
+﻿#define BUFLEN 1024
 
 #define WIN32_LEAN_AND_MEAN
 #include <stdio.h>
@@ -12,8 +11,8 @@
 
 namespace udp {
 
-void server(char* port) {
-  util::debug("start server {}\n", PORT);
+void server(const uint16_t port) {
+  util::debug("[SERVER]: start server {}\n", port);
 
   int res;
   WSADATA wsa;
@@ -31,13 +30,13 @@ void server(char* port) {
 
   server.sin_family = AF_INET;
   server.sin_addr.s_addr = INADDR_ANY;
-  server.sin_port = htons(PORT);
+  server.sin_port = htons(port);
 
   if (bind(listen_socket, (sockaddr*)&server, sizeof(server)) == SOCKET_ERROR)
     throw std::runtime_error("Unalbe to bind socket: " + WSAGetLastError());
 
   while (1) {
-    util::debug("Waiting for data...\n");
+    util::debug("[SERVER]: Waiting for data...\n");
     fflush(stdout);
     memset(buf, '\0', BUFLEN);
 
@@ -46,8 +45,9 @@ void server(char* port) {
       throw std::runtime_error("Unalbe to receiving: " + WSAGetLastError());
     }
 
-    util::debug("Received packet from {}:{}\n", inet_ntoa(si_other.sin_addr), ntohs(si_other.sin_port));
-    util::debug("Data: {}\n", buf);
+    util::debug("[SERVER]: Received packet from {}:{}\n",
+                inet_ntoa(si_other.sin_addr), ntohs(si_other.sin_port));
+    util::debug("[SERVER]: Data: {}\n", buf);
 
     // now reply the client with the same data
     if (sendto(listen_socket, buf, recv_len, 0, (sockaddr*)&si_other, slen) ==

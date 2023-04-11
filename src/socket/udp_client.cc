@@ -1,5 +1,4 @@
-﻿#define PORT 9999
-#define BUFLEN 1024
+﻿#define BUFLEN 1024
 
 #define WIN32_LEAN_AND_MEAN
 #include <stdio.h>
@@ -9,6 +8,7 @@
 #include <ws2tcpip.h>
 
 #include "../util/log.h"
+#include "exception.h"
 
 namespace udp {
 
@@ -18,20 +18,22 @@ class UdpClient {
   char buf[1024];
 
  public:
-  UdpClient(uint16_t port) {
+  UdpClient(const char* host, uint16_t port) {
     WSADATA wsa;
     int res, recv_len, slen = sizeof(sin);
 
     if ((res = WSAStartup(MAKEWORD(2, 2), &wsa)) != 0)
-      throw std::runtime_error("Unalbe to init socket: " + WSAGetLastError());
+      throw ConnectionException(WSAGetLastError());
 
     if ((s = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP)) == INVALID_SOCKET)
-      throw std::runtime_error("Unalbe to create socket: " + WSAGetLastError());
+      throw ConnectionException(WSAGetLastError());
 
     memset((char *)&sin, 0, sizeof(sin));
     sin.sin_family = AF_INET;
-    sin.sin_port = htons(PORT);
-    sin.sin_addr.S_un.S_addr = inet_addr("127.0.0.1");
+    sin.sin_port = htons(port);
+    sin.sin_addr.S_un.S_addr = inet_addr(host);
+
+    util::debug("[CLIENT]: create sockeet to port {}\n", port);
   }
 
   void send(std::string str) {
@@ -39,19 +41,20 @@ class UdpClient {
     int n = str.length();
     strcpy(buf, str.c_str());
 
+    util::debug("[CLIENT]: sending data: {}\n", buf);
     // now reply the client with the same data
     if (sendto(s, buf, n, 0, (sockaddr *)&sin, slen) == SOCKET_ERROR) {
-      throw std::runtime_error("Unalbe to sent: " + WSAGetLastError());
+      throw ConnectionException(WSAGetLastError());
     }
 
     memset(buf, '\0', BUFLEN);
 
     if ((recv_len = recvfrom(s, buf, BUFLEN, 0, (sockaddr *)&sin, &slen)) ==
         SOCKET_ERROR) {
-      throw std::runtime_error("Unalbe to receiving: " + WSAGetLastError());
+        throw UnableToReceiveException(WSAGetLastError());
     }
 
-    util::debug("Data: {}\n", buf);
+    util::debug("[CLIENT]: receive back: {}\n", buf);
   }
 
   ~UdpClient() {
