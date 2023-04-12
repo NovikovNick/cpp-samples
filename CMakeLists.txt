@@ -216,6 +216,10 @@ add_executable(removing_stars_from_a_string "tst/removing_stars_from_a_string.cc
 target_compile_features(removing_stars_from_a_string PUBLIC cxx_std_20)
 target_include_directories(removing_stars_from_a_string PRIVATE Boost::unit_test_framework)
 
+#add_executable(simplify_path "tst/simplify_path.cc" src/leetcode/simplify_path.cc)
+#target_compile_features(simplify_path PUBLIC cxx_std_20)
+#target_include_directories(simplify_path PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_compile_features(aaa_empty PUBLIC cxx_std_20)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
