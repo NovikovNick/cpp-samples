@@ -18,7 +18,7 @@ class UdpClient {
   char buf[1024];
 
  public:
-  UdpClient(const char* host, uint16_t port) {
+  UdpClient(const char *host, uint16_t port) {
     WSADATA wsa;
     int res, recv_len, slen = sizeof(sin);
 

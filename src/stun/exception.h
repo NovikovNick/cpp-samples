@@ -17,5 +17,11 @@ class UnableToReceiveException : public ConnectionException {
       : ConnectionException(error_code) {}
 };
 
+class UnableToSendException : public ConnectionException {
+ public:
+  UnableToSendException(const int error_code)
+      : ConnectionException(error_code) {}
+};
+
 }  // namespace stun
 #endif  // STUN_EXCEPTION_H
