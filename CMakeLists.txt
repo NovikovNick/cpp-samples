@@ -36,10 +36,9 @@ endif()
 add_executable(stun src/stun.cpp ${STUN_SRC} ${CPP_SAMPLES_UTIL})
 target_compile_features(stun PUBLIC cxx_std_20)
 target_link_libraries(stun PRIVATE winmm.lib ws2_32.lib)
-
-add_executable(stun_ref src/ref/socket.cpp)
-target_compile_features(stun_ref PUBLIC c_std_17)
-target_link_libraries(stun_ref PRIVATE winmm.lib ws2_32.lib)
+set_target_properties(stun 
+    PROPERTIES
+        OUTPUT_NAME "stun-client-0.0.0")
 
 add_executable(longest_common_subsequence "tst/longest_common_subsequence.cc" src/leetcode/longest_common_subsequence.cc)
 target_include_directories(longest_common_subsequence PRIVATE Boost::unit_test_framework)
@@ -219,6 +218,10 @@ target_include_directories(removing_stars_from_a_string PRIVATE Boost::unit_test
 #add_executable(simplify_path "tst/simplify_path.cc" src/leetcode/simplify_path.cc)
 #target_compile_features(simplify_path PUBLIC cxx_std_20)
 #target_include_directories(simplify_path PRIVATE Boost::unit_test_framework)
+
+#add_executable(validate_stack_sequences "tst/validate_stack_sequences.cc" src/leetcode/validate_stack_sequences.cc)
+#target_compile_features(validate_stack_sequences PUBLIC cxx_std_20)
+#target_include_directories(validate_stack_sequences PRIVATE Boost::unit_test_framework)
 
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_compile_features(aaa_empty PUBLIC cxx_std_20)
