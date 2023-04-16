@@ -38,7 +38,7 @@ target_compile_features(stun PUBLIC cxx_std_20)
 target_link_libraries(stun PRIVATE winmm.lib ws2_32.lib)
 set_target_properties(stun 
     PROPERTIES
-        OUTPUT_NAME "stun-client-0.0.0")
+        OUTPUT_NAME "stun-client-0.0.1")
 
 add_executable(longest_common_subsequence "tst/longest_common_subsequence.cc" src/leetcode/longest_common_subsequence.cc)
 target_include_directories(longest_common_subsequence PRIVATE Boost::unit_test_framework)
@@ -226,6 +226,10 @@ target_include_directories(removing_stars_from_a_string PRIVATE Boost::unit_test
 add_executable(mirror_reflection "tst/mirror_reflection.cc" src/leetcode/mirror_reflection.cc)
 target_compile_features(mirror_reflection PUBLIC cxx_std_20)
 target_include_directories(mirror_reflection PRIVATE Boost::unit_test_framework)
+
+add_executable(number_of_ways_to_form_a_target_string_given_a_dictionary "tst/number_of_ways_to_form_a_target_string_given_a_dictionary.cc" src/leetcode/number_of_ways_to_form_a_target_string_given_a_dictionary.cc)
+target_compile_features(number_of_ways_to_form_a_target_string_given_a_dictionary PUBLIC cxx_std_20)
+target_include_directories(number_of_ways_to_form_a_target_string_given_a_dictionary PRIVATE Boost::unit_test_framework)
 
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_compile_features(aaa_empty PUBLIC cxx_std_20)
