@@ -231,6 +231,10 @@ add_executable(number_of_ways_to_form_a_target_string_given_a_dictionary "tst/nu
 target_compile_features(number_of_ways_to_form_a_target_string_given_a_dictionary PUBLIC cxx_std_20)
 target_include_directories(number_of_ways_to_form_a_target_string_given_a_dictionary PRIVATE Boost::unit_test_framework)
 
+#add_executable(kids_with_the_greatest_number_of_candies "tst/kids_with_the_greatest_number_of_candies.cc" src/leetcode/kids_with_the_greatest_number_of_candies.cc)
+#target_compile_features(kids_with_the_greatest_number_of_candies PUBLIC cxx_std_20)
+#target_include_directories(kids_with_the_greatest_number_of_candies PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_compile_features(aaa_empty PUBLIC cxx_std_20)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
