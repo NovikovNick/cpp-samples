@@ -235,6 +235,10 @@ target_include_directories(number_of_ways_to_form_a_target_string_given_a_dictio
 #target_compile_features(kids_with_the_greatest_number_of_candies PUBLIC cxx_std_20)
 #target_include_directories(kids_with_the_greatest_number_of_candies PRIVATE Boost::unit_test_framework)
 
+#add_executable(merge_strings_alternately "tst/merge_strings_alternately.cc" src/leetcode/merge_strings_alternately.cc)
+#target_compile_features(merge_strings_alternately PUBLIC cxx_std_20)
+#target_include_directories(merge_strings_alternately PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_compile_features(aaa_empty PUBLIC cxx_std_20)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
