@@ -239,6 +239,10 @@ target_include_directories(number_of_ways_to_form_a_target_string_given_a_dictio
 #target_compile_features(merge_strings_alternately PUBLIC cxx_std_20)
 #target_include_directories(merge_strings_alternately PRIVATE Boost::unit_test_framework)
 
+#add_executable(longest_zigzag_path_in_a_binary_tree "tst/longest_zigzag_path_in_a_binary_tree.cc" src/leetcode/longest_zigzag_path_in_a_binary_tree.cc)
+#target_compile_features(longest_zigzag_path_in_a_binary_tree PUBLIC cxx_std_20)
+#target_include_directories(longest_zigzag_path_in_a_binary_tree PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_compile_features(aaa_empty PUBLIC cxx_std_20)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
