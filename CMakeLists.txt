@@ -251,6 +251,10 @@ add_executable(profitable_schemes "tst/profitable_schemes.cc" src/leetcode/profi
 target_compile_features(profitable_schemes PUBLIC cxx_std_20)
 target_include_directories(profitable_schemes PRIVATE Boost::unit_test_framework)
 
+add_executable(minimum_insertion_steps_to_make_a_string_palindrome "tst/minimum_insertion_steps_to_make_a_string_palindrome.cc" src/leetcode/minimum_insertion_steps_to_make_a_string_palindrome.cc)
+target_compile_features(minimum_insertion_steps_to_make_a_string_palindrome PUBLIC cxx_std_20)
+target_include_directories(minimum_insertion_steps_to_make_a_string_palindrome PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_compile_features(aaa_empty PUBLIC cxx_std_20)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
