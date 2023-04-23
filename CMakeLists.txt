@@ -255,6 +255,10 @@ add_executable(minimum_insertion_steps_to_make_a_string_palindrome "tst/minimum_
 target_compile_features(minimum_insertion_steps_to_make_a_string_palindrome PUBLIC cxx_std_20)
 target_include_directories(minimum_insertion_steps_to_make_a_string_palindrome PRIVATE Boost::unit_test_framework)
 
+add_executable(restore_the_array "tst/restore_the_array.cc" src/leetcode/restore_the_array.cc)
+target_compile_features(restore_the_array PUBLIC cxx_std_20)
+target_include_directories(restore_the_array PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_compile_features(aaa_empty PUBLIC cxx_std_20)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
