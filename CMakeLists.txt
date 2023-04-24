@@ -259,6 +259,10 @@ add_executable(restore_the_array "tst/restore_the_array.cc" src/leetcode/restore
 target_compile_features(restore_the_array PUBLIC cxx_std_20)
 target_include_directories(restore_the_array PRIVATE Boost::unit_test_framework)
 
+#add_executable(last_stone_weight "tst/last_stone_weight.cc" src/leetcode/last_stone_weight.cc)
+#target_compile_features(last_stone_weight PUBLIC cxx_std_20)
+#target_include_directories(last_stone_weight PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_compile_features(aaa_empty PUBLIC cxx_std_20)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
