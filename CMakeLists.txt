@@ -267,6 +267,10 @@ target_include_directories(restore_the_array PRIVATE Boost::unit_test_framework)
 #target_compile_features(smallest_number_in_infinite_set PUBLIC cxx_std_20)
 #target_include_directories(smallest_number_in_infinite_set PRIVATE Boost::unit_test_framework)
 
+#add_executable(add_digits "tst/add_digits.cc" src/leetcode/add_digits.cc)
+#target_compile_features(add_digits PUBLIC cxx_std_20)
+#target_include_directories(add_digits PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_compile_features(aaa_empty PUBLIC cxx_std_20)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
