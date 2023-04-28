@@ -275,6 +275,10 @@ target_include_directories(restore_the_array PRIVATE Boost::unit_test_framework)
 #target_compile_features(bulb_switcher PUBLIC cxx_std_20)
 #target_include_directories(bulb_switcher PRIVATE Boost::unit_test_framework)
 
+#add_executable(similar_string_groups "tst/similar_string_groups.cc" src/leetcode/similar_string_groups.cc)
+#target_compile_features(similar_string_groups PUBLIC cxx_std_20)
+#target_include_directories(similar_string_groups PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_compile_features(aaa_empty PUBLIC cxx_std_20)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
