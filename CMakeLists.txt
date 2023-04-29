@@ -279,6 +279,10 @@ target_include_directories(restore_the_array PRIVATE Boost::unit_test_framework)
 #target_compile_features(similar_string_groups PUBLIC cxx_std_20)
 #target_include_directories(similar_string_groups PRIVATE Boost::unit_test_framework)
 
+add_executable(checking_existence_of_edge_length_limited_paths "tst/checking_existence_of_edge_length_limited_paths.cc" src/leetcode/checking_existence_of_edge_length_limited_paths.cc)
+target_compile_features(checking_existence_of_edge_length_limited_paths PUBLIC cxx_std_20)
+target_include_directories(checking_existence_of_edge_length_limited_paths PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_compile_features(aaa_empty PUBLIC cxx_std_20)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
