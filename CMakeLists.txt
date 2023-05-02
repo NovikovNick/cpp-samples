@@ -287,7 +287,10 @@ target_include_directories(checking_existence_of_edge_length_limited_paths PRIVA
 #target_compile_features(average_salary_excluding_the_minimum_and_maximum_salary PUBLIC cxx_std_20)
 #target_include_directories(average_salary_excluding_the_minimum_and_maximum_salary PRIVATE Boost::unit_test_framework)
 
+#add_executable(sign_of_the_product_of_an_array "tst/sign_of_the_product_of_an_array.cc" src/leetcode/sign_of_the_product_of_an_array.cc)
+#target_compile_features(sign_of_the_product_of_an_array PUBLIC cxx_std_20)
+#target_include_directories(sign_of_the_product_of_an_array PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_compile_features(aaa_empty PUBLIC cxx_std_20)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
-
