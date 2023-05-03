@@ -291,6 +291,10 @@ target_include_directories(checking_existence_of_edge_length_limited_paths PRIVA
 #target_compile_features(sign_of_the_product_of_an_array PUBLIC cxx_std_20)
 #target_include_directories(sign_of_the_product_of_an_array PRIVATE Boost::unit_test_framework)
 
+add_executable(find_the_difference_of_two_arrays "tst/find_the_difference_of_two_arrays.cc" src/leetcode/find_the_difference_of_two_arrays.cc)
+target_compile_features(find_the_difference_of_two_arrays PUBLIC cxx_std_20)
+target_include_directories(find_the_difference_of_two_arrays PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_compile_features(aaa_empty PUBLIC cxx_std_20)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
