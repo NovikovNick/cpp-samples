@@ -295,6 +295,10 @@ add_executable(find_the_difference_of_two_arrays "tst/find_the_difference_of_two
 target_compile_features(find_the_difference_of_two_arrays PUBLIC cxx_std_20)
 target_include_directories(find_the_difference_of_two_arrays PRIVATE Boost::unit_test_framework)
 
+add_executable(dota2_senate "tst/dota2_senate.cc" src/leetcode/dota2_senate.cc)
+target_compile_features(dota2_senate PUBLIC cxx_std_20)
+target_include_directories(dota2_senate PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_compile_features(aaa_empty PUBLIC cxx_std_20)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
