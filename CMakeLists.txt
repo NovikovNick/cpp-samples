@@ -299,6 +299,10 @@ add_executable(dota2_senate "tst/dota2_senate.cc" src/leetcode/dota2_senate.cc)
 target_compile_features(dota2_senate PUBLIC cxx_std_20)
 target_include_directories(dota2_senate PRIVATE Boost::unit_test_framework)
 
+#add_executable(maximum_number_of_vowels_in_a_substring_of_given_length "tst/maximum_number_of_vowels_in_a_substring_of_given_length.cc" src/leetcode/maximum_number_of_vowels_in_a_substring_of_given_length.cc)
+#target_compile_features(maximum_number_of_vowels_in_a_substring_of_given_length PUBLIC cxx_std_20)
+#target_include_directories(maximum_number_of_vowels_in_a_substring_of_given_length PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_compile_features(aaa_empty PUBLIC cxx_std_20)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
