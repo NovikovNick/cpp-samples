@@ -311,6 +311,10 @@ add_executable(find_the_longest_valid_obstacle_course_at_each_position "tst/find
 target_compile_features(find_the_longest_valid_obstacle_course_at_each_position PUBLIC cxx_std_20)
 target_include_directories(find_the_longest_valid_obstacle_course_at_each_position PRIVATE Boost::unit_test_framework)
 
+#add_executable(matrix_diagonal_sum "tst/matrix_diagonal_sum.cc" src/leetcode/matrix_diagonal_sum.cc)
+#target_compile_features(matrix_diagonal_sum PUBLIC cxx_std_20)
+#target_include_directories(matrix_diagonal_sum PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_compile_features(aaa_empty PUBLIC cxx_std_20)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
