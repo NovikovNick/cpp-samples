@@ -315,6 +315,10 @@ target_include_directories(find_the_longest_valid_obstacle_course_at_each_positi
 #target_compile_features(matrix_diagonal_sum PUBLIC cxx_std_20)
 #target_include_directories(matrix_diagonal_sum PRIVATE Boost::unit_test_framework)
 
+add_executable(spiral_matrix "tst/spiral_matrix.cc" src/leetcode/spiral_matrix.cc)
+target_compile_features(spiral_matrix PUBLIC cxx_std_20)
+target_include_directories(spiral_matrix PRIVATE Boost::unit_test_framework)
+
 add_executable(aaa_empty "tst/aaa_empty.cc" src/leetcode/aaa_empty.cc)
 target_compile_features(aaa_empty PUBLIC cxx_std_20)
 target_include_directories(aaa_empty PRIVATE Boost::unit_test_framework)
