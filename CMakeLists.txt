@@ -95,6 +95,7 @@ set(leetcodeProblems
     number_of_subsequences_that_satisfy_the_given_sum_condition.cc
     find_the_longest_valid_obstacle_course_at_each_position.cc
     uncrossed_lines.cc
+    solving_questions_with_brainpower.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
