@@ -17,6 +17,7 @@ add_subdirectory("c_library")
 include_directories(${Boost_INCLUDE_DIRS})
 
 file(GLOB CPP_SAMPLES_UTIL "src/util/*.h" "src/util/*.cc")
+file(GLOB TEMPLATE_SRC "src/template/*.h" "src/template/*.cc")
 file(GLOB SOCKET "src/socket/**/*.h" "src/socket/**/*.cc")
 file(GLOB CONCURRENCY "src/concurrency/**/*.h" "src/concurrency/**/*.cc")
 file(GLOB GAME_SAMPLE "src/snake_game_sample/*.h" "src/snake_game_sample/*.cc")
@@ -25,7 +26,7 @@ set(STUN_SRC
 	"src/stun/stun_client.h"
 	"src/stun/stun_client.cc")
 
-add_executable(main src/main.cpp ${SOCKET} ${CONCURRENCY} ${GAME_SAMPLE})
+add_executable(main src/main.cpp ${SOCKET} ${CONCURRENCY} ${GAME_SAMPLE} ${TEMPLATE_SRC})
 target_compile_features(main PUBLIC cxx_std_20)
 target_include_directories(main INTERFACE external/boost)
 target_link_libraries(main PRIVATE boost_ext::sml sample::c_lib)
