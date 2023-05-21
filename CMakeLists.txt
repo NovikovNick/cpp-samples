@@ -97,6 +97,7 @@ set(leetcodeProblems
     find_the_longest_valid_obstacle_course_at_each_position.cc
     uncrossed_lines.cc
     solving_questions_with_brainpower.cc
+    shortest_bridge.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
