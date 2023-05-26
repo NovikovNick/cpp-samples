@@ -18,7 +18,7 @@ BOOST_AUTO_TEST_CASE(case1) {
   
   // act
   auto res = solution.findSubsequences(nums);
-  solution.nqueens(4);
+  // solution.nqueens(4);
 
   // assert
   for (const auto& row : res) {
