@@ -99,6 +99,7 @@ set(leetcodeProblems
     solving_questions_with_brainpower.cc
     shortest_bridge.cc
     stone_game_ii.cc
+    design_underground_system.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
