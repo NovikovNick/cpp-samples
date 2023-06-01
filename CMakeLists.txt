@@ -100,6 +100,7 @@ set(leetcodeProblems
     shortest_bridge.cc
     stone_game_ii.cc
     design_underground_system.cc
+    shortest_path_in_binary_matrix.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
