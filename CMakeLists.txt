@@ -101,6 +101,7 @@ set(leetcodeProblems
     stone_game_ii.cc
     design_underground_system.cc
     shortest_path_in_binary_matrix.cc
+    check_if_it_is_a_straight_line.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
