@@ -104,6 +104,7 @@ set(leetcodeProblems
     check_if_it_is_a_straight_line.cc
     maximum_value_at_a_given_index_in_a_bounded_array.cc
     snapshot_array.cc
+    largest_triangle_area.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
