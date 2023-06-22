@@ -105,6 +105,7 @@ set(leetcodeProblems
     maximum_value_at_a_given_index_in_a_bounded_array.cc
     snapshot_array.cc
     largest_triangle_area.cc
+    best_time_to_buy_and_sell_stock_with_transaction_fee.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
