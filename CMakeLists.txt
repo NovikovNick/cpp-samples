@@ -11,8 +11,13 @@ find_package(Boost REQUIRED COMPONENTS unit_test_framework)
 add_definitions( -DBOOST_ALL_NO_LIB )
 add_definitions( -DBOOST_ALL_DYN_LINK )
 
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}")
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}")
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}")
+
 add_subdirectory("src")
 add_subdirectory("c_library")
+add_subdirectory("dll_sample")
 
 include_directories(${Boost_INCLUDE_DIRS})
 
@@ -29,7 +34,12 @@ set(STUN_SRC
 add_executable(main src/main.cpp ${SOCKET} ${CONCURRENCY} ${GAME_SAMPLE} ${TEMPLATE_SRC})
 target_compile_features(main PUBLIC cxx_std_20)
 target_include_directories(main INTERFACE external/boost)
-target_link_libraries(main PRIVATE boost_ext::sml sample::c_lib)
+target_link_libraries(main 
+    PRIVATE 
+        boost_ext::sml
+        sample::c_lib
+        sample::dll
+)
 if(WIN32)
   target_link_libraries(main PRIVATE wsock32 ws2_32)
 endif()
@@ -106,6 +116,7 @@ set(leetcodeProblems
     snapshot_array.cc
     largest_triangle_area.cc
     best_time_to_buy_and_sell_stock_with_transaction_fee.cc
+    longest_arithmetic_subsequence.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})

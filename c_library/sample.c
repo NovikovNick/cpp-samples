@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "sample.h"
 
 int** allocateMatrix2d(const int rows, const int cols);
 
