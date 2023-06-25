@@ -117,6 +117,7 @@ set(leetcodeProblems
     largest_triangle_area.cc
     best_time_to_buy_and_sell_stock_with_transaction_fee.cc
     longest_arithmetic_subsequence.cc
+    count_all_possible_routes.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
