@@ -118,6 +118,7 @@ set(leetcodeProblems
     best_time_to_buy_and_sell_stock_with_transaction_fee.cc
     longest_arithmetic_subsequence.cc
     count_all_possible_routes.cc
+    find_k_pairs_with_smallest_sums.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
