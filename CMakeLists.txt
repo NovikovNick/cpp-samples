@@ -119,6 +119,7 @@ set(leetcodeProblems
     longest_arithmetic_subsequence.cc
     count_all_possible_routes.cc
     find_k_pairs_with_smallest_sums.cc
+    path_with_maximum_probability.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
