@@ -120,6 +120,7 @@ set(leetcodeProblems
     count_all_possible_routes.cc
     find_k_pairs_with_smallest_sums.cc
     path_with_maximum_probability.cc
+    last_day_where_you_can_still_cross.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
