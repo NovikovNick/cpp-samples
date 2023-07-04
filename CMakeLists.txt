@@ -123,6 +123,7 @@ set(leetcodeProblems
     last_day_where_you_can_still_cross.cc
     fair_distribution_of_cookies.cc
     maximum_number_of_achievable_transfer_requests.cc
+    single_number_ii.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
