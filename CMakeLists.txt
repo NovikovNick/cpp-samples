@@ -124,6 +124,7 @@ set(leetcodeProblems
     fair_distribution_of_cookies.cc
     maximum_number_of_achievable_transfer_requests.cc
     single_number_ii.cc
+    maximize_the_confusion_of_an_exam.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
