@@ -127,6 +127,7 @@ set(leetcodeProblems
     maximize_the_confusion_of_an_exam.cc
     put_marbles_in_bags.cc
     substring_with_largest_variance.cc
+    find_eventual_safe_states.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
