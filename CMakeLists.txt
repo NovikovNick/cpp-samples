@@ -129,6 +129,7 @@ set(leetcodeProblems
     substring_with_largest_variance.cc
     find_eventual_safe_states.cc
     course_schedule.cc
+    maximum_number_of_events_that_can_be_attended_ii.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
