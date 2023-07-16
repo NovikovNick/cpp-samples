@@ -130,6 +130,7 @@ set(leetcodeProblems
     find_eventual_safe_states.cc
     course_schedule.cc
     maximum_number_of_events_that_can_be_attended_ii.cc
+    smallest_sufficient_team.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
