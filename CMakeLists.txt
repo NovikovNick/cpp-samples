@@ -131,6 +131,7 @@ set(leetcodeProblems
     course_schedule.cc
     maximum_number_of_events_that_can_be_attended_ii.cc
     smallest_sufficient_team.cc
+    lru_cache.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
