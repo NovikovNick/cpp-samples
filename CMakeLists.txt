@@ -132,6 +132,7 @@ set(leetcodeProblems
     maximum_number_of_events_that_can_be_attended_ii.cc
     smallest_sufficient_team.cc
     lru_cache.cc
+    non_overlapping_intervals.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
