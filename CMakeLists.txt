@@ -133,6 +133,7 @@ set(leetcodeProblems
     smallest_sufficient_team.cc
     lru_cache.cc
     non_overlapping_intervals.cc
+    number_of_longest_increasing_subsequence.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
