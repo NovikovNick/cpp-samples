@@ -134,6 +134,7 @@ set(leetcodeProblems
     lru_cache.cc
     non_overlapping_intervals.cc
     number_of_longest_increasing_subsequence.cc
+    knight_probability_in_chessboard.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
