@@ -135,6 +135,7 @@ set(leetcodeProblems
     non_overlapping_intervals.cc
     number_of_longest_increasing_subsequence.cc
     knight_probability_in_chessboard.cc
+    all_possible_full_binary_trees.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
