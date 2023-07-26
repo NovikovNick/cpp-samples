@@ -136,6 +136,7 @@ set(leetcodeProblems
     number_of_longest_increasing_subsequence.cc
     knight_probability_in_chessboard.cc
     all_possible_full_binary_trees.cc
+    minimum_speed_to_arrive_on_time.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
