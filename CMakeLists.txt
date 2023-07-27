@@ -137,6 +137,7 @@ set(leetcodeProblems
     knight_probability_in_chessboard.cc
     all_possible_full_binary_trees.cc
     minimum_speed_to_arrive_on_time.cc
+    maximum_running_time_of_n_computers.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
