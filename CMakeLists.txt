@@ -138,6 +138,7 @@ set(leetcodeProblems
     all_possible_full_binary_trees.cc
     minimum_speed_to_arrive_on_time.cc
     maximum_running_time_of_n_computers.cc
+    soup_servings.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
