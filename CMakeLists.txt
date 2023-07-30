@@ -139,6 +139,7 @@ set(leetcodeProblems
     minimum_speed_to_arrive_on_time.cc
     maximum_running_time_of_n_computers.cc
     soup_servings.cc
+    strange_printer.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
