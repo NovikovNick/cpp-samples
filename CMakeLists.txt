@@ -140,6 +140,7 @@ set(leetcodeProblems
     maximum_running_time_of_n_computers.cc
     soup_servings.cc
     strange_printer.cc
+    minimum_ascii_delete_sum_for_two_strings.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
