@@ -141,6 +141,7 @@ set(leetcodeProblems
     soup_servings.cc
     strange_printer.cc
     minimum_ascii_delete_sum_for_two_strings.cc
+    word_break.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
