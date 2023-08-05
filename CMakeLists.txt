@@ -142,6 +142,7 @@ set(leetcodeProblems
     strange_printer.cc
     minimum_ascii_delete_sum_for_two_strings.cc
     word_break.cc
+    unique_binary_search_trees_ii.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
