@@ -143,6 +143,7 @@ set(leetcodeProblems
     minimum_ascii_delete_sum_for_two_strings.cc
     word_break.cc
     unique_binary_search_trees_ii.cc
+    number_of_music_playlists.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
