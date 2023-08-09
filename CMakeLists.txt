@@ -144,6 +144,7 @@ set(leetcodeProblems
     word_break.cc
     unique_binary_search_trees_ii.cc
     number_of_music_playlists.cc
+    minimize_the_maximum_difference_of_pairs.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
