@@ -1,5 +1,13 @@
-﻿cmake_minimum_required (VERSION 3.14)
+﻿cmake_minimum_required (VERSION 3.25)
 project (CppSamples)
+
+if (MSVC)
+    # warning level 4
+    SET(CMAKE_CXX_FLAGS " /EHsc /W4")
+else()
+    # additional warnings
+    add_compile_options(-Wall -Wextra -Wpedantic)
+endif()
 
 add_subdirectory(external)
 enable_testing()
@@ -25,20 +33,18 @@ file(GLOB CPP_SAMPLES_UTIL "src/util/*.h" "src/util/*.cc")
 file(GLOB TEMPLATE_SRC "src/template/*.h" "src/template/*.cc")
 file(GLOB SOCKET "src/socket/**/*.h" "src/socket/**/*.cc")
 file(GLOB CONCURRENCY "src/concurrency/**/*.h" "src/concurrency/**/*.cc")
-file(GLOB GAME_SAMPLE "src/snake_game_sample/*.h" "src/snake_game_sample/*.cc")
+file(GLOB FEATURES "scr/cpp_features/*.h" "scr/cpp_features/*.cc")
 set(STUN_SRC 
 	"src/stun/packet.h"
 	"src/stun/stun_client.h"
 	"src/stun/stun_client.cc")
 
-add_executable(main src/main.cpp ${SOCKET} ${CONCURRENCY} ${GAME_SAMPLE} ${TEMPLATE_SRC})
+add_executable(main src/main.cpp ${SOCKET} ${CONCURRENCY} ${TEMPLATE_SRC} ${FEATURES})
 target_compile_features(main PUBLIC cxx_std_20)
 target_include_directories(main INTERFACE external/boost)
 target_link_libraries(main 
     PRIVATE 
         boost_ext::sml
-        sample::c_lib
-        sample::dll
 )
 if(WIN32)
   target_link_libraries(main PRIVATE wsock32 ws2_32)

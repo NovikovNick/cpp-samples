@@ -1,9 +1,9 @@
-﻿#define DEBUG 1;
+﻿#define DEBUG
 
 #include "util/log.h"
-#include <sample_dll.h>
+#include "cpp_features/attributes.h"
 
-int main(int argc, char argv[]) {
-  util::debug("Sample dll {}\n", getMicrosecondsInOneTick());
+int main([[maybe_unused]] int argc, [[maybe_unused]] char argv[]) {
+  attributes::sample();
   return 0;
 }

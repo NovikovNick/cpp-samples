@@ -33,7 +33,8 @@ class A {
  public:
   A(std::function<void()> on_tick);
   int getX();
-  int getCount() { return tick_time_; };
+  int getCount() { return static_cast<int>(tick_time_);
+  };
   void operator()();
 };
 }  // namespace foo
