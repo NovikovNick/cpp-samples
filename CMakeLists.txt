@@ -153,6 +153,7 @@ set(leetcodeProblems
     minimize_the_maximum_difference_of_pairs.cc
     search_in_rotated_sorted_array_ii.cc
     coin_change_ii.cc
+    unique_paths_ii.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
