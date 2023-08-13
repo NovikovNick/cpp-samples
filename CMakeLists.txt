@@ -154,6 +154,7 @@ set(leetcodeProblems
     search_in_rotated_sorted_array_ii.cc
     coin_change_ii.cc
     unique_paths_ii.cc
+    check_if_there_is_a_valid_partition_for_the_array.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
