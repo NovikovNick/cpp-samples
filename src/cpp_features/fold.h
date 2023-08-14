@@ -1,6 +1,7 @@
 #ifndef CPP_FEATURES_FOLD_H
 #define CPP_FEATURES_FOLD_H
 #include <vector>
+#include "../util/log.h"
 
 /// <summary>
 /// https://en.cppreference.com/w/cpp/language/fold

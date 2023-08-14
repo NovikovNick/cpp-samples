@@ -1,8 +1,8 @@
 #ifndef CPP_FEATURES_STRUCTURED_BINDING_H
 #define CPP_FEATURES_STRUCTURED_BINDING_H
 #include <cassert>
-#include "../util/log.h"
 
+#include "../util/log.h"
 
 /// <summary>
 /// https://en.cppreference.com/w/cpp/language/structured_binding
@@ -22,18 +22,27 @@ class Coord {
 };
 
 // 2.
+// template <size_t N>
+// decltype(auto) get(const Coord&);
+//
+// template <>
+// decltype(auto) get<0>(const Coord& c) {
+//  return c.getRow();
+//};
+//
+// template <>
+// decltype(auto) get<1>(const Coord& c) {
+//  return c.getCol();
+//};
 template <size_t N>
-decltype(auto) get(const Coord&);
+decltype(auto) get(const Coord& c) {
+  if constexpr (N == 0) {
+    return c.getRow();
+  } else if constexpr (N == 1) {
+    return c.getCol();
+  }
+}
 
-template <>
-decltype(auto) get<0>(const Coord& c) {
-  return c.getRow();
-};
-
-template <>
-decltype(auto) get<1>(const Coord& c) {
-  return c.getCol();
-};
 }  // namespace struct_binding
 
 // 3.
@@ -55,7 +64,7 @@ struct tuple_element<1, struct_binding::Coord> {
 void struct_binding::sample() {
   Coord coord{1, 2};
   auto [row, col] = coord;
-  util::debug("{}, {}\n", row, col);
+  util::debug("structual binding sample: row = {}, col = {}\n", row, col);
 }
 
 #endif  // CPP_FEATURES_STRUCTURED_BINDING_H
