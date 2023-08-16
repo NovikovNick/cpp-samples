@@ -4,7 +4,7 @@
 #include "../util/log.h"
 
 /// <summary>
-/// https://en.cppreference.com/w/cpp/language/constraints
+/// https://en.cppreference.com/w/cpp/concepts
 /// </summary>
 namespace concepts {
 
