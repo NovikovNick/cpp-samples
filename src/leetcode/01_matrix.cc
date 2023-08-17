@@ -18,48 +18,75 @@ namespace leetcode {
 using namespace std;
 
 class Solution {
+  int rows, cols;
+
  public:
   vector<vector<int>> updateMatrix(vector<vector<int>>& mat) {
-    int m = mat.size(), n = mat[0].size();
-    std::vector<std::vector<int>> res(m, std::vector<int>(n));
-    std::vector<bool> visited(m * n, false);
+    rows = mat.size();
+    cols = mat[0].size();
 
-    for (int row = 0; row < m; ++row) {
-      for (int col = 0; col < n; ++col) {
-        res[row][col] = bfs(row, col, mat, visited);
+    // std::vector<std::vector<int>> dp(rows, std::vector<int>(cols));
+
+    for (int row = 0; row < rows; ++row) {
+      for (int col = 0; col < cols; ++col) {
+        mat[row][col] = topDownMin(row, col, mat);
       }
     }
-    return res;
+
+    for (int row = rows - 1; row >= 0; --row) {
+      for (int col = cols - 1; col >= 0; --col) {
+        mat[row][col] = downTopMin(row, col, mat);
+      }
+    }
+
+    return mat;
   }
 
-  int bfs(const int row, const int col,
-          const std::vector<std::vector<int>>& mat,
-          std::vector<bool>& visited) {
-    int m = mat.size(), n = mat[0].size();
-    std::fill(visited.begin(), visited.end(), false);
+  inline int topDownMin(const int row,
+                        const int col,
+                        const std::vector<std::vector<int>>& mat) const noexcept {
+    if (mat[row][col] == 0) return 0;
+    return std::min(top(row, col, mat), left(row, col, mat));
+  }
 
-    std::queue<std::pair<int, int>> queue;
-    queue.push({row, col});
+  inline int downTopMin(const int row,
+                        const int col,
+                        const std::vector<std::vector<int>>& mat) const noexcept {
+    if (mat[row][col] == 0) return 0;
+    return std::min(std::min(top(row, col, mat), bottom(row, col, mat)),
+                    std::min(left(row, col, mat), right(row, col, mat)));
+  }
 
-    int res = 0;
-    while (!queue.empty()) {
-      int size = queue.size();
-      while (--size >= 0) {
-        auto [x, y] = queue.front();
-        queue.pop();
+  inline int top(const int row,
+                 const int col,
+                 const std::vector<std::vector<int>>& mat) const noexcept {
+    return (row > 0 && mat[row - 1][col] != INT_MAX)  //
+               ? mat[row - 1][col] + 1
+               : INT_MAX;
+  }
 
-        if (mat[x][y] == 0) return res;
-        visited[x * n + y] = true;
+  inline int left(const int row,
+                  const int col,
+                  const std::vector<std::vector<int>>& mat) const noexcept {
+    return (col > 0 && mat[row][col - 1] != INT_MAX)  //
+               ? mat[row][col - 1] + 1
+               : INT_MAX;
+  }
 
-        if (x - 1 >= 0 && !visited[(x - 1) * n + y]) queue.push({(x - 1), y});
-        if (y - 1 >= 0 && !visited[x * n + (y - 1)]) queue.push({x, (y - 1)});
+  inline int bottom(const int row,
+                    const int col,
+                    const std::vector<std::vector<int>>& mat) const noexcept {
+    return (row < rows - 1 && mat[row + 1][col] != INT_MAX)  //
+               ? mat[row + 1][col] + 1
+               : INT_MAX;
+  }
 
-        if (x + 1 <  m && !visited[(x + 1) * n + y]) queue.push({(x + 1), y});
-        if (y + 1 <  n && !visited[x * n + (y + 1)]) queue.push({x, (y + 1)});
-      }
-      ++res;
-    }
-    return -1;
+  inline int right(const int row,
+                   const int col,
+                   const std::vector<std::vector<int>>& mat) const noexcept {
+    return (col < cols - 1 && mat[row][col + 1] != INT_MAX)  //
+               ? mat[row][col + 1] + 1
+               : INT_MAX;
   }
 };
 }  // namespace leetcode
