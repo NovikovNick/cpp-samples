@@ -3,7 +3,7 @@ project (CppSamples)
 
 if (MSVC)
     # warning level 4
-    SET(CMAKE_CXX_FLAGS " /EHsc /W4")
+    SET(CMAKE_CXX_FLAGS "/DWIN32 /D_WINDOWS /W4 /GR /EHsc")
 else()
     # additional warnings
     add_compile_options(-Wall -Wextra -Wpedantic)
@@ -26,11 +26,11 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}")
 add_subdirectory("src")
 add_subdirectory("c_library")
 add_subdirectory("dll_sample")
+add_subdirectory("template_lib")
 
 include_directories(${Boost_INCLUDE_DIRS})
 
 file(GLOB CPP_SAMPLES_UTIL "src/util/*.h" "src/util/*.cc")
-file(GLOB TEMPLATE_SRC "src/template/*.h" "src/template/*.cc")
 file(GLOB SOCKET "src/socket/**/*.h" "src/socket/**/*.cc")
 file(GLOB CONCURRENCY "src/concurrency/**/*.h" "src/concurrency/**/*.cc")
 file(GLOB FEATURES "scr/cpp_features/*.h" "scr/cpp_features/*.cc")
@@ -39,12 +39,13 @@ set(STUN_SRC
 	"src/stun/stun_client.h"
 	"src/stun/stun_client.cc")
 
-add_executable(main src/main.cpp ${SOCKET} ${CONCURRENCY} ${TEMPLATE_SRC} ${FEATURES})
+add_executable(main src/main.cpp ${SOCKET} ${CONCURRENCY}  ${FEATURES})
 target_compile_features(main PUBLIC cxx_std_20)
 target_include_directories(main INTERFACE external/boost)
 target_link_libraries(main 
     PRIVATE 
         boost_ext::sml
+        template::lib
 )
 if(WIN32)
   target_link_libraries(main PRIVATE wsock32 ws2_32)

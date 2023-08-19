@@ -54,7 +54,6 @@ std::optional<int> toInt(std::string_view str) {
 }
 
 void fromCharsSample() {
-  int num;
   for (std::string_view str : {"1234", "15 foo", "bar", " 42", "5000000000"}) {
     auto num = toInt(str);
     // util::debug("{} => {} \n", str, num.has_value() ? num.value() : -1);
@@ -99,6 +98,26 @@ void variantSample() {
   
   for (const auto obj : different_objects) std::visit(Visiter{}, obj);
 }
+
+/// <summary>
+/// bit
+/// </summary>
+int getCountOneBit(int num) {
+  // return std::bitset<32>(num).count();
+  int count = 0;
+  for (; num != 0; num >>= 1) {
+    if (num & 1) ++count;
+  }
+  return count;
+}
+
+template <class T>
+void printBits(const T& obj) {
+  util::debug("{}bytes: {}\n",
+              sizeof(T),
+              std::bit_cast<std::bitset<sizeof(T) * 8>, T>(obj).to_string());
+}
+
 }  // namespace common
 
 #endif  // CPP_FEATURES_COMMON_H
