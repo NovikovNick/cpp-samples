@@ -157,6 +157,7 @@ set(leetcodeProblems
     unique_paths_ii.cc
     check_if_there_is_a_valid_partition_for_the_array.cc
     sliding_window_maximum.cc
+    sort_items_by_groups_respecting_dependencies.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
