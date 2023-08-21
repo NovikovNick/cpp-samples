@@ -2,6 +2,7 @@
 #define CPP_FEATURES_COMMON_H
 
 #include <charconv>
+#include <algorithm>
 #include <format>
 #include <optional>
 #include <type_traits>

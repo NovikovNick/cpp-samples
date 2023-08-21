@@ -158,6 +158,7 @@ set(leetcodeProblems
     check_if_there_is_a_valid_partition_for_the_array.cc
     sliding_window_maximum.cc
     sort_items_by_groups_respecting_dependencies.cc
+    repeated_substring_pattern.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
