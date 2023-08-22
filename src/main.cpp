@@ -1,11 +1,4 @@
-﻿#define DEBUG
-
-#include <bit>
-#include <bitset>
-#include <cstdint>
-#include <numeric>
-
-#include "cpp_features/common.h"
+﻿#include "cpp_features/common.h"
 #include "util/log.h"
 
 

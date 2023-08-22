@@ -3,7 +3,7 @@ project (CppSamples)
 
 if (MSVC)
     # warning level 4
-    SET(CMAKE_CXX_FLAGS "/DWIN32 /D_WINDOWS /W4 /GR /EHsc")
+    SET(CMAKE_CXX_FLAGS "/DWIN32 /D_WINDOWS /DDEBUG /W4 /GR /EHsc")
 else()
     # additional warnings
     add_compile_options(-Wall -Wextra -Wpedantic)
@@ -44,17 +44,13 @@ set(STUN_SRC
 	"src/stun/stun_client.h"
 	"src/stun/stun_client.cc")
 
-add_executable(main src/main.cpp ${SOCKET} ${CONCURRENCY}  ${FEATURES_COMMON_SRC})
+add_executable(main src/main.cpp ${SOCKET} ${CONCURRENCY} ${FEATURES_COMMON_SRC})
 target_compile_features(main PUBLIC cxx_std_20)
-target_include_directories(main INTERFACE external/boost)
 target_link_libraries(main 
     PRIVATE 
-        boost_ext::sml
         template::lib
 )
-if(WIN32)
-  target_link_libraries(main PRIVATE wsock32 ws2_32)
-endif()
+
 
 add_executable(stun src/stun.cpp ${STUN_SRC} ${CPP_SAMPLES_UTIL})
 target_compile_features(stun PUBLIC cxx_std_20)
