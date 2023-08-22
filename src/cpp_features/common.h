@@ -1,8 +1,10 @@
 #ifndef CPP_FEATURES_COMMON_H
 #define CPP_FEATURES_COMMON_H
 
-#include <charconv>
+#include <bit>
+#include <bitset>
 #include <algorithm>
+#include <charconv>
 #include <format>
 #include <optional>
 #include <type_traits>
@@ -14,29 +16,11 @@
 namespace common {
 
 struct A {
-  int data;
-
-  A() : A(0) {}
-
-  A(int i) : data(i) { util::debug("constructor {}\n", data); }
-
-  A(const A& other) {
-    data = other.data;
-    util::debug("copy constructor {}\n", data);
-  }
-
-  A(const A&& other) noexcept {
-    data = other.data;
-    util::debug("move constructor {}\n", data);
-  }
-
-  ~A() { util::debug("destructor {}\n", data); }
-
-  void foo() const { util::debug("A: foo!\n"); }
+  void foo() const { util::debug("[  A  ]:...foo!\n"); };
 };
 
 struct B {
-  void bar() const { util::debug("B: bar!\n"); }
+  void bar() const { util::debug("[  B  ]:...bar!\n"); }
 };
 
 /// <summary>
@@ -96,7 +80,7 @@ void variantSample() {
 
   different_objects.push_back(A{});
   different_objects.push_back(B{});
-  
+
   for (const auto obj : different_objects) std::visit(Visiter{}, obj);
 }
 

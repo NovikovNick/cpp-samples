@@ -33,13 +33,18 @@ include_directories(${Boost_INCLUDE_DIRS})
 file(GLOB CPP_SAMPLES_UTIL "src/util/*.h" "src/util/*.cc")
 file(GLOB SOCKET "src/socket/**/*.h" "src/socket/**/*.cc")
 file(GLOB CONCURRENCY "src/concurrency/**/*.h" "src/concurrency/**/*.cc")
-file(GLOB FEATURES "scr/cpp_features/*.h" "scr/cpp_features/*.cc")
+file(GLOB FEATURES "src/cpp_features/*.h" "src/cpp_features/*.cc")
+
+set(FEATURES_COMMON_SRC
+	"src/cpp_features/common.h"
+	"src/cpp_features/common.cc")
+
 set(STUN_SRC 
 	"src/stun/packet.h"
 	"src/stun/stun_client.h"
 	"src/stun/stun_client.cc")
 
-add_executable(main src/main.cpp ${SOCKET} ${CONCURRENCY}  ${FEATURES})
+add_executable(main src/main.cpp ${SOCKET} ${CONCURRENCY}  ${FEATURES_COMMON_SRC})
 target_compile_features(main PUBLIC cxx_std_20)
 target_include_directories(main INTERFACE external/boost)
 target_link_libraries(main 
