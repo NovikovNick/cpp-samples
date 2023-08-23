@@ -1,5 +1,6 @@
 #include "common.h"
 
+static void bar() { util::debug("bar func from common.cc!\n"); }
 
 namespace common {
 
@@ -65,7 +66,10 @@ int getCountOneBit(int num) {
   return count;
 }
 
-void A::foo() const { util::debug("[  A  ]:...foo!\n"); }
+void A::foo() const {
+  util::debug("[  A  ]:...foo!\n");
+  bar();
+}
 
 void B::bar() const { util::debug("[  B  ]:...bar!\n"); }
 
