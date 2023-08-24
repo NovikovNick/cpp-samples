@@ -160,6 +160,7 @@ set(leetcodeProblems
     sliding_window_maximum.cc
     sort_items_by_groups_respecting_dependencies.cc
     repeated_substring_pattern.cc
+    text_justification.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
