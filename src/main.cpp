@@ -1,7 +1,7 @@
 ﻿#include <cassert>
 
 #include "cpp_features/common.h"
-#include "cpp_features/overloading.h"
+#include "cpp_features/explicit_conversion.h"
 #include "util/log.h"
 
 class Base {
@@ -19,7 +19,8 @@ class Derived : Base {
 };
 
 
+
 int main([[maybe_unused]] int argc, [[maybe_unused]] char argv[]) {
-  overloading::sample();
+  explicit_conversion::sample();
   return 0;
 }
