@@ -161,6 +161,7 @@ set(leetcodeProblems
     sort_items_by_groups_respecting_dependencies.cc
     repeated_substring_pattern.cc
     text_justification.cc
+    interleaving_string.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
