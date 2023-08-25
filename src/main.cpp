@@ -1,10 +1,25 @@
-﻿#include "cpp_features/common.h"
+﻿#include <cassert>
+
+#include "cpp_features/common.h"
+#include "cpp_features/overloading.h"
 #include "util/log.h"
 
-int main([[maybe_unused]] int argc, [[maybe_unused]] char argv[]) {
-  const int& const a = 1;
+class Base {
+ public:
+  virtual void foo() = 0;
+  virtual ~Base() = default;
+};
 
-  
-  util::debug("{}", argc);
+class Derived : Base {
+  mutable int x;
+
+ public:
+  void changeX() const { x = 42; }
+  virtual void foo() override { util::debug("[Derived]:... foo\n"); }
+};
+
+
+int main([[maybe_unused]] int argc, [[maybe_unused]] char argv[]) {
+  overloading::sample();
   return 0;
 }

@@ -38,13 +38,18 @@ file(GLOB FEATURES "src/cpp_features/*.h" "src/cpp_features/*.cc")
 set(FEATURES_COMMON_SRC
 	"src/cpp_features/common.h"
 	"src/cpp_features/common.cc")
+    
+set(FEATURES_OVERLOADING
+	"src/cpp_features/overloading.h")
 
 set(STUN_SRC 
 	"src/stun/packet.h"
 	"src/stun/stun_client.h"
 	"src/stun/stun_client.cc")
 
-add_executable(main src/main.cpp ${SOCKET} ${CONCURRENCY} ${FEATURES_COMMON_SRC})
+add_executable(main src/main.cpp 
+    ${FEATURES_COMMON_SRC} 
+    ${FEATURES_OVERLOADING})
 target_compile_features(main PUBLIC cxx_std_20)
 target_link_libraries(main 
     PRIVATE 

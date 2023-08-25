@@ -1,5 +1,7 @@
 #include "common.h"
 
+extern int i;
+
 static void bar() { util::debug("bar func from common.cc!\n"); }
 
 namespace common {
