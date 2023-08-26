@@ -165,6 +165,7 @@ set(leetcodeProblems
     repeated_substring_pattern.cc
     text_justification.cc
     interleaving_string.cc
+    maximum_length_of_pair_chain.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
