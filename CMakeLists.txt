@@ -166,6 +166,7 @@ set(leetcodeProblems
     text_justification.cc
     interleaving_string.cc
     maximum_length_of_pair_chain.cc
+    frog_jump.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
