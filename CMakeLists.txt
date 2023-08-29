@@ -37,6 +37,7 @@ file(GLOB CONCURRENCY "src/concurrency/**/*.h" "src/concurrency/**/*.cc")
 set(FEATURES_COMMON_SRC "src/cpp_features/common.h" "src/cpp_features/common.cc")
 set(FEATURES_OVERLOADING "src/cpp_features/overloading.h")
 set(FEATURES_EXPLICIT_CONVERSION "src/cpp_features/explicit_conversion.h")
+set(FEATURES_OOP "src/cpp_features/oop.h")
 
 
 set(STUN_SRC 
@@ -47,7 +48,8 @@ set(STUN_SRC
 add_executable(main src/main.cpp 
     ${FEATURES_COMMON_SRC} 
     ${FEATURES_OVERLOADING}
-    ${FEATURES_EXPLICIT_CONVERSION})
+    ${FEATURES_EXPLICIT_CONVERSION}
+    ${FEATURES_OOP})
 target_compile_features(main PUBLIC cxx_std_20)
 target_link_libraries(main 
     PRIVATE 
