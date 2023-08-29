@@ -1,12 +1,27 @@
 #include "common.h"
 
-extern int i;
+extern int i;// external linkage
 
-static void bar() { util::debug("bar func from common.cc!\n"); }
+const int kMyConstant = 1; // const is an internal linkage
+
+namespace {  // all objects in anonim namespace have an internal linkage
+void foo() { util::debug("[common.cc]:... call foo function\n"); }
+
+class Base {
+ public:
+  virtual void foo() = 0;
+  virtual ~Base() = default;
+};
+
+}  // namespace
+
+static void bar() {  // static has internal linkage
+  util::debug("bar func from common.cc!\n");
+}
 
 namespace common {
 
-//void A::foo() const { util::debug("[  A  ]:...bar!\n"); };
+// void A::foo() const { util::debug("[  A  ]:...bar!\n"); };
 
 std::optional<int> toInt(std::string_view str) {
   int num;
@@ -71,6 +86,7 @@ int getCountOneBit(int num) {
 void A::foo() const {
   util::debug("[  A  ]:...foo!\n");
   bar();
+  ::foo();
 }
 
 void B::bar() const { util::debug("[  B  ]:...bar!\n"); }
