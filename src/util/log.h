@@ -6,7 +6,7 @@
 namespace util {
 
 template <typename... Args>
-void debug(const std::string_view& str, Args&&... args) {
+void debug(const std::string_view& str, Args&&... args) noexcept {
 #if defined(DEBUG)
   std::cout << std::vformat(str, std::make_format_args(args...));
 #endif

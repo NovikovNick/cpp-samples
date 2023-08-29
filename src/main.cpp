@@ -1,12 +1,14 @@
-﻿#include <cassert>
+﻿#define BOOST_TEST_MODULE MainSampleCppTest
+
+#include <boost/test/included/unit_test.hpp>
+#include <cassert>
 
 #include "cpp_features/common.h"
-#include "cpp_features/oop.h"
+#include "cpp_features/string.h"
 #include "util/log.h"
 
-int main([[maybe_unused]] int argc, [[maybe_unused]] char argv[]) {
+BOOST_AUTO_TEST_CASE(main_case) {
   util::debug("[main]:... start\n");
-  oop::sample();
+  str::sample();
   util::debug("[main]:... end\n");
-  return 0;
 }

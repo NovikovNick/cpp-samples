@@ -38,6 +38,7 @@ set(FEATURES_COMMON_SRC "src/cpp_features/common.h" "src/cpp_features/common.cc"
 set(FEATURES_OVERLOADING "src/cpp_features/overloading.h")
 set(FEATURES_EXPLICIT_CONVERSION "src/cpp_features/explicit_conversion.h")
 set(FEATURES_OOP "src/cpp_features/oop.h")
+set(FEATURES_STRING "src/cpp_features/string.h")
 
 
 set(STUN_SRC 
@@ -49,13 +50,14 @@ add_executable(main src/main.cpp
     ${FEATURES_COMMON_SRC} 
     ${FEATURES_OVERLOADING}
     ${FEATURES_EXPLICIT_CONVERSION}
-    ${FEATURES_OOP})
+    ${FEATURES_OOP}
+    ${FEATURES_STRING})
 target_compile_features(main PUBLIC cxx_std_20)
 target_link_libraries(main 
     PRIVATE 
         template::lib
+        Boost::unit_test_framework
 )
-
 
 add_executable(stun src/stun.cpp ${STUN_SRC} ${CPP_SAMPLES_UTIL})
 target_compile_features(stun PUBLIC cxx_std_20)
