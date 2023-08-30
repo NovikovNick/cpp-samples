@@ -171,6 +171,7 @@ set(leetcodeProblems
     interleaving_string.cc
     maximum_length_of_pair_chain.cc
     frog_jump.cc
+    minimum_replacements_to_sort_the_array.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
