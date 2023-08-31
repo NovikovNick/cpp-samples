@@ -172,6 +172,7 @@ set(leetcodeProblems
     maximum_length_of_pair_chain.cc
     frog_jump.cc
     minimum_replacements_to_sort_the_array.cc
+    minimum_number_of_taps_to_open_to_water_a_garden.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
