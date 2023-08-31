@@ -83,6 +83,14 @@ void printBits(const T& obj) {
               sizeof(T),
               std::bit_cast<std::bitset<sizeof(T) * 8>, T>(obj).to_string());
 }
+
+inline void reverseString(std::string& str) {
+  int n = str.size();
+  for (int i = 0; i < n / 2; ++i) {
+    std::swap(str[i], str[n - 1 - i]);
+  }
+}
+
 }  // namespace common
 
 #endif  // CPP_FEATURES_COMMON_H

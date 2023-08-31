@@ -34,6 +34,14 @@ void bubbleSort(auto begin, auto end) {
     end = std::prev(end);
   }
 }
+void bubbleSort(std::vector<int>& nums) {
+  int n = nums.size();
+  for (int i = 0; i < n; ++i) {
+    for (int j = 1; j < n - i; ++j) {
+      if (nums[j - 1] > nums[j]) std::swap(nums[j - 1], nums[j]);
+    }
+  }
+}
 
 /// <summary>
 /// O(n^2), stable.
@@ -105,6 +113,19 @@ void countingSort(auto begin, auto end) {
 
   std::copy(res.begin(), res.end(), begin);
 }
+void countingSort(std::vector<int>& nums) {
+  std::vector<int> counts(10, 0);
+  for (const auto num : nums) ++counts[num];
+
+  for (int num = 0, num_index = 0; num < counts.size(); ++num) {
+    while (counts[num] != 0) {
+      nums[num_index] = num;
+      --counts[num];
+      ++num_index;
+    }
+  }
+}
+
 
 void bucketSort(auto begin, auto end, const int bucket_count) {
   auto [min, max] = std::minmax_element(begin, end);
