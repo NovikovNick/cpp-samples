@@ -4,15 +4,22 @@
 #include <cassert>
 
 #include "cpp_features/common.h"
-#include "cpp_features/string.h"
+#include "cpp_features/operators.h"
 #include "util/log.h"
+
 
 BOOST_AUTO_TEST_CASE(main_case) {
   util::debug("[main]:... start\n");
+  auto x = std::make_unique<oper::A>(1);
+  oper::A a{1};
+  oper::A b{2};
 
-  std::string str = "12345";
-  util::debug("[main]:... str = {}\n", str);
-  common::reverseString(str);
-  util::debug("[main]:... str = {}\n", str);
+  oper::A res = a + b + a;
+
+
+  std::cout << res << std::endl;
+
+
+
   util::debug("[main]:... end\n");
 }
