@@ -42,6 +42,7 @@ set(FEATURES_STRING "src/cpp_features/string.h")
 set(FEATURES_OPERATORS "src/cpp_features/operators.h")
 set(FEATURES_VIRTUAL "src/cpp_features/virtual.h")
 set(FEATURES_SEPARATE_DUPLICATE_METHODS "src/cpp_features/separate_duplicate_methods.h")
+set(FEATURES_CONTROL_POLYMORPHISM "src/cpp_features/control_polymorphism.h")
 
 
 set(STUN_SRC 
@@ -57,7 +58,8 @@ add_executable(main src/main.cpp
     ${FEATURES_STRING}
     ${FEATURES_OPERATORS}
     ${FEATURES_VIRTUAL}
-    ${FEATURES_SEPARATE_DUPLICATE_METHODS})
+    ${FEATURES_SEPARATE_DUPLICATE_METHODS}
+    ${FEATURES_CONTROL_POLYMORPHISM})
 target_compile_features(main PUBLIC cxx_std_20)
 target_link_libraries(main 
     PRIVATE 

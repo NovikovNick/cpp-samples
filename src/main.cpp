@@ -10,7 +10,5 @@
 BOOST_AUTO_TEST_CASE(main_case) {
   util::debug("[main]:... start\n");
 
-  separate_duplicate_methods::sample();
-
   util::debug("[main]:... end\n");
 }
