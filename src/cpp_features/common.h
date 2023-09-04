@@ -15,6 +15,17 @@
 
 namespace common {
 
+struct ForwardDeclaraged;// incomplete type
+
+struct ForwardDeclaragedConsumer {
+  // ForwardDeclaraged state; incomplete type is not allowed
+  ForwardDeclaraged* state_ref;
+  ForwardDeclaraged& state_ptr;
+
+  ForwardDeclaraged get(const ForwardDeclaraged& arg);
+};
+
+
 struct A {
   int data;
 

@@ -91,4 +91,12 @@ void A::foo() const {
 
 void B::bar() const { util::debug("[  B  ]:...bar!\n"); }
 
+struct ForwardDeclaraged {
+
+};
+
+ForwardDeclaraged ForwardDeclaragedConsumer::get(const ForwardDeclaraged& arg) {
+  return ForwardDeclaraged{};
+}
+
 }  // namespace common
