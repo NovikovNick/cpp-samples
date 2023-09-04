@@ -27,6 +27,7 @@ add_subdirectory("src")
 add_subdirectory("c_library")
 add_subdirectory("dll_sample")
 add_subdirectory("template_lib")
+add_subdirectory("pimpl")
 
 include_directories(${Boost_INCLUDE_DIRS})
 
@@ -63,6 +64,7 @@ add_executable(main src/main.cpp
 target_compile_features(main PUBLIC cxx_std_20)
 target_link_libraries(main 
     PRIVATE 
+        sample::pimpl
         template::lib
         Boost::unit_test_framework
 )

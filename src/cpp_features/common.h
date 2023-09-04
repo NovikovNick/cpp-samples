@@ -15,7 +15,9 @@
 
 namespace common {
 
-struct ForwardDeclaraged;// incomplete type
+/* START FORWARD DECLARATION */
+
+struct ForwardDeclaraged;  // incomplete type
 
 struct ForwardDeclaragedConsumer {
   // ForwardDeclaraged state; incomplete type is not allowed
@@ -25,6 +27,7 @@ struct ForwardDeclaragedConsumer {
   ForwardDeclaraged get(const ForwardDeclaraged& arg);
 };
 
+/* END FORWARD DECLARATION */
 
 struct A {
   int data;
@@ -96,8 +99,8 @@ void printBits(const T& obj) {
 }
 
 inline void reverseString(std::string& str) {
-  int n = str.size();
-  for (int i = 0; i < n / 2; ++i) {
+  auto n = str.size();
+  for (size_t i = 0; i < n / 2; ++i) {
     std::swap(str[i], str[n - 1 - i]);
   }
 }

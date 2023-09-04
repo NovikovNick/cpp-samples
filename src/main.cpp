@@ -1,5 +1,7 @@
 ﻿#define BOOST_TEST_MODULE MainSampleCppTest
 
+#include <facade.h>
+
 #include <boost/test/included/unit_test.hpp>
 #include <cassert>
 
@@ -7,9 +9,11 @@
 #include "util/log.h"
 
 
-
 BOOST_AUTO_TEST_CASE(main_case) {
   util::debug("[main]:... start\n");
+  
+  pimpl::Facade server;
+  server.processRequest("/test/app", 1);
 
   util::debug("[main]:... end\n");
 }

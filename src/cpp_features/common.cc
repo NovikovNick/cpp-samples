@@ -1,8 +1,8 @@
 #include "common.h"
 
-extern int i;// external linkage
+extern int i;  // external linkage
 
-const int kMyConstant = 1; // const is an internal linkage
+const int kMyConstant = 1;  // const is an internal linkage
 
 namespace {  // all objects in anonim namespace have an internal linkage
 void foo() { util::debug("[common.cc]:... call foo function\n"); }
@@ -91,11 +91,12 @@ void A::foo() const {
 
 void B::bar() const { util::debug("[  B  ]:...bar!\n"); }
 
-struct ForwardDeclaraged {
+/* FORWARD DECLARATION */
 
-};
+struct ForwardDeclaraged {};
 
-ForwardDeclaraged ForwardDeclaragedConsumer::get(const ForwardDeclaraged& arg) {
+ForwardDeclaraged ForwardDeclaragedConsumer::get(
+    [[maybe_unused]] const ForwardDeclaraged& arg) {
   return ForwardDeclaraged{};
 }
 
