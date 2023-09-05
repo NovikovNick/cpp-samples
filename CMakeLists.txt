@@ -78,6 +78,7 @@ set_target_properties(stun
 
 set(leetcodeProblems
     unique_paths.cc
+    copy_list_with_random_pointer.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
