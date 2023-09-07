@@ -82,6 +82,7 @@ set(leetcodeProblems
     unique_paths.cc
     copy_list_with_random_pointer.cc
     split_linked_list_in_parts.cc
+    reverse_linked_list_ii.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
