@@ -83,6 +83,7 @@ set(leetcodeProblems
     copy_list_with_random_pointer.cc
     split_linked_list_in_parts.cc
     reverse_linked_list_ii.cc
+    max_consecutive_ones_iii.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
