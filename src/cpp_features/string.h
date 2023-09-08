@@ -9,6 +9,7 @@
 
 namespace str {
 
+/* START SAMPLE 1 */
 class String final {
   char* data_;
   size_t size_;
@@ -80,19 +81,57 @@ class String final {
 
 void moveSemanthic(str::String str) { util::debug("received str: {}\n", str); }
 
-void sample() {
-  String str = "123456789";
-  moveSemanthic(std::move(str));
+/* END SAMPLE 1 */
+/* START CASE INSENSITIVE */
 
-  std::vector<str::String> vec;
-  int n = 10;
-  vec.reserve(n);
-  for (int i = 0; i < n; ++i) {
-    vec.push_back({std::format("{}", i).c_str()});
+struct CharTraits : public std::char_traits<char> {
+  static bool eq(const char& lhs, const char& rhs) noexcept {
+    return toupper(lhs) == toupper(rhs);
   }
 
-  for (const auto& it : vec) {
-    util::debug("[main]:... str = {}\n", it);
+  static bool lt(const char& lhs, const char& rhs) noexcept {
+    return toupper(lhs) < toupper(rhs);
+  }
+
+  static int compare(const char* s1, const char* s2, size_t n) {
+    return memicmp(s1, s2, n);
+  }
+
+  static const char* find(const char* s, int n, char a) {
+    while (n-- > 0 && toupper(*s) != toupper(a)) {
+      ++s;
+    }
+    return n >= 0 ? s : 0;
+  }
+};
+
+using CaseInsensitiveString =
+    std::basic_string<char, CharTraits, std::allocator<char>>;
+
+/* END CASE INSENSITIVE */
+
+void sample() {
+  /*{
+    String str = "123456789";
+    moveSemanthic(std::move(str));
+
+    std::vector<str::String> vec;
+    int n = 10;
+    vec.reserve(n);
+    for (int i = 0; i < n; ++i) {
+      vec.push_back({std::format("{}", i).c_str()});
+    }
+
+    for (const auto& it : vec) {
+      util::debug("[main]:... str = {}\n", it);
+    }
+  }*/
+
+  {  // CASE INSENSITIVE STRING
+    CaseInsensitiveString str1 = "Aaaa";
+    CaseInsensitiveString str2 = "AAAA";
+
+    util::debug("[main]:... ({} == {}) = {}\n", str1, str2, str1 == str2);
   }
 }
 }  // namespace str
