@@ -84,6 +84,7 @@ set(leetcodeProblems
     split_linked_list_in_parts.cc
     reverse_linked_list_ii.cc
     max_consecutive_ones_iii.cc
+    combination_sum_iv.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
