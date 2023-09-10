@@ -20,3 +20,41 @@ class MyService {
     return arg;
   }
 };
+
+template <typename T, size_t size>
+class fixed_vector {
+ public:
+  using iterator = T*;
+  using const_iterator = const T*;
+
+  fixed_vector(){};
+
+  /*template <typename U,
+            size_t osize,
+            std::enable_if_t<std::is_same<T, U>::value, bool> = true>*/
+  template <typename U, size_t osize>
+    requires std::same_as<T, U>
+  fixed_vector(const fixed_vector<U, osize>& other) {
+    *this = other;
+  }
+
+  /*template <typename U,
+            size_t osize,
+            std::enable_if_t<std::is_same<T, U>::value, bool> = true>*/
+  template <typename U, size_t osize>
+    requires std::same_as<T, U>
+  fixed_vector<T, size>& operator=(const fixed_vector<U, osize>& other) {
+    std::copy(other.begin(),                                  //
+              other.begin() + std::min<size_t>(osize, size),  //
+              begin());
+    return *this;
+  }
+
+  iterator begin() { return v_; }
+  iterator end() { return v_ + size; }
+  const_iterator begin() const { return v_; }
+  const_iterator end() const { return v_ + size; }
+
+ private:
+  T v_[size];
+};
