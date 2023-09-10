@@ -85,6 +85,7 @@ set(leetcodeProblems
     reverse_linked_list_ii.cc
     max_consecutive_ones_iii.cc
     combination_sum_iv.cc
+    count_all_valid_pickup_and_delivery_options.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
