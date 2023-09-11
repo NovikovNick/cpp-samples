@@ -105,6 +105,22 @@ inline void reverseString(std::string& str) {
   }
 }
 
+template <typename FwdIt, typename Val>
+  requires std::forward_iterator<FwdIt> &&
+           std::same_as<Val, typename FwdIt::value_type>
+auto remove_n_elements(FwdIt begin,
+                        FwdIt end,
+                        const Val remove_value,
+                        int remove_count) {
+  return std::remove_if(begin, end, [&remove_count, remove_value](auto& val) {
+    if (val == remove_value && remove_count > 0) {
+      --remove_count;
+      return true;
+    }
+    return false;
+  });
+}
+
 }  // namespace common
 
 #endif  // CPP_FEATURES_COMMON_H
