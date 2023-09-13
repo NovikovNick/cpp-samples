@@ -11,12 +11,12 @@
 BOOST_AUTO_TEST_CASE(case1) {
   // arrange
   leetcode::Solution solution;
-  std::vector<int> rating{1, 2, 5, 4, 3, 1, 2};
+  std::vector<int> rating{2,3,2};
 
   // act
   auto res = solution.candy(rating);
 
   // assert
-  BOOST_CHECK_EQUAL(15, res);
+  BOOST_CHECK_EQUAL(4, res);
 }
 #endif  // !CASE_1
