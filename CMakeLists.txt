@@ -88,7 +88,7 @@ set(leetcodeProblems
     count_all_valid_pickup_and_delivery_options.cc
     group_the_people_given_the_group_size_they_belong_to.cc
     minimum_deletions_to_make_character_frequencies_unique.cc
-
+    candy.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
