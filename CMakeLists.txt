@@ -89,6 +89,7 @@ set(leetcodeProblems
     group_the_people_given_the_group_size_they_belong_to.cc
     minimum_deletions_to_make_character_frequencies_unique.cc
     candy.cc
+    reconstruct_itinerary.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
