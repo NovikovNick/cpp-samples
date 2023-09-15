@@ -35,16 +35,8 @@ file(GLOB CPP_SAMPLES_UTIL "src/util/*.h" "src/util/*.cc")
 file(GLOB SOCKET "src/socket/**/*.h" "src/socket/**/*.cc")
 file(GLOB CONCURRENCY "src/concurrency/**/*.h" "src/concurrency/**/*.cc")
 
-set(FEATURES_COMMON_SRC "src/cpp_features/common.h" "src/cpp_features/common.cc")
-set(FEATURES_OVERLOADING "src/cpp_features/overloading.h")
-set(FEATURES_EXPLICIT_CONVERSION "src/cpp_features/explicit_conversion.h")
-set(FEATURES_OOP "src/cpp_features/oop.h")
-set(FEATURES_STRING "src/cpp_features/string.h")
-set(FEATURES_OPERATORS "src/cpp_features/operators.h")
-set(FEATURES_VIRTUAL "src/cpp_features/virtual.h")
-set(FEATURES_SEPARATE_DUPLICATE_METHODS "src/cpp_features/separate_duplicate_methods.h")
-set(FEATURES_CONTROL_POLYMORPHISM "src/cpp_features/control_polymorphism.h")
-set(FEATURES_CRTP "src/cpp_features/crtp.h")
+set(FEATURES_COMMON "src/cpp_features/common.h" "src/cpp_features/common.cc")
+set(FEATURES_EXCEPTION_SAFETY "src/cpp_features/exception_safety.h" "src/cpp_features/exception_safety.cc")
 
 
 set(STUN_SRC 
@@ -53,16 +45,8 @@ set(STUN_SRC
 	"src/stun/stun_client.cc")
 
 add_executable(main src/main.cpp 
-    ${FEATURES_COMMON_SRC} 
-    ${FEATURES_OVERLOADING}
-    ${FEATURES_EXPLICIT_CONVERSION}
-    ${FEATURES_OOP}
-    ${FEATURES_STRING}
-    ${FEATURES_OPERATORS}
-    ${FEATURES_VIRTUAL}
-    ${FEATURES_SEPARATE_DUPLICATE_METHODS}
-    ${FEATURES_CONTROL_POLYMORPHISM}
-    ${FEATURES_CRTP})
+    ${FEATURES_COMMON} 
+    ${FEATURES_EXCEPTION_SAFETY})
 target_compile_features(main PUBLIC cxx_std_20)
 target_link_libraries(main 
     PRIVATE 
@@ -90,6 +74,7 @@ set(leetcodeProblems
     minimum_deletions_to_make_character_frequencies_unique.cc
     candy.cc
     reconstruct_itinerary.cc
+    min_cost_to_connect_all_points.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
