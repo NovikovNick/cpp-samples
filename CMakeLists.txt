@@ -75,6 +75,7 @@ set(leetcodeProblems
     candy.cc
     reconstruct_itinerary.cc
     min_cost_to_connect_all_points.cc
+    path_with_minimum_effort.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
