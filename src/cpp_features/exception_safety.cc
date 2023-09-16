@@ -2,7 +2,10 @@
 
 #include <assert.h>
 
+#include <memory>
+
 #include "../util/log.h"
+#include <stack>
 
 namespace {
 
@@ -36,7 +39,7 @@ class A {
     return *this;
   }
 
-  ~A() { log("dtor"); }
+  ~A() noexcept { log("dtor"); }
 
   operator int() const { return data; }
 
@@ -49,6 +52,7 @@ class A {
   }
 };
 
+// unused in current implementation
 template <class T>
 T* newCopy(const T* src, size_t src_size, size_t dst_size) {
   assert(dst_size >= src_size);
@@ -68,74 +72,87 @@ T* newCopy(const T* src, size_t src_size, size_t dst_size) {
 
 namespace exception_safety {
 
+template <class T>
+inline StackImpl<T>::StackImpl(size_t size)                 //
+    : v_(static_cast<T*>(operator new(sizeof(T) * size))),  // can throw
+      vsize_(size),                                         //
+      vused_(0) {}
+
+template <class T>
+StackImpl<T>::~StackImpl() {
+  std::destroy(v_, v_ + vused_);  // call destuctors, couln'd throw
+  operator delete(v_);
+}
+
+template <class T>
+void StackImpl<T>::Swap(StackImpl& other) noexcept {
+  std::swap(v_, other.v_);
+  std::swap(vsize_, other.vsize_);
+  std::swap(vused_, other.vused_);
+}
+
 template <typename T>
-Stack<T>::Stack() : v_(new T[3]), vsize_(3), vused_(0) {
-  // new can throw bad_alloc
-  // T::constructor can throw some exception
+Stack<T>::Stack(size_t size) : StackImpl<T>(size) {
   log("ctor");
 }
 
 template <typename T>
 Stack<T>::~Stack() {
-  delete[] v_;
   log("dtor");
 }
 
 template <typename T>
-Stack<T>::Stack(const Stack& other)
-    : v_(newCopy(other.v_, other.vsize_, other.vsize_)),  //
-      vsize_(vsize_),                                     //
-      vused_(vused_) {
+Stack<T>::Stack(const Stack<T>& other) : StackImpl<T>(other.vsize_) {
+  while (this->vused_ < other.vused_) {
+    std::construct_at(            // if some of T::T() throw exception
+        this->v_ + this->vused_,  // then StackImpl correctly call destructors for
+        other.v_[this->vused_]);  // all objects created up to this point
+    this->vused_ += 1;
+  }
   log("copy ctor");
 }
 
 template <typename T>
 Stack<T>& Stack<T>::operator=(const Stack& other) {
-  if (this != &other) {
-    auto tmp = newCopy(other.v_, other.vsize_, other.vsize_);
-
-    log("copy assignment");
-
-    vsize_ = other.vsize_;
-    vused_ = other.vused_;
-    delete[] v_;  // delete couln'd throw
-    v_ = tmp;
-  }
-
+  Stack copy(other);                            // can throw
+  log("copy assignment: copy-and-swap idiom");  //
+  Swap(copy);                                   // noexcept
   return *this;
 }
 
 template <typename T>
-size_t Stack<T>::count() const {
-  return vused_;
+size_t Stack<T>::size() const {
+  return this->vused_;
 }
 
 template <typename T>
 void Stack<T>::push(const T& val) {
-  if (vused_ == vsize_) {  // increase capacity of stack if needed
-    auto new_size = vsize_ * 2 + 1;
-    auto tmp_ptr = newCopy(v_, vsize_, new_size);  // can throw
-    tmp_ptr[vused_] = val;                         // can throw
-    delete[] v_;
-
-    vsize_ = new_size;
-    v_ = tmp_ptr;
+  if (this->vused_ == this->vsize_) {     // increase capacity of stack if needed
+    Stack<T> tmp(this->vsize_ * 2 + 1);   // can throw
+    while (tmp.size() < this->vused_) {   //
+      tmp.push(this->v_[tmp.size()]);     // can throw
+    }                                     //
+    tmp.push(val);                        // can throw
+    this->Swap(tmp);                      // noexcept
+  } else {                                //
+    T* ptr = this->v_ + this->vused_;     //
+    std::construct_at(ptr, val);          // can throw
+    this->vused_ += 1;
   }
-
-  v_[vused_] = val;  // can throw
-  ++vused_;
 }
 
 template <typename T>
 T& Stack<T>::top() {
-  if (count() == 0) throw std::runtime_error("empty stack");
-  return v_[vused_ - 1];
+  if (size() == 0) throw std::runtime_error("empty stack");
+  return this->v_[this->vused_ - 1];
 }
 
 template <typename T>
 void Stack<T>::pop() {
-  if (count() == 0) throw std::runtime_error("empty stack");
-  --vused_;
+  if (size() == 0) throw std::runtime_error("empty stack");
+  this->vused_ -= 1;
+  T* ptr = this->v_ + this->vused_;
+  std::destroy(ptr, ptr + 1);
 }
 
 template <typename T>
@@ -146,13 +163,15 @@ void Stack<T>::log(std::string_view arg) {
 }
 
 void sample() {
-  Stack<A> stack;
+  Stack<A> origin(10);
+  // std::stack<A> origin;
+  auto stack = origin;
 
   int n = 10;
   for (int i = 1; i <= n; ++i) {
     stack.push(i);
   }
-  while (stack.count() > 0) {
+  while (stack.size() > 0) {
     int value = stack.top();
     stack.pop();
     util::debug("[exception_safety]:... {}\n", value);

@@ -46,7 +46,8 @@ set(STUN_SRC
 
 add_executable(main src/main.cpp 
     ${FEATURES_COMMON} 
-    ${FEATURES_EXCEPTION_SAFETY})
+    ${FEATURES_EXCEPTION_SAFETY}
+)
 target_compile_features(main PUBLIC cxx_std_20)
 target_link_libraries(main 
     PRIVATE 
