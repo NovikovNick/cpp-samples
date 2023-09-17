@@ -77,6 +77,7 @@ set(leetcodeProblems
     reconstruct_itinerary.cc
     min_cost_to_connect_all_points.cc
     path_with_minimum_effort.cc
+    shortest_path_visiting_all_nodes.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
