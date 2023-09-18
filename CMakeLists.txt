@@ -78,6 +78,7 @@ set(leetcodeProblems
     min_cost_to_connect_all_points.cc
     path_with_minimum_effort.cc
     shortest_path_visiting_all_nodes.cc
+    the_k_weakest_rows_in_a_matrix.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
