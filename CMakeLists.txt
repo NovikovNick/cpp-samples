@@ -79,6 +79,7 @@ set(leetcodeProblems
     path_with_minimum_effort.cc
     shortest_path_visiting_all_nodes.cc
     the_k_weakest_rows_in_a_matrix.cc
+    find_the_duplicate_number.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
