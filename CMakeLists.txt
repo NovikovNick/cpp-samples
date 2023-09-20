@@ -80,6 +80,7 @@ set(leetcodeProblems
     shortest_path_visiting_all_nodes.cc
     the_k_weakest_rows_in_a_matrix.cc
     find_the_duplicate_number.cc
+    minimum_operations_to_reduce_x_to_zero.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
