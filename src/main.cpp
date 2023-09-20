@@ -4,25 +4,18 @@
 #include <cassert>
 #include <memory>
 
-#include "cpp_features/exception_safety.h"
+#include "cpp_features/lock_free.h"
 #include "util/log.h"
+#include <queue>
 
-template <class T>
-class A {
- protected:
-  T data;
-};
-
-template <class T>
-class B : private A<T> {
- public:
-  void foo() { std::cout << this->data << std::endl; }
-};
 
 BOOST_AUTO_TEST_CASE(main_case) {
   util::debug("[main]:... start\n");
 
-  exception_safety::sample();
-
+  lock_free::sample();
+  /*
+  std::queue<int> queue;
+  auto t = queue.front();
+  */
   util::debug("[main]:... end\n");
 }
