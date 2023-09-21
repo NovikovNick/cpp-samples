@@ -81,6 +81,7 @@ set(leetcodeProblems
     the_k_weakest_rows_in_a_matrix.cc
     find_the_duplicate_number.cc
     minimum_operations_to_reduce_x_to_zero.cc
+    median_of_two_sorted_arrays.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
