@@ -82,6 +82,7 @@ set(leetcodeProblems
     find_the_duplicate_number.cc
     minimum_operations_to_reduce_x_to_zero.cc
     median_of_two_sorted_arrays.cc
+    is_subsequence.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
