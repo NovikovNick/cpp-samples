@@ -83,7 +83,8 @@ set(leetcodeProblems
     minimum_operations_to_reduce_x_to_zero.cc
     median_of_two_sorted_arrays.cc
     is_subsequence.cc
-    design_hashmap.cc
+    design_hashmap.cc #!
+    longest_string_chain.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
