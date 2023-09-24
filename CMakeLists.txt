@@ -85,6 +85,7 @@ set(leetcodeProblems
     is_subsequence.cc
     design_hashmap.cc #!
     longest_string_chain.cc
+    champagne_tower.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
