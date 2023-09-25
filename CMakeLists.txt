@@ -86,6 +86,7 @@ set(leetcodeProblems
     design_hashmap.cc #!
     longest_string_chain.cc
     champagne_tower.cc
+    find_the_difference.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
