@@ -87,6 +87,7 @@ set(leetcodeProblems
     longest_string_chain.cc
     champagne_tower.cc
     find_the_difference.cc
+    remove_duplicate_letters.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
