@@ -88,6 +88,7 @@ set(leetcodeProblems
     champagne_tower.cc
     find_the_difference.cc
     remove_duplicate_letters.cc
+    decoded_string_at_index.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
