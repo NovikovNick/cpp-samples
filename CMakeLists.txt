@@ -89,6 +89,7 @@ set(leetcodeProblems
     find_the_difference.cc
     remove_duplicate_letters.cc
     decoded_string_at_index.cc
+    sort_array_by_parity.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
