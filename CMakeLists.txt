@@ -90,6 +90,7 @@ set(leetcodeProblems
     remove_duplicate_letters.cc
     decoded_string_at_index.cc
     sort_array_by_parity.cc
+    monotonic_array.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
