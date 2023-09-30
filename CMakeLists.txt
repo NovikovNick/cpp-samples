@@ -91,6 +91,7 @@ set(leetcodeProblems
     decoded_string_at_index.cc
     sort_array_by_parity.cc
     monotonic_array.cc
+    132_pattern.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
