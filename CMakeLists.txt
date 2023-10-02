@@ -92,6 +92,7 @@ set(leetcodeProblems
     sort_array_by_parity.cc
     monotonic_array.cc
     132_pattern.cc
+    remove_colored_pieces_if_both_neighbors_are_the_same_color.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
