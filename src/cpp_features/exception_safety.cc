@@ -3,9 +3,9 @@
 #include <assert.h>
 
 #include <memory>
+#include <stack>
 
 #include "../util/log.h"
-#include <stack>
 
 namespace {
 
@@ -116,7 +116,7 @@ template <typename T>
 Stack<T>& Stack<T>::operator=(const Stack& other) {
   Stack copy(other);                            // can throw
   log("copy assignment: copy-and-swap idiom");  //
-  Swap(copy);                                   // noexcept
+  this->Swap(copy);                             // noexcept
   return *this;
 }
 
@@ -127,16 +127,16 @@ size_t Stack<T>::size() const {
 
 template <typename T>
 void Stack<T>::push(const T& val) {
-  if (this->vused_ == this->vsize_) {     // increase capacity of stack if needed
-    Stack<T> tmp(this->vsize_ * 2 + 1);   // can throw
-    while (tmp.size() < this->vused_) {   //
-      tmp.push(this->v_[tmp.size()]);     // can throw
-    }                                     //
-    tmp.push(val);                        // can throw
-    this->Swap(tmp);                      // noexcept
-  } else {                                //
-    T* ptr = this->v_ + this->vused_;     //
-    std::construct_at(ptr, val);          // can throw
+  if (this->vused_ == this->vsize_) {    // increase capacity of stack if needed
+    Stack<T> tmp(this->vsize_ * 2 + 1);  // can throw
+    while (tmp.size() < this->vused_) {  //
+      tmp.push(this->v_[tmp.size()]);    // can throw
+    }                                    //
+    tmp.push(val);                       // can throw
+    this->Swap(tmp);                     // noexcept
+  } else {                               //
+    T* ptr = this->v_ + this->vused_;    //
+    std::construct_at(ptr, val);         // can throw
     this->vused_ += 1;
   }
 }
@@ -166,6 +166,7 @@ void sample() {
   Stack<A> origin(10);
   // std::stack<A> origin;
   auto stack = origin;
+  stack = origin;
 
   int n = 10;
   for (int i = 1; i <= n; ++i) {

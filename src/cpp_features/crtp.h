@@ -56,12 +56,46 @@ struct MyCounter {
 
 struct A : MyCounter<A> {};
 
+/* SAMPLE #1 */
+
+template <class ValueT>
+struct Filter {
+  virtual bool check(const ValueT& value) const = 0;
+};
+
+template <class ValueT, class CandidateT, class DerivedT>
+struct Functional : public Filter<ValueT> {
+  typedef std::function<bool(const CandidateT&)> Check;
+
+  Functional(Check check) : m_check(check){};
+
+  bool check(const ValueT& value) const override {
+    const auto& candidate = DerivedT::_extract(value);
+    return bool(candidate) && m_check(*candidate);
+  }
+
+ private:
+  Check m_check;
+};
+
+struct Test {
+  int value;
+};
+
+struct Equal : Functional<Test, int, Equal> {
+  Equal(const int value)
+      : Functional([target = value](const int value) { return target == value; }){};
+
+  static const int* _extract(const Test& value) { return &value.value; }
+};
+
 void sample() {
   /*simple crtp */
   // staticPolymorphicHandler(Derived1{1}, 2);
   // staticPolymorphicHandler(Derived2{1}, 2);
 
-  A a1;
+  /* mixin sample */
+  /*A a1;
   util::debug("count: {}\n", a1.count());
   A a2, a3, a4;
   util::debug("count: {}\n", a1.count());
@@ -69,7 +103,10 @@ void sample() {
     A a5, a6, a7;
     util::debug("count: {}\n", a1.count());
   }
-  util::debug("count: {}\n", a1.count());
+  util::debug("count: {}\n", a1.count());*/
+
+  Filter<Test>* filter = new Equal(5);
+  filter->check(Test{4});
 }
 }  // namespace crtp
 

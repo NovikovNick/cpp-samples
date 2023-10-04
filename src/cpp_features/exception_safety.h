@@ -5,6 +5,7 @@
 
 namespace exception_safety {
 
+// It is an allocator
 template <class T>
 class StackImpl {
  protected:
@@ -22,13 +23,17 @@ class StackImpl {
 };
 
 template <typename T>
-class Stack : private StackImpl<T> {
+class Stack : private StackImpl<T> { // TODO use composition over inheritance
  public:
   explicit Stack(size_t size = 0);
   ~Stack();
 
   Stack(const Stack<T>&);
   Stack<T>& operator=(const Stack<T>&);
+
+  // TODO
+  // Stack(Stack<T>&&) noexcept;
+  // Stack<T>& operator=(Stack<T>&&) noexcept;
 
   size_t size() const;
   void push(const T&);
