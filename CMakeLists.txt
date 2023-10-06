@@ -95,6 +95,7 @@ set(leetcodeProblems
     remove_colored_pieces_if_both_neighbors_are_the_same_color.cc
     number_of_good_pairs.cc
     majority_element_ii.cc
+    integer_break.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
