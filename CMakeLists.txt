@@ -96,6 +96,7 @@ set(leetcodeProblems
     number_of_good_pairs.cc
     majority_element_ii.cc
     integer_break.cc
+    build_array_where_you_can_find_the_maximum_exactly_k_comparisons.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
