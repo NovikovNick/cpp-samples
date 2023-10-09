@@ -98,6 +98,7 @@ set(leetcodeProblems
     integer_break.cc
     build_array_where_you_can_find_the_maximum_exactly_k_comparisons.cc
     max_dot_product_of_two_subsequences.cc
+    find_first_and_last_position_of_element_in_sorted_array.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
