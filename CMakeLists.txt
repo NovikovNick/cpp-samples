@@ -99,6 +99,7 @@ set(leetcodeProblems
     build_array_where_you_can_find_the_maximum_exactly_k_comparisons.cc
     max_dot_product_of_two_subsequences.cc
     find_first_and_last_position_of_element_in_sorted_array.cc
+    minimum_number_of_operations_to_make_array_continuous.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
