@@ -101,6 +101,7 @@ set(leetcodeProblems
     find_first_and_last_position_of_element_in_sorted_array.cc
     minimum_number_of_operations_to_make_array_continuous.cc
     number_of_flowers_in_full_bloom.cc
+    find_in_mountain_array.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
