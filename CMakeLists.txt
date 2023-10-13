@@ -102,6 +102,7 @@ set(leetcodeProblems
     minimum_number_of_operations_to_make_array_continuous.cc
     number_of_flowers_in_full_bloom.cc
     find_in_mountain_array.cc
+    min_cost_climbing_stairs.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
