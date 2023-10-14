@@ -103,6 +103,7 @@ set(leetcodeProblems
     number_of_flowers_in_full_bloom.cc
     find_in_mountain_array.cc
     min_cost_climbing_stairs.cc
+    painting_the_walls.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
