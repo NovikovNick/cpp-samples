@@ -1,19 +1,50 @@
 ﻿#define BOOST_TEST_MODULE MainSampleCppTest
 
-#include <array>
 #include <boost/test/included/unit_test.hpp>
-#include <cassert>
-#include <memory>
-#include <queue>
-#include <unordered_set>
 
-#include "cpp_features/raii.h"
+// #include "cpp_features/common.h"
+#include <chrono>
+#include <deque>
+
 #include "util/log.h"
 
+struct Bot {
+  std::deque<int> input;
+  std::condition_variable cond;
+  std::mutex mtx;
+  std::jthread t;
+  std::atomic_bool running;
+
+  Bot()
+      : running(true),
+        t([&cond = this->cond,
+           &mtx = this->mtx,
+           &input = this->input,
+           &running = this->running]() {
+          using namespace std::chrono_literals;
+          while (running) {
+            std::unique_lock lock(mtx);                                      // 1
+            cond.wait_for(lock, 1s, [&input]() { return !input.empty(); });  // 2
+            int counter = 0;                                                 //
+            while (!input.empty()) {                                         // 3
+              ++counter;
+              input.pop_front();
+            }
+            util::debug("[q]:...{}\n", counter);
+          }
+        }) {}
+
+  void add(const int val) {
+    std::scoped_lock lock(mtx);  // 1
+    input.push_back(val);        // 2
+    cond.notify_one();           // 3
+  }
+
+  void stop() { running.store(false); }
+};
 
 BOOST_AUTO_TEST_CASE(main_case) {
   util::debug("[main]:... start\n");
-
   /*int x = 27;
 
   auto a1 = x;
@@ -33,6 +64,7 @@ BOOST_AUTO_TEST_CASE(main_case) {
 
   decltype(auto) d4 = a2;
   auto f = f1();*/
+
 
   util::debug("[main]:... end\n");
 }

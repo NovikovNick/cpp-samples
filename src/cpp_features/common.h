@@ -12,6 +12,7 @@
 #include <vector>
 
 #include "../util/log.h"
+#include <functional>
 
 namespace common {
 
@@ -119,6 +120,24 @@ auto remove_n_elements(FwdIt begin,
     }
     return false;
   });
+}
+
+template <typename T>
+void moveToEnd(std::vector<T>& vec, std::function<bool(const T&)> predicate) {
+  int end = vec.size();
+  bool satisfied = false;
+  for (int i = 0; i < end; ++i) {
+    for (int j = 1; j < end; ++j) {
+      if (predicate(vec[j - 1])) {
+        std::swap(vec[j - 1], vec[j]);
+        satisfied = true;
+      }
+    }
+    if (satisfied) {
+      --end;
+      satisfied = false;
+    }
+  }
 }
 
 }  // namespace common
