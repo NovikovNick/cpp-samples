@@ -106,6 +106,7 @@ set(leetcodeProblems
     painting_the_walls.cc
     number_of_ways_to_stay_in_the_same_place_after_some_steps.cc
     validate_binary_tree_nodes.cc
+    parallel_courses_iii.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
