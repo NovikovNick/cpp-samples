@@ -64,49 +64,8 @@ set_target_properties(stun
         OUTPUT_NAME "stun-client-0.0.1")
 
 set(leetcodeProblems
-    unique_paths.cc
-    copy_list_with_random_pointer.cc
-    split_linked_list_in_parts.cc
-    reverse_linked_list_ii.cc
-    max_consecutive_ones_iii.cc
-    combination_sum_iv.cc
-    count_all_valid_pickup_and_delivery_options.cc
-    group_the_people_given_the_group_size_they_belong_to.cc
-    minimum_deletions_to_make_character_frequencies_unique.cc
-    candy.cc
-    reconstruct_itinerary.cc
-    min_cost_to_connect_all_points.cc
-    path_with_minimum_effort.cc
-    shortest_path_visiting_all_nodes.cc
-    the_k_weakest_rows_in_a_matrix.cc
-    find_the_duplicate_number.cc
-    minimum_operations_to_reduce_x_to_zero.cc
-    median_of_two_sorted_arrays.cc
-    is_subsequence.cc
     design_hashmap.cc #!
-    longest_string_chain.cc
-    champagne_tower.cc
-    find_the_difference.cc
-    remove_duplicate_letters.cc
-    decoded_string_at_index.cc
-    sort_array_by_parity.cc
-    monotonic_array.cc
-    132_pattern.cc
-    remove_colored_pieces_if_both_neighbors_are_the_same_color.cc
-    number_of_good_pairs.cc
-    majority_element_ii.cc
-    integer_break.cc
-    build_array_where_you_can_find_the_maximum_exactly_k_comparisons.cc
-    max_dot_product_of_two_subsequences.cc
-    find_first_and_last_position_of_element_in_sorted_array.cc
-    minimum_number_of_operations_to_make_array_continuous.cc
-    number_of_flowers_in_full_bloom.cc
-    find_in_mountain_array.cc
-    min_cost_climbing_stairs.cc
-    painting_the_walls.cc
-    number_of_ways_to_stay_in_the_same_place_after_some_steps.cc
-    validate_binary_tree_nodes.cc
-    parallel_courses_iii.cc
+    backspace_string_compare.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
