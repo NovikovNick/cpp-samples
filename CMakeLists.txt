@@ -66,6 +66,7 @@ set_target_properties(stun
 set(leetcodeProblems
     design_hashmap.cc #!
     backspace_string_compare.cc
+    constrained_subsequence_sum.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
