@@ -67,6 +67,7 @@ set(leetcodeProblems
     design_hashmap.cc #!
     backspace_string_compare.cc
     constrained_subsequence_sum.cc
+    maximum_score_of_a_good_subarray.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
