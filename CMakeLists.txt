@@ -68,6 +68,7 @@ set(leetcodeProblems
     backspace_string_compare.cc
     constrained_subsequence_sum.cc
     maximum_score_of_a_good_subarray.cc
+    power_of_four.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
