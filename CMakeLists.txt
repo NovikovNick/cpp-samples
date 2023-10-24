@@ -69,6 +69,7 @@ set(leetcodeProblems
     constrained_subsequence_sum.cc
     maximum_score_of_a_good_subarray.cc
     power_of_four.cc
+    find_largest_value_in_each_tree_row.cc
 )
 
 foreach(leetcodeProblem ${leetcodeProblems})
